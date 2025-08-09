@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apps", "apps", "{1787FE1D-0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld", "apps\HelloWorld\HelloWorld.csproj", "{57755CDB-FDFD-4712-A3D9-464CAAA3F73B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myStatisticCalc", "apps\myStatisticCalc\myStatisticCalc.csproj", "{E25233C7-BA80-1C3E-5DEC-D3579BC01B5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,18 @@ Global
 		{57755CDB-FDFD-4712-A3D9-464CAAA3F73B}.Release|x64.Build.0 = Release|Any CPU
 		{57755CDB-FDFD-4712-A3D9-464CAAA3F73B}.Release|x86.ActiveCfg = Release|Any CPU
 		{57755CDB-FDFD-4712-A3D9-464CAAA3F73B}.Release|x86.Build.0 = Release|Any CPU
+		{E25233C7-BA80-1C3E-5DEC-D3579BC01B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E25233C7-BA80-1C3E-5DEC-D3579BC01B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E25233C7-BA80-1C3E-5DEC-D3579BC01B5D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E25233C7-BA80-1C3E-5DEC-D3579BC01B5D}.Debug|x64.Build.0 = Debug|Any CPU
+		{E25233C7-BA80-1C3E-5DEC-D3579BC01B5D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E25233C7-BA80-1C3E-5DEC-D3579BC01B5D}.Debug|x86.Build.0 = Debug|Any CPU
+		{E25233C7-BA80-1C3E-5DEC-D3579BC01B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E25233C7-BA80-1C3E-5DEC-D3579BC01B5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E25233C7-BA80-1C3E-5DEC-D3579BC01B5D}.Release|x64.ActiveCfg = Release|Any CPU
+		{E25233C7-BA80-1C3E-5DEC-D3579BC01B5D}.Release|x64.Build.0 = Release|Any CPU
+		{E25233C7-BA80-1C3E-5DEC-D3579BC01B5D}.Release|x86.ActiveCfg = Release|Any CPU
+		{E25233C7-BA80-1C3E-5DEC-D3579BC01B5D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
