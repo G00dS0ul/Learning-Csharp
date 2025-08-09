@@ -11,20 +11,23 @@ namespace myStatisticCalc
     {
         static void Main(string[] args)
         {
+            //Allow user to input data and store in input
             Console.Write("Enter Your Data: ");
             string input = Console.ReadLine();
+            //allow user to input multiple data seperated by a space and spliting it into an array and empty entries are removed
             string[] parts = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             double[] data = new double[parts.Length];
-
+            //the new data created is then converted to a double and if the conversion is unsuccefull the value will result 0
             for (int i = 0; i < parts.Length; i++)
             {
                 double.TryParse(parts[i], out data[i]);
             }
-
+            //allow user to input the type of statistic operation to do 
             Console.Write("Enter your Statistics Operation: ");
             string opdata = Console.ReadLine();
+            //allow user to pass more than one operation also seperated by a space
             string[] inputop = opdata.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-
+            //used the switch method to check which kind of operation to execute in order and called up the method to execute on terminal
             foreach(string op in inputop)
             {
                 switch (op)
@@ -50,7 +53,8 @@ namespace myStatisticCalc
 
             Console.ReadLine();
         }
-
+        //Created methods of For-loops to calculate each operation
+        //for summation of data method
         static double SumOfData(double[] data)
         {
             double sum = 0;
@@ -60,6 +64,8 @@ namespace myStatisticCalc
             }
             return sum;
         }
+
+        //for average calculation method
         static double MeanOfData(double[] data)
         {
             double mean = 0;
@@ -69,6 +75,8 @@ namespace myStatisticCalc
             }
             return mean;
         }
+
+        //for minimum value method
         static double MinNumber(double[] data)
         {
             double min = data[0];
@@ -81,6 +89,8 @@ namespace myStatisticCalc
             }
             return min;
         }
+
+        //for maximum value method
         static double MaxNumber(double[] data)
         {
             double max = data[0];
