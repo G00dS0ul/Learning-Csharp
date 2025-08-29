@@ -5,48 +5,76 @@
         static void Main(string[] args)
         {
             
-            //create a 5x5 grid environment
-            var env = new Environment(6, 6);
+            //create an instance grid environment
+            var env = new Environment();
 
-            //start the robot at (3, 4) facing north
-            var robot = new Robot(3, 4, Direction.North);
+            //create an instance of the robot
+            var robot = new Robot();
+            //allows user to create Boundary for the environment
+            Console.Write("Set the Boundary: ");
+            var inputBound = Console.ReadLine();
+            if (env.setBoundary(inputBound))
+            {
+                Console.WriteLine($"Boundary set to {env.Width} x {env.Height}");
+            }
 
-            Console.WriteLine($"Initial Direction: {robot.Facing} & Initial Position: {robot.X}, {robot.Y}");
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter two positive integers seperated by a comma.");
+                return;
+            }
+            //allow user to set the starting point
+            Console.WriteLine("Enter starting Position (format: x,y,direction): ");
 
-            //turn robot to the right
-            robot.TurnRight();
-            Console.WriteLine($"After turning right: {robot.Facing}");
+            while (true)
+            {
+                Console.Write("Start Movement: ");
+                var inputMove = Console.ReadLine();
+                
+                if (robot.robotMovement(inputMove!, env))
+                {
+                    Console.WriteLine($"Stating X-Postion is: {robot.XAxis}, Starting Y-Position is: {robot.YAxis} And Facing: {robot.Facing}");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter Correct Format");
+                }
 
-            //turn Right Again
-            robot.TurnRight();
-            Console.WriteLine($"After Another Right Turn: {robot.Facing}");
+            }
+            //Allows user to enter command for easy movement on the console
+            Console.WriteLine("Commands: F = forward, L = turn left, R = turn right, P = print Location, Q = quit");
 
-            //turn Left
-            robot.TurnLeft();
-            Console.WriteLine($"After Left Turn: {robot.Facing}");
-            //turn Right Again
-            robot.TurnLeft();
-            Console.WriteLine($"After Another Left Turn: {robot.Facing}");
+            while (true)
+            {
+                Console.Write("Move: ");
+                var command = Console.ReadLine();
+                if (string.IsNullOrEmpty(command))
+                {
+                    continue;
+                }
 
-            robot.MoveForward(env);
-            robot.MoveForward(env);
-
-            Console.WriteLine($"The position on grid: {robot.X}, {robot.Y}");
-
-
-            //The use of the robotSim class for faster and convinient coding
-            var sim = new RobotSim(5, 5, 0, 0, Direction.North);
-
-            sim.MoveRobotFoward();
-
-            sim.TurnRobotRight();
-            sim.MoveRobotFoward();
-
-            sim.TurnRobotLeft();
-            sim.MoveRobotFoward();
-            //Fnally position of the Robot
-            Console.WriteLine($"Robot Position: ({sim.Robot.X}, {sim.Robot.Y}), Facing: {sim.Robot.Facing}");
-
+                switch (command.Trim().ToUpperInvariant())
+                {
+                    case "F":
+                        robot.MoveForward(env);
+                        break;
+                    case "L":
+                        robot.TurnLeft();
+                        break;
+                    case "R":
+                        robot.TurnRight();
+                        break;
+                    case "P":
+                        Console.WriteLine($"X-Postion is: {robot.XAxis}, Starting Y-Position is: {robot.YAxis} And Facing: {robot.Facing}");
+                        break;
+                    case "Q":
+                        return;
+                    default:
+                        Console.WriteLine("Unknown command");
+                        continue;
+                }
+            }
         }
     }
 }

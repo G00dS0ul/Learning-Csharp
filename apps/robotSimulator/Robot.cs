@@ -5,21 +5,46 @@ namespace robotSimulator
     public enum Direction { North, East, South, West }
     public class Robot
     {
-        public int X { get; private set; }
-        public int Y { get; private set; }
+        public int XAxis { get; private set; }
+        public int YAxis { get; private set; }
         public Direction Facing { get; private set; }
 
-        public Robot(int x, int y, Direction facing)
+        public bool robotMovement(string input, Environment? env = null)
         {
-            X = x;
-            Y = y;
-            Facing = facing;
+            if (string.IsNullOrWhiteSpace(input))
+                return false;
+            string[] parts = input.Split(",", StringSplitOptions.RemoveEmptyEntries);
+            if(parts.Length > 3 || parts.Length < 2 )
+            {
+                return false;
+            }
+            if (!int.TryParse(parts[0], out int xAxis) || !int.TryParse(parts[1], out int yAxis))
+            {
+                return false;
+            }
+            Direction facing = Facing;
+            if(parts.Length == 3)
+            {
+                if (!Enum.TryParse(parts[2], true, out facing))
+                {
+                    return false;
+                }
+            }
+
+            if (env is not null && !env.IsValidPosition(xAxis, yAxis))
+            {
+                return false;
+            }
+            this.XAxis = xAxis;
+            this.YAxis = yAxis;
+            this.Facing = facing;
+            return true;
         }
 
         public void MoveForward(Environment env)
         {
-            int newX = X;
-            int newY = Y;
+            int newX = XAxis;
+            int newY = YAxis;
             switch (Facing)
             {
                 case Direction.North:
@@ -38,8 +63,8 @@ namespace robotSimulator
             }
             if (env.IsValidPosition(newX, newY))
             {
-                X = newX;
-                Y = newY;
+                XAxis = newX;
+                YAxis = newY;
             }
             else
             {

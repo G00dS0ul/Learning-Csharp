@@ -7,8 +7,8 @@
 
         public RobotSim(int envWidth, int envHeight, int robotX, int robotY, Direction facing)
         {
-            Env = new Environment(envWidth, envHeight);
-            Robot = new Robot(robotX, robotY, facing);
+            Env = new Environment();
+            Robot = new Robot();
         }
 
         public void MoveRobotFoward()
