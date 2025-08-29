@@ -73,8 +73,17 @@
                     default:
                         Console.WriteLine("Unknown command");
                         continue;
+
+                        
+                }
+
+                //Allow the location of robot to be printed after each command
+                if (command.ToUpper() == "F" || command.ToUpper() == "L" || command.ToUpper() == "R")
+                {
+                    Console.WriteLine($"X-Postion is: {robot.XAxis}, Y-Position is: {robot.YAxis} And Facing: {robot.Facing}");
                 }
             }
+                
         }
     }
 }
