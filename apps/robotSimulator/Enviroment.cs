@@ -5,9 +5,21 @@
         public int Width { get; private set; }
         public int Height { get; private set;  }
 
+        public Environment()
+        {
+
+        }
+
+        public Environment(int width, int height)
+        {
+            this.Width = width;
+            this.Height = height;
+        }
+
         //Allow user to input two number seperated by comma and set the environment
         public bool setBoundary(string input)
         {
+            if(string.IsNullOrWhiteSpace(input)) return false;
             string[] parts = input.Split(",", StringSplitOptions.RemoveEmptyEntries);
             if (parts.Length != 2)
             {
@@ -34,5 +46,7 @@
         {
             return x >= 0 && x < Width && y >= 0 && y < Height; 
         }
+
+        public bool IsInitialized => Width > 0 && Height > 0;
     }
 }

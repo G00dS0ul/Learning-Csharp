@@ -9,20 +9,29 @@ namespace robotSimulator
         public int YAxis { get; private set; }
         public Direction Facing { get; private set; }
 
-        public bool robotMovement(string input, Environment? env = null)
+     
+        public Robot(int x, int y, Direction facing)
         {
+            this.XAxis = x;
+            this.YAxis = y;
+            this.Facing = facing;
+        }
+
+        public static bool IntialPlacement(string input, out int x, out int y, out Direction facing, Direction defaultFacing = Direction.North)
+        {
+            x = y = 0;
+            facing = defaultFacing;
             if (string.IsNullOrWhiteSpace(input))
                 return false;
-            string[] parts = input.Split(",", StringSplitOptions.RemoveEmptyEntries);
+            var parts = input.Split(",", StringSplitOptions.RemoveEmptyEntries);
             if(parts.Length > 3 || parts.Length < 2 )
             {
                 return false;
             }
-            if (!int.TryParse(parts[0], out int xAxis) || !int.TryParse(parts[1], out int yAxis))
+            if (!int.TryParse(parts[0], out x) || !int.TryParse(parts[1], out y))
             {
                 return false;
             }
-            Direction facing = Facing;
             if(parts.Length == 3)
             {
                 if (!Enum.TryParse(parts[2], true, out facing))
@@ -30,14 +39,6 @@ namespace robotSimulator
                     return false;
                 }
             }
-
-            if (env is not null && !env.IsValidPosition(xAxis, yAxis))
-            {
-                return false;
-            }
-            this.XAxis = xAxis;
-            this.YAxis = yAxis;
-            this.Facing = facing;
             return true;
         }
 
