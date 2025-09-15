@@ -6,20 +6,21 @@
         private DateTime stopTime;
         private bool running;
 
-        public void StartTime(DateTime input)
+        public void StartTime(DateTime start
+            )
         {
             if (running)
                 throw new InvalidOperationException("The stopwatch is already running.");
-            startTime = input;
+            startTime = start;
             stopTime = default; // clear any previous stop
             running = true;
         }
 
-        public void StopTime(DateTime input)
+        public void StopTime(DateTime stop)
         {
             if (!running)
                 throw new InvalidOperationException("Stopwatch has not been started.");
-            stopTime = input;
+            stopTime = stop;
             running = false; // allow starting again
         }
 

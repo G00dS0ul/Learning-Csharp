@@ -35,7 +35,12 @@
                         startStopWatch.StopTime(now);
                         Console.WriteLine("The End Time is: " + now);
                         Console.WriteLine("The time duration is: " + startStopWatch.Duration());
-                        break; // Exit after a full run. Remove if you want multiple runs.
+                    }
+
+                    else if (cmd.Equals("EXIT", StringComparison.OrdinalIgnoreCase))
+                    {
+                        Console.WriteLine("StopWatch Program Terminated");
+                        break;
                     }
                     else
                     {
