@@ -14,6 +14,15 @@
             Console.WriteLine($"{Name} attacks {target.Name} for {damage} damage!");
         }
 
+        public virtual void TakeDamage(int damage)
+        {
+            Health -= damage;
+            if (Health < 0)
+                Health = 0;
+
+            Console.WriteLine($"{Name} took {damage} damage! Remaining health: {Health}");
+        }
+
         public bool IsAlive()
         {
             return Health > 0;

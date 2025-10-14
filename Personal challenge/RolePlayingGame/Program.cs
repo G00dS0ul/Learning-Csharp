@@ -1,4 +1,6 @@
-﻿namespace RolePlayingGame
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace RolePlayingGame
 {
     class Program
     {
@@ -9,8 +11,8 @@
             {
                 Name = "Iche",
                 Health = 100,
-                Defence = 5,
-                Strength = 20,
+                Defence = 10,
+                Strength = 10,
                 Level = 1
             };
 
@@ -19,13 +21,27 @@
                 Name = "Goblin",
                 Type = "Super Natural",
                 Health = 60,
-                Strength = 10,
+                Strength = 15,
                 Defence = 3
             };
 
+            Item sword = new Item("Excalibur", "Weapon", 5);
+            Item shield = new Item("Golden Shield", "Armor", 10);
+            Item potion = new Item("Healing Potion", "Portion", 20);
+
+            hero.Inventory.AddItem(sword);
+            hero.Inventory.AddItem(potion);
+            hero.Inventory.AddItem(shield);
+
+            hero.Inventory.ShowInventory();
+
+
+            hero.EquipItem(sword);
+            hero.EquipItem(potion);
+
             Console.WriteLine("Battle Starts");
 
-            while(hero.IsAlive() &&  enemy.IsAlive())
+            while (hero.IsAlive() && enemy.IsAlive())
             {
                 hero.Attack(enemy);
 

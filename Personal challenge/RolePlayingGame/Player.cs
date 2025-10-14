@@ -1,5 +1,6 @@
 ﻿using System.Reflection.PortableExecutable;
 using static RolePlayingGame.Program;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace RolePlayingGame
 {
@@ -8,28 +9,114 @@ namespace RolePlayingGame
         public int Experience { get; set; }
         public int Level { get; set; }
 
+        public Inventory Inventory { get; private set; }
+
+        public Item? EquippedWeapon { get; set; }
+        public Item? EquippedArmor { get; set; }
+        public Item? EquippedPortion { get; set; }
+
+        public Player()
+        {
+            Inventory = new Inventory();
+        }
+
         public override void Attack(Character target)
         {
             Random rand = new Random();
             bool isCritical = rand.Next(1, 101) <= 20;
-            int damage = Strength - target.Defence;
+
+            int totalAttack = Strength;
+            if (EquippedWeapon != null)
+            {
+                totalAttack += EquippedWeapon.Value;
+            }
 
             if (isCritical)
             {
-                damage *= 2;
+                totalAttack *= 2;
                 Console.WriteLine("Critical Hit With Twice the damage");
             }
-            
-            damage = Math.Max(0, damage);
-            target.Health -= damage;
-            Console.WriteLine($"{Name} hit {target.Name} for {damage} damage!");
+
+            int damage = totalAttack - target.Defence;
+            target.TakeDamage(damage);
+            Console.WriteLine($"{Name} attacks {target.Name} for {damage} damage!");
 
             if (!target.IsAlive())
             {
                 Console.WriteLine($"{target.Name} has been defeated");
 
-            }   
-            
+            }
+        }
+
+        public void TakeDamage(int damage)
+        {
+            var totalDefence = Defence;
+
+            if (EquippedArmor != null)
+            {
+                totalDefence = Defence + EquippedArmor.Value;
+            }
+
+            var finalDamage = damage - totalDefence;
+            finalDamage = Math.Max(0, damage);
+            Health -= finalDamage;
+            Console.WriteLine($"{Name} took {damage} damage!");
+        }
+
+        public void UsePortion()
+        {
+            if (EquippedPortion != null)
+            {
+                Health += EquippedPortion.Value;
+                EquippedPortion = null;
+            }
+        }
+
+        public void EquipItem(Item item)
+        {
+            if (item.Type == "Weapon")
+            {
+                EquippedWeapon = item;
+                Console.WriteLine($"{EquippedWeapon.Name} Equipped, Strength increased by {EquippedWeapon.Value}!");
+            }
+
+            else if (item.Type == "Armor")
+            {
+                EquippedArmor = item;
+                Console.WriteLine($"{EquippedArmor.Name} Equipped, Defence increased by {EquippedArmor.Value}!");
+            }
+
+            else if (item.Type == "Portion")
+            {
+                EquippedPortion = item;
+                Console.WriteLine($"{EquippedPortion.Name} Equipped, Health increased by {EquippedPortion.Value}");
+            }
+
+        }
+
+        public void UnequipItem(string itemType)
+        {
+            if(itemType == "Weapon")
+            {
+                if (EquippedWeapon == null)
+                    Console.WriteLine("No weapon Equip!");
+                EquippedWeapon = null;
+            }
+
+            if(itemType == "Armor")
+            {
+                if (EquippedArmor == null)
+                    Console.WriteLine("No Armor Equip!");
+                EquippedArmor = null;
+            }
+
+            if(itemType == "Portion")
+            {
+                if (EquippedPortion == null)
+                    Console.WriteLine("No Portion Equip!");
+                EquippedPortion = null;
+            }
+                
         }
 
         private void GainExperience(int amount)
