@@ -4,13 +4,12 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace RolePlayingGame
 {
-    public class Player : Character
+    public class Player : Character, ICharacter
     {
+        
         public int Experience { get; set; }
         public int Level { get; set; }
-
         public Inventory Inventory { get; private set; }
-
         public Item? EquippedWeapon { get; set; }
         public Item? EquippedArmor { get; set; }
         public Item? EquippedPortion { get; set; }
@@ -20,7 +19,7 @@ namespace RolePlayingGame
             Inventory = new Inventory();
         }
 
-        public override void Attack(Character target)
+        public override void Attack(ICharacter target)
         {
             Random rand = new Random();
             bool isCritical = rand.Next(1, 101) <= 20;
@@ -48,7 +47,7 @@ namespace RolePlayingGame
             }
         }
 
-        public void TakeDamage(int damage)
+        public override void TakeDamage(int damage)
         {
             var totalDefence = Defence;
 

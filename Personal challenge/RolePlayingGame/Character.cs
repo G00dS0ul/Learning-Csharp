@@ -7,7 +7,7 @@
         public int Defence { get; set; }
         public int Strength { get; set; }
 
-        public virtual void Attack(Character target)
+        public virtual void Attack(ICharacter target)
         {
             int damage = Math.Max(0, Strength - target.Defence);
             target.Health -= damage;

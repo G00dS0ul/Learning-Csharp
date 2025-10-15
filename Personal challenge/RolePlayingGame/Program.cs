@@ -38,6 +38,7 @@ namespace RolePlayingGame
 
             hero.EquipItem(sword);
             hero.EquipItem(potion);
+           
 
             Console.WriteLine("Battle Starts");
 
