@@ -9,6 +9,7 @@
             int damage = Math.Max(0, Strength - target.Defence);
             target.Health -= damage;
             Console.WriteLine($"{Name} ({Type}) bites {target.Name} for {damage} damage!");
+            Thread.Sleep(500);
         }
     }
 }

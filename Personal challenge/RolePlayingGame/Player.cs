@@ -13,6 +13,7 @@ namespace RolePlayingGame
         public Item? EquippedWeapon { get; set; }
         public Item? EquippedArmor { get; set; }
         public Item? EquippedPortion { get; set; }
+        public int Gold { get; set; }
 
         public Player()
         {
@@ -39,6 +40,7 @@ namespace RolePlayingGame
             int damage = totalAttack - target.Defence;
             target.TakeDamage(damage);
             Console.WriteLine($"{Name} attacks {target.Name} for {damage} damage!");
+            Thread.Sleep(500);
 
             if (!target.IsAlive())
             {
@@ -59,7 +61,7 @@ namespace RolePlayingGame
             var finalDamage = damage - totalDefence;
             finalDamage = Math.Max(0, damage);
             Health -= finalDamage;
-            Console.WriteLine($"{Name} took {damage} damage!");
+            Console.WriteLine($"{Name} took {damage} damage!  Remaining health: {Health}");
         }
 
         public void UsePortion()

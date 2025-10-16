@@ -2,7 +2,7 @@
 {
     public class Inventory
     {
-        private List<Item> items = new List<Item>();
+        public List<Item> items = new List<Item>();
 
         public void AddItem(Item item)
         {
@@ -35,9 +35,9 @@
             }
 
             Console.WriteLine("Inventory: ");
-            foreach (var item in items)
+            for (int i = 0; i < items.Count; i++)
             {
-                Console.WriteLine($"- {item}");
+                Console.WriteLine($"{1 + i}. {items[i].Name} - {items[i].Value}.");
             }
 
         }
