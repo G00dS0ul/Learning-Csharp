@@ -10,18 +10,17 @@
             Console.WriteLine($"{item.Name} added to inventory");
         }
 
-        public void RemoveItem(string itemName)
+        public void RemoveItem(Item itemFound)
         {
-            Item itemFound = items.FirstOrDefault(i => i.Name == itemName);
             if (itemFound != null)
             {
                 items.Remove(itemFound);
-                Console.WriteLine($"{itemName} removed from the inventory");
+                Console.WriteLine($"{itemFound} removed from the inventory");
             }
 
             else
             {
-                Console.WriteLine($"{itemName} not Found!");
+                Console.WriteLine($"{itemFound} not Found!");
             }
 
         }

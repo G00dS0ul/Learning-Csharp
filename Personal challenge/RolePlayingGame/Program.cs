@@ -1,4 +1,5 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Security.Cryptography.X509Certificates;
 
 namespace RolePlayingGame
 {
@@ -8,10 +9,9 @@ namespace RolePlayingGame
         static void Main(string[] args)
         {
             var shop = new Shop();
-            
             var hero = new Player
             {
-                Name = "Iche",
+                Name = "G00dS0ul",
                 Health = 100,
                 Defence = 3,
                 Strength = 3,
@@ -28,38 +28,17 @@ namespace RolePlayingGame
                 Defence = 3
             };
 
+            var gameManager = new GameManager(hero, shop);
+
             Item sword = new Item("Excalibur", "Weapon", 5);
-            Item shield = new Item("Golden Shield", "Armor", 10);
+            Item shield = new Item("Bronze Shield", "Armor", 10);
             Item potion = new Item("Healing Potion", "Portion", 20);
 
             hero.Inventory.AddItem(sword);
             hero.Inventory.AddItem(potion);
             hero.Inventory.AddItem(shield);
 
-            while (true)
-            {
-                hero.Inventory.ShowInventory();
-                Console.Write($"Select Item you want to Equip(1 - {hero.Inventory.items.Count}): ");
-                var choice = int.Parse(Console.ReadLine());
-
-                if (choice == 0)
-                {
-                    Console.WriteLine("No Item Equipped");
-                    break;
-                }
-
-                if (choice >= 1 && choice <= hero.Inventory.items.Count)
-                {
-                    hero.EquipItem(hero.Inventory.items[choice - 1]);
-
-                }
-
-                else
-                {
-                    Console.WriteLine("Invalid Option");
-                }
-                break;
-            }
+            gameManager.Start();
 
             Thread.Sleep(1000);
             Console.WriteLine("Battle Starts");
@@ -83,27 +62,7 @@ namespace RolePlayingGame
             hero.Health = 100;
             Console.WriteLine($"{hero.Name}'s health has been restored to {hero.Health}!");
 
-            while (true)
-            {
-                shop.DisplayItems();
-                Console.Write($"Select Item you want to purchase(1 - {shop.Stocks.Count}): ");
-                var choice = int.Parse(Console.ReadLine());
-
-                if (choice == 0)
-                    break;
-                
-                if(choice >= 1 && choice <= shop.Stocks.Count)
-                {
-                    shop.BuyItem(hero, shop.Stocks[choice - 1]);
-
-                }
-
-                else
-                {
-                    Console.WriteLine("Invalid Option");
-                }
-                break;
-            }
+            gameManager.Start();
 
             Thread.Sleep(1000);
 
@@ -111,32 +70,6 @@ namespace RolePlayingGame
 
             Thread.Sleep(1000);
             shop.DisplayItems();
-
-            Thread.Sleep(500);
-            while (true)
-            {
-                hero.Inventory.ShowInventory();
-                Console.Write($"Select Item you want to Equip(1 - {hero.Inventory.items.Count}): ");
-                var choice = int.Parse(Console.ReadLine());
-
-                if (choice == 0)
-                {
-                    Console.WriteLine("No Item Equipped");
-                    break;
-                }
-
-                if (choice >= 1 && choice <= hero.Inventory.items.Count)
-                {
-                    hero.EquipItem(hero.Inventory.items[choice - 1]);
-
-                }
-
-                else
-                {
-                    Console.WriteLine("Invalid Option");
-                }
-                break;
-            }
 
             Thread.Sleep(500);
 
@@ -158,6 +91,13 @@ namespace RolePlayingGame
                 ? $"{hero.Name} wins the fight"
                 : $"{enemy.Name} defeat {hero.Name}!");
 
+            Thread.Sleep(1000);
+
+            hero.Inventory.ShowInventory();
+
+            shop.DisplayItems();
+
+            gameManager.Start();
         }
     }
 }

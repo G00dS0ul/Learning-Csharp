@@ -13,7 +13,7 @@ namespace RolePlayingGame
         public Item? EquippedWeapon { get; set; }
         public Item? EquippedArmor { get; set; }
         public Item? EquippedPortion { get; set; }
-        public int Gold { get; set; }
+        public float Gold { get; set; }
 
         public Player()
         {
@@ -69,7 +69,8 @@ namespace RolePlayingGame
             if (EquippedPortion != null)
             {
                 Health += EquippedPortion.Value;
-                EquippedPortion = null;
+                Console.WriteLine($"Player's Health is now {Health}");
+                
             }
         }
 

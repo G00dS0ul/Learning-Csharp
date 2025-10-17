@@ -48,9 +48,13 @@ namespace RolePlayingGame
             
         }
 
-        public void SellItem(Player player, int choice)
+        public void SellItem(Player player, Item choice)
         {
-            
+            player.Gold += choice.Price * SellingRate;
+            var inventory = player.Inventory;
+            inventory.RemoveItem(choice);
+            Stocks.Add(choice);
+            Console.WriteLine($"{player.Name} Sold an Item from Invetory, Gold increased by {player.Gold}.");
         }
     }
 }
