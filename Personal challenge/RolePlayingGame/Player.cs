@@ -79,19 +79,26 @@ namespace RolePlayingGame
             if (item.Type == "Weapon")
             {
                 EquippedWeapon = item;
+                Strength += EquippedWeapon.Value;
                 Console.WriteLine($"{EquippedWeapon.Name} Equipped, Strength increased by {EquippedWeapon.Value}!");
+                Console.WriteLine($"{Name} Current Strenght is {Strength}");
             }
 
             else if (item.Type == "Armor")
             {
                 EquippedArmor = item;
+                Defence += EquippedArmor.Value;
                 Console.WriteLine($"{EquippedArmor.Name} Equipped, Defence increased by {EquippedArmor.Value}!");
+                Console.WriteLine($"{Name} Current Defence is {Defence}");
             }
 
             else if (item.Type == "Portion")
             {
                 EquippedPortion = item;
+                UsePortion();
                 Console.WriteLine($"{EquippedPortion.Name} Equipped, Health increased by {EquippedPortion.Value}");
+                Console.WriteLine($"{Name} Current Health is {Health}");
+                Inventory.RemoveItem(item);
             }
 
         }

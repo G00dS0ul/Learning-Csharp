@@ -1,14 +1,18 @@
-﻿namespace RolePlayingGame
+﻿using System;
+
+namespace RolePlayingGame
 {
     public class GameManager
     {
         private Player hero;
+        private Enemy enemy;
         private Shop shop;
 
-        public GameManager(Player player, Shop shop)
+        public GameManager(Player player, Shop shop, Enemy enemy)
         {
             this.hero = player;
             this.shop = shop;
+            this.enemy = enemy;
         }
 
         public void Start()
@@ -17,26 +21,30 @@
             while (running)
             {
                 Console.WriteLine("\n ==== MainMenu ===");
-                Console.WriteLine("1. View Inventory");
-                Console.WriteLine("2. Visit Shop");
-                Console.WriteLine("3. Equip Item");
-                Console.WriteLine("4. Exit");
+                Console.WriteLine("1. Start Battle");
+                Console.WriteLine("2. View Inventory");
+                Console.WriteLine("3. Visit Shop");
+                Console.WriteLine("4. Equip Item");
+                Console.WriteLine("5. Exit");
 
-                Console.Write("Choose");
+                Console.Write("Choose: ");
                 var option = Console.ReadLine();
 
                 switch (option)
                 {
                     case "1":
-                        hero.Inventory.ShowInventory();
+                        StateBattle();
                         break;
                     case "2":
-                        VisitShop();
+                        hero.Inventory.ShowInventory();
                         break;
                     case "3":
-                        EquipItem();
+                        VisitShop();
                         break;
                     case "4":
+                        EquipItem();
+                        break;
+                    case "5":
                         running = false;
                         break;
                     default:
@@ -47,6 +55,31 @@
                 }    
             }
 
+        }
+
+        private void StateBattle()
+        {
+            Console.WriteLine("Battle Starts");
+
+            while (hero.IsAlive() && enemy.IsAlive())
+            {
+                hero.Attack(enemy);
+
+                if (!enemy.IsAlive())
+                    break;
+
+                enemy.Attack(hero);
+            }
+
+            Console.WriteLine(hero.IsAlive()
+                ? $"{hero.Name} wins the fight"
+                : $"{enemy.Name} defeat {hero.Name}!");
+
+            Thread.Sleep(500);
+
+            hero.Health = 100;
+            enemy.Health = 100;
+            Console.WriteLine($"{hero.Name}'s health has been restored to {hero.Health}!");
         }
 
         private void VisitShop()
@@ -62,7 +95,7 @@
 
                 if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= shop.Stocks.Count)
                 {
-                    var item = shop.Stocks[choice];
+                    var item = shop.Stocks[choice - 1];
                     shop.BuyItem(hero, item);
                 }
 
@@ -73,13 +106,12 @@
             }
             else if (option == "2")
             {
-                var inventory = new Inventory();
-                inventory.ShowInventory();
+                hero.Inventory.ShowInventory();
                 Console.Write("Select an item you want to Sell from your Inventory: ");
 
-                if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= inventory.items.Count)
+                if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= hero.Inventory.items.Count)
                 {
-                    var item = inventory.items[choice];
+                    var item = hero.Inventory.items[choice - 1];
                     shop.SellItem(hero, item);
                 }
 
@@ -96,10 +128,10 @@
             hero.Inventory.ShowInventory();
             Console.Write("Choose Item you want to Equip(0 to cancel): ");
 
-            var inventory = new Inventory();
-            if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= inventory.items.Count)
+            
+            if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= hero.Inventory.items.Count)
             {
-                hero.EquipItem(inventory.items[choice]);
+                hero.EquipItem(hero.Inventory.items[choice - 1]);
             }
         }
     }

@@ -1,8 +1,8 @@
 ﻿namespace RolePlayingGame
 {
-    class Enemy : Character, ICharacter
+    public class Enemy : Character, ICharacter
     {
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         public override void Attack(ICharacter target)
         {
