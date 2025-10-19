@@ -25,7 +25,8 @@ namespace RolePlayingGame
                 Console.WriteLine("2. View Inventory");
                 Console.WriteLine("3. Visit Shop");
                 Console.WriteLine("4. Equip Item");
-                Console.WriteLine("5. Exit");
+                Console.WriteLine("5. Unequip Item");
+                Console.WriteLine("6. Exit");
 
                 Console.Write("Choose: ");
                 var option = Console.ReadLine();
@@ -45,6 +46,9 @@ namespace RolePlayingGame
                         EquipItem();
                         break;
                     case "5":
+                        UnequipItem();
+                        break;
+                    case "6":
                         running = false;
                         break;
                     default:
@@ -132,6 +136,58 @@ namespace RolePlayingGame
             if (int.TryParse(Console.ReadLine(), out int choice) && choice > 0 && choice <= hero.Inventory.items.Count)
             {
                 hero.EquipItem(hero.Inventory.items[choice - 1]);
+            }
+        }
+
+        private void UnequipItem()
+        {
+            if (hero.EquippedWeapon == null && hero.EquippedArmor == null && hero.EquippedPortion == null)
+            {
+                Console.WriteLine("No Item Equipped!!! Try Equiping some item");
+                return;
+            }
+
+            int optionNumber = 1;
+            if (hero.EquippedWeapon != null)
+            {
+                Console.WriteLine($"{optionNumber}. {hero.EquippedWeapon.Name} - Value: {hero.EquippedWeapon.Value}");
+                optionNumber++;
+            }
+            if (hero.EquippedArmor != null)
+            {
+                Console.WriteLine($"{optionNumber}. {hero.EquippedArmor.Name} - Value: {hero.EquippedArmor.Value}");
+                optionNumber++;
+            }
+            if (hero.EquippedPortion != null)
+            {
+                Console.WriteLine($"{optionNumber}. {hero.EquippedPortion.Name} - Value: {hero.EquippedPortion.Value}");
+            }
+
+            Console.Write("Choose an Item to Unequip(Enter 0 to cancel): ");
+            if (int.TryParse(Console.ReadLine(), out int choice))
+            {
+                int currentOption = 1;
+                if (hero.EquippedWeapon != null && choice == currentOption)
+                {
+                    hero.UnequipItem(hero.EquippedWeapon);
+                    return;
+                }
+                if (hero.EquippedArmor != null && choice == (hero.EquippedWeapon != null ? 2 : 1))
+                {
+                    hero.UnequipItem(hero.EquippedArmor);
+                    return;
+                }
+                if (hero.EquippedPortion != null && choice == (hero.EquippedWeapon != null && hero.EquippedArmor != null ? 3 : hero.EquippedWeapon != null || hero.EquippedArmor != null ? 2 : 1))
+                {
+                    hero.UnequipItem(hero.EquippedPortion);
+                    return;
+                }
+                if (choice == 0)
+                {
+                    Console.WriteLine("Cancelled Operation");
+                    return;
+                }
+                Console.WriteLine("Invalid Choice");
             }
         }
     }

@@ -28,7 +28,7 @@ namespace RolePlayingGame
             int totalAttack = Strength;
             if (EquippedWeapon != null)
             {
-                totalAttack += EquippedWeapon.Value;
+                totalAttack = Strength;
             }
 
             if (isCritical)
@@ -76,7 +76,7 @@ namespace RolePlayingGame
 
         public void EquipItem(Item item)
         {
-            if (item.Type == "Weapon")
+            if (item.Type == "Weapon" && EquippedWeapon == null)
             {
                 EquippedWeapon = item;
                 Strength += EquippedWeapon.Value;
@@ -84,7 +84,7 @@ namespace RolePlayingGame
                 Console.WriteLine($"{Name} Current Strenght is {Strength}");
             }
 
-            else if (item.Type == "Armor")
+            else if (item.Type == "Armor" && EquippedArmor == null)
             {
                 EquippedArmor = item;
                 Defence += EquippedArmor.Value;
@@ -101,29 +101,35 @@ namespace RolePlayingGame
                 Inventory.RemoveItem(item);
             }
 
+            else
+            {
+                Console.WriteLine("An Item is been Equipped, Unequip the item before equiping new Item");
+            }
+
         }
 
-        public void UnequipItem(string itemType)
+        public void UnequipItem(Item item)
         {
-            if(itemType == "Weapon")
+            if(item.Type == "Weapon")
             {
-                if (EquippedWeapon == null)
-                    Console.WriteLine("No weapon Equip!");
+                Strength -= item.Value;
                 EquippedWeapon = null;
+                Console.WriteLine($"{item.Name} has been unequipped, Strength value has decreased by {item.Value}");
             }
 
-            if(itemType == "Armor")
+            if(item.Type == "Armor")
             {
-                if (EquippedArmor == null)
-                    Console.WriteLine("No Armor Equip!");
+                Defence -= item.Value;
                 EquippedArmor = null;
+                Console.WriteLine($"{item.Name} has been unequipped, Defence value has decreased by {item.Value}");
             }
 
-            if(itemType == "Portion")
+            if(item.Type == "Portion")
             {
-                if (EquippedPortion == null)
-                    Console.WriteLine("No Portion Equip!");
+                Health -= item.Value;
+                Inventory.AddItem(item);
                 EquippedPortion = null;
+                Console.WriteLine($"{item.Name} has been unequipped, Health value has decreased by {item.Value}");
             }
                 
         }
