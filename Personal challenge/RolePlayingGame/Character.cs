@@ -4,14 +4,20 @@
     {
         public string? Name { get; set; }
         public int Health { get; set; }
+        public int MaxHealth { get; }
         public int Defence { get; set; }
         public int Strength { get; set; }
+
+        public Character()
+        {
+            Health = 100;
+            MaxHealth = 100;
+        }
 
         public virtual void Attack(ICharacter target)
         {
             int damage = Math.Max(0, Strength - target.Defence);
             target.Health -= damage;
-            Console.WriteLine($"{Name} attacks {target.Name} for {damage} damage!");
         }
 
         public virtual void TakeDamage(int damage)
@@ -26,6 +32,11 @@
         public bool IsAlive()
         {
             return Health > 0;
+        }
+
+        public void Resethealth()
+        {
+            Health = MaxHealth;
         }
     }
 }

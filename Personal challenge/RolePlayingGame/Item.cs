@@ -10,16 +10,16 @@
 
         public Item(string name, string type, int value)
         {
-            Name = name;
-            Type = type;
-            Value = value;
+            this.Name = name;
+            this.Type = type;
+            this.Value = value;
         }
         public Item(string name, string type, int value, int price)
         {
-            Name = name;
-            Type = type;
-            Value = value;
-            Price = price;
+            this.Name = name;
+            this.Type = type;
+            this.Value = value;
+            this.Price = price;
         }
 
         public override string ToString()

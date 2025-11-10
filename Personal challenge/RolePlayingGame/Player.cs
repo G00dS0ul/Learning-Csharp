@@ -6,7 +6,6 @@ namespace RolePlayingGame
 {
     public class Player : Character, ICharacter
     {
-        
         public int Experience { get; set; }
         public int Level { get; set; }
         public Inventory Inventory { get; private set; }
@@ -70,7 +69,6 @@ namespace RolePlayingGame
             {
                 Health += EquippedPortion.Value;
                 Console.WriteLine($"Player's Health is now {Health}");
-                
             }
         }
 

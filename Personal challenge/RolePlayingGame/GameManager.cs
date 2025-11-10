@@ -22,11 +22,9 @@ namespace RolePlayingGame
             {
                 Console.WriteLine("\n ==== MainMenu ===");
                 Console.WriteLine("1. Start Battle");
-                Console.WriteLine("2. View Inventory");
+                Console.WriteLine("2. Inventory Menu");
                 Console.WriteLine("3. Visit Shop");
-                Console.WriteLine("4. Equip Item");
-                Console.WriteLine("5. Unequip Item");
-                Console.WriteLine("6. Exit");
+                Console.WriteLine("4. Exit");
 
                 Console.Write("Choose: ");
                 var option = Console.ReadLine();
@@ -37,28 +35,19 @@ namespace RolePlayingGame
                         StateBattle();
                         break;
                     case "2":
-                        hero.Inventory.ShowInventory();
+                        InventoryMenu();
                         break;
                     case "3":
                         VisitShop();
                         break;
                     case "4":
-                        EquipItem();
-                        break;
-                    case "5":
-                        UnequipItem();
-                        break;
-                    case "6":
                         running = false;
                         break;
                     default:
                         Console.WriteLine("Enter input again!!!");
                         break;
-
-
                 }    
             }
-
         }
 
         private void StateBattle()
@@ -81,8 +70,8 @@ namespace RolePlayingGame
 
             Thread.Sleep(500);
 
-            hero.Health = 100;
-            enemy.Health = 100;
+            hero.Resethealth();
+            enemy.Resethealth();
             Console.WriteLine($"{hero.Name}'s health has been restored to {hero.Health}!");
         }
 
@@ -127,6 +116,41 @@ namespace RolePlayingGame
             }
         }
 
+        private void InventoryMenu()
+        {
+            bool inInventory = true;
+            while(inInventory)
+            {
+                Console.WriteLine("\n ==== Inventory Menu ===");
+                Console.WriteLine("1. Display Items Owned");
+                Console.WriteLine("2. Equip Item");
+                Console.WriteLine("3. Unequip Item");
+                Console.WriteLine("4. Back to Start Menu");
+
+                Console.Write("Choose: ");
+                var option = Console.ReadLine();
+
+                switch (option)
+                {
+                    case "1":
+                        hero.Inventory.ShowInventory();
+                        break;
+                    case "2":
+                        EquipItem();
+                        break;
+                    case "3":
+                        UnequipItem();
+                        break;
+                    case "4":
+                        Start();
+                        break;
+                    default:
+                        Console.WriteLine("Enter input again!!!");
+                        break;
+                }
+            }
+            
+        }
         private void EquipItem()
         {
             hero.Inventory.ShowInventory();
