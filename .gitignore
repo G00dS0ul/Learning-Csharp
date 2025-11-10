@@ -1,8 +1,42 @@
-bin/
-obj/
+# Build outputs
+/bin/
+/obj/
+
+# VS/IDE files
+/.vs/
+.vscode/
+.idea/
+
+# User-specific files
 *.user
 *.suo
-*.vs/
-.vscode/
+*.userprefs
+
+# NuGet
+.nuget/packages/
+*.nupkg
+*.snupkg
+
+# Rider
+*.ide
+*.sln.ide
+
+# Logs, caches, misc
 *.log
-*.DS_Store
+*.cache
+*.pid
+.DS_Store
+
+# Test results
+TestResults/
+
+# Binary and generated files
+*.dll
+*.exe
+*.pdb
+
+# JetBrains Rider caches
+.idea/
+
+# Ignore publish output folder (if you use one)
+publish/
