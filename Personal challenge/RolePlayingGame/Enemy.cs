@@ -4,11 +4,20 @@
     {
         public string? Type { get; set; }
 
+        public Enemy(string? name, string? type, int health, int defence, int strength)
+        {
+            this.Name = name;
+            this.Type = type;
+            this.Health = health;
+            this.Defence = defence;
+            this.Strength = strength;
+        }
+
         public override void Attack(ICharacter target)
         {
             int damage = Math.Max(0, Strength - target.Defence);
-            target.Health -= damage;
-            Console.WriteLine($"{Name} ({Type}) bites {target.Name} for {damage} damage!");
+            target.TakeDamage(damage);
+            Console.WriteLine($"{Name} ({Type}) attacks {target.Name} for {damage} damage!");
             Thread.Sleep(500);
         }
     }

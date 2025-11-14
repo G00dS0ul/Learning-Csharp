@@ -5,10 +5,10 @@ namespace RolePlayingGame
     public class GameManager
     {
         private Player hero;
-        private Enemy enemy;
+        private EnemySpawner enemy;
         private Shop shop;
 
-        public GameManager(Player player, Shop shop, Enemy enemy)
+        public GameManager(Player player, Shop shop, EnemySpawner enemy)
         {
             this.hero = player;
             this.shop = shop;
@@ -52,27 +52,108 @@ namespace RolePlayingGame
 
         private void StateBattle()
         {
-            Console.WriteLine("Battle Starts");
 
-            while (hero.IsAlive() && enemy.IsAlive())
+            Enemy currentEnemy = enemy.EnemyGenerator();
+
+            Console.WriteLine($"A {currentEnemy.Name} appears");
+            Console.WriteLine($"Enemy Stats - Health: {currentEnemy.Health}, Attack: {currentEnemy.Strength}, Defence: {currentEnemy.Defence}");
+
+            Console.WriteLine($"\n=== YOUR STATS ====");
+            Console.WriteLine($"Name: {hero.Name}");
+            Console.WriteLine($"Health: {hero.Health}");
+            Console.WriteLine($"Attack: {hero.Strength}");
+            Console.WriteLine($"Defence: {hero.Defence}");
+            Console.WriteLine($"Gold: {hero.Gold}");
+
+            Console.WriteLine($"\n=== EQUIPPED ITEMS ====");
+            if (hero.EquippedWeapon != null)
+                Console.WriteLine($"Weapon: {hero.EquippedWeapon.Name} (+{hero.EquippedWeapon.Value} Attack");
+            else
+                Console.WriteLine("Weapon: None");
+
+            if (hero.EquippedArmor != null)
+                Console.WriteLine($"Armor: {hero.EquippedArmor.Name} (+{hero.EquippedArmor.Value} Defence");
+            else
+                Console.WriteLine("Armor: None");
+
+            if (hero.EquippedPortion != null)
+                Console.WriteLine($"Portion: {hero.EquippedPortion.Name} (+ {hero.EquippedPortion.Value} Health");
+
+            bool readyToBattle = false;
+            while (!readyToBattle)
             {
-                hero.Attack(enemy);
+                Console.WriteLine($"\n==== GET READY OPTIONS  ====");
+                Console.WriteLine("1. Start Battle");
+                Console.WriteLine("2. Check Inventory And Equip Items");
+                Console.WriteLine("3. Visit Shop");
+                Console.WriteLine("4. Return To main Menu");
+                Console.Write("Choose your action");
 
-                if (!enemy.IsAlive())
+                var option = Console.ReadLine();
+
+                switch (option)
+                {
+                    case "1":
+                        readyToBattle = true;
+                        break;
+                    case "2":
+                        InventoryMenu();
+                        ShowUpdatedStats();
+                        break;
+                    case "3":
+                        VisitShop();
+                        ShowUpdatedStats();
+                        break;
+                    case "4":
+                        Console.WriteLine("You retreat safely");
+                        return;
+                    default:
+                        Console.WriteLine("Enter input again!!!");
+                        break;
+                }
+
+            }
+
+            Console.WriteLine("Battle Starts");
+            Console.WriteLine($"{hero.Name} vs {currentEnemy.Name}");
+
+            while (hero.IsAlive() && currentEnemy.IsAlive())
+            {
+                hero.Attack(currentEnemy);
+
+                if (!currentEnemy.IsAlive())
                     break;
 
-                enemy.Attack(hero);
+                currentEnemy.Attack(hero);
             }
 
             Console.WriteLine(hero.IsAlive()
                 ? $"{hero.Name} wins the fight"
-                : $"{enemy.Name} defeat {hero.Name}!");
+                : $"{currentEnemy.Name} defeat {hero.Name}!");
 
             Thread.Sleep(500);
 
             hero.Resethealth();
-            enemy.Resethealth();
             Console.WriteLine($"{hero.Name}'s health has been restored to {hero.Health}!");
+        }
+
+        private void ShowUpdatedStats()
+        {
+            Console.WriteLine($"\n====UPDATED STATS ====");
+            Console.WriteLine($"Health: {hero.Health}");
+            Console.WriteLine($"Attack: {hero.Strength}");
+            Console.WriteLine($"Defence: {hero.Defence}");
+            Console.WriteLine($"Gold: {hero.Gold}");
+
+            if (hero.EquippedWeapon != null)
+                Console.WriteLine($"Weapon: {hero.EquippedWeapon.Name} (+{hero.EquippedWeapon.Value} Attack");
+
+            if (hero.EquippedArmor != null)
+                Console.WriteLine($"Armor: {hero.EquippedArmor.Name} (+{hero.EquippedArmor.Value} Defence");
+
+            if (hero.EquippedPortion != null)
+                Console.WriteLine($"Portion: {hero.EquippedPortion.Name} (+ {hero.EquippedPortion.Value} Health");
+
         }
 
         private void VisitShop()
@@ -142,7 +223,7 @@ namespace RolePlayingGame
                         UnequipItem();
                         break;
                     case "4":
-                        Start();
+                        inInventory = false;
                         break;
                     default:
                         Console.WriteLine("Enter input again!!!");

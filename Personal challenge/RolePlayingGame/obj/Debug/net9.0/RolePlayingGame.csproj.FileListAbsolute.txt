@@ -1,0 +1,14 @@
+C:\Users\USER\source\repos\RolePlayingGame\bin\Debug\net9.0\RolePlayingGame.exe
+C:\Users\USER\source\repos\RolePlayingGame\bin\Debug\net9.0\RolePlayingGame.deps.json
+C:\Users\USER\source\repos\RolePlayingGame\bin\Debug\net9.0\RolePlayingGame.runtimeconfig.json
+C:\Users\USER\source\repos\RolePlayingGame\bin\Debug\net9.0\RolePlayingGame.dll
+C:\Users\USER\source\repos\RolePlayingGame\bin\Debug\net9.0\RolePlayingGame.pdb
+C:\Users\USER\source\repos\RolePlayingGame\obj\Debug\net9.0\RolePlayingGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\source\repos\RolePlayingGame\obj\Debug\net9.0\RolePlayingGame.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\RolePlayingGame\obj\Debug\net9.0\RolePlayingGame.AssemblyInfo.cs
+C:\Users\USER\source\repos\RolePlayingGame\obj\Debug\net9.0\RolePlayingGame.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\RolePlayingGame\obj\Debug\net9.0\RolePlayingGame.dll
+C:\Users\USER\source\repos\RolePlayingGame\obj\Debug\net9.0\refint\RolePlayingGame.dll
+C:\Users\USER\source\repos\RolePlayingGame\obj\Debug\net9.0\RolePlayingGame.pdb
+C:\Users\USER\source\repos\RolePlayingGame\obj\Debug\net9.0\RolePlayingGame.genruntimeconfig.cache
+C:\Users\USER\source\repos\RolePlayingGame\obj\Debug\net9.0\ref\RolePlayingGame.dll

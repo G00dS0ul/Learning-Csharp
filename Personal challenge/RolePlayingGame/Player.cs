@@ -27,7 +27,7 @@ namespace RolePlayingGame
             int totalAttack = Strength;
             if (EquippedWeapon != null)
             {
-                totalAttack = Strength;
+                totalAttack = Strength + EquippedWeapon.Value;
             }
 
             if (isCritical)
@@ -36,7 +36,7 @@ namespace RolePlayingGame
                 Console.WriteLine("Critical Hit With Twice the damage");
             }
 
-            int damage = totalAttack - target.Defence;
+            int damage = Math.Max(0,totalAttack - target.Defence);
             target.TakeDamage(damage);
             Console.WriteLine($"{Name} attacks {target.Name} for {damage} damage!");
             Thread.Sleep(500);
@@ -57,10 +57,9 @@ namespace RolePlayingGame
                 totalDefence = Defence + EquippedArmor.Value;
             }
 
-            var finalDamage = damage - totalDefence;
-            finalDamage = Math.Max(0, damage);
+            var finalDamage = Math.Max(0, damage - totalDefence);
             Health -= finalDamage;
-            Console.WriteLine($"{Name} took {damage} damage!  Remaining health: {Health}");
+            Console.WriteLine($"{Name} took {finalDamage} damage!  Remaining health: {Health}");
         }
 
         public void UsePortion()

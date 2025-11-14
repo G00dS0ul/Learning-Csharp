@@ -8,6 +8,7 @@ namespace RolePlayingGame
         
         static void Main(string[] args)
         {
+            var enemySpawner = new EnemySpawner();
             var shop = new Shop();
             var hero = new Player
             {
@@ -19,16 +20,7 @@ namespace RolePlayingGame
                 Gold = 150
             };
 
-            var enemy = new Enemy
-            {
-                Name = "Goblin",
-                Type = "Super Natural",
-                Health = 60,
-                Strength = 20,
-                Defence = 3
-            };
-
-            var gameManager = new GameManager(hero, shop, enemy);
+            var gameManager = new GameManager(hero, shop, enemySpawner);
 
             Item sword = new Item("Excalibur", "Weapon", 5);
             Item shield = new Item("Bronze Shield", "Armor", 10);
