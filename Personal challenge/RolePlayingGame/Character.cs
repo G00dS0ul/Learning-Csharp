@@ -26,7 +26,7 @@
             if (Health < 0)
                 Health = 0;
 
-            Console.WriteLine($"{Name} took {finalDamage} damage! Remaining health: {Health}");
+            ConsoleUI.PrintColor($"{Name} took {finalDamage} damage! Remaining health: {Health}", ConsoleColor.Red);
         }
 
         public bool IsAlive()

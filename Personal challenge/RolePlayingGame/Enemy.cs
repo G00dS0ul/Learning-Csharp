@@ -17,7 +17,7 @@
         {
      
             base.Attack(target);
-            Console.WriteLine($"{Name} ({Type}) attacks {target.Name} for {Strength} damage!");
+            ConsoleUI.PrintColor($"{Name} ({Type}) attacks {target.Name} for {Strength} damage!", ConsoleColor.Red);
             Thread.Sleep(500);
         }
     }

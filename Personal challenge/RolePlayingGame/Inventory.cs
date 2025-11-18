@@ -7,7 +7,7 @@
         public void AddItem(Item item)
         {
             items.Add(item);
-            Console.WriteLine($"{item.Name} added to inventory");
+            ConsoleUI.PrintColor($"{item.Name} added to inventory", ConsoleColor.Green);
         }
 
         public void RemoveItem(Item itemFound)
@@ -29,14 +29,14 @@
         {
             if(items.Count == 0)
             {
-                Console.WriteLine("Inventory Is Empty!");
+                ConsoleUI.PrintColor("Inventory Is Empty!", ConsoleColor.Red);
                 return;
             }
 
-            Console.WriteLine("Inventory: ");
+            ConsoleUI.PrintColor("Inventory: ", ConsoleColor.Cyan);
             for (int i = 0; i < items.Count; i++)
             {
-                Console.WriteLine($"{1 + i}. {items[i].Name} - {items[i].Value}.");
+                ConsoleUI.PrintColor($"{1 + i}. {items[i].Name} - {items[i].Value}.", ConsoleColor.Magenta);
             }
 
         }

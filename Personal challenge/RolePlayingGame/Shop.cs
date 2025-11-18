@@ -21,10 +21,10 @@ namespace RolePlayingGame
 
         public void DisplayItems()
         {
-            Console.WriteLine($"Welcome to the {ShopName}!!!");
+            ConsoleUI.PrintColor($"Welcome to the {ShopName}!!!", ConsoleColor.Cyan);
             for (int i = 0; i < Stocks.Count; i++)
             {
-                Console.WriteLine($"{1 + i}. {Stocks[i].Name} - {Stocks[i].Price}.");
+                ConsoleUI.PrintColor($"{1 + i}. {Stocks[i].Name} - {Stocks[i].Price}.", ConsoleColor.Magenta);
             }
            
            
@@ -38,12 +38,12 @@ namespace RolePlayingGame
                 var inventory = player.Inventory;
                 inventory.AddItem(choice);
                 Stocks.Remove(choice);
-                Console.WriteLine($"{player.Name} Purchase {choice.Name} for {choice.Price} Gold. Remaining {player.Gold} Gold");
+                ConsoleUI.PrintColor($"{player.Name} Purchase {choice.Name} for {choice.Price} Gold. Remaining {player.Gold} Gold", ConsoleColor.Green);
             }
 
             else
             {
-                Console.WriteLine("Not Enough Gold");
+                ConsoleUI.PrintColor("Not Enough Gold", ConsoleColor.Red);
             }
             
         }
@@ -54,7 +54,7 @@ namespace RolePlayingGame
             var inventory = player.Inventory;
             inventory.RemoveItem(choice);
             Stocks.Add(choice);
-            Console.WriteLine($"{player.Name} Sold an Item from Invetory, Gold increased by {player.Gold}.");
+            ConsoleUI.PrintColor($"{player.Name} Sold an Item from Invetory, Gold increased by {player.Gold}.", ConsoleColor.Magenta);
         }
     }
 }

@@ -20,11 +20,11 @@ namespace RolePlayingGame
             bool running = true;
             while (running)
             {
-                Console.WriteLine("\n ==== MainMenu ===");
-                Console.WriteLine("1. Start Battle");
-                Console.WriteLine("2. Inventory Menu");
-                Console.WriteLine("3. Visit Shop");
-                Console.WriteLine("4. Exit");
+                PrintColor("\n ==== MainMenu ===", ConsoleColor.Cyan);
+                PrintColor("1. Start Battle", ConsoleColor.Red);
+                PrintColor("2. Inventory Menu", ConsoleColor.Green);
+                PrintColor("3. Visit Shop", ConsoleColor.Yellow);
+                PrintColor("4. Exit", ConsoleColor.DarkRed);
 
                 Console.Write("Choose: ");
                 var option = Console.ReadLine();
@@ -44,7 +44,7 @@ namespace RolePlayingGame
                         running = false;
                         break;
                     default:
-                        Console.WriteLine("Enter input again!!!");
+                        PrintColor("Enter input again!!!", ConsoleColor.Red);
                         break;
                 }    
             }
@@ -55,39 +55,39 @@ namespace RolePlayingGame
 
             Enemy currentEnemy = enemy.EnemyGenerator();
 
-            Console.WriteLine($"A {currentEnemy.Name} appears");
-            Console.WriteLine($"Enemy Stats - Health: {currentEnemy.Health}, Attack: {currentEnemy.Strength}, Defence: {currentEnemy.Defence}");
+            PrintColor($"A {currentEnemy.Name} appears", ConsoleColor.Red);
+            PrintColor($"Enemy Stats - Health: {currentEnemy.Health}, Attack: {currentEnemy.Strength}, Defence: {currentEnemy.Defence}", ConsoleColor.Red);
 
-            Console.WriteLine($"\n=== YOUR STATS ====");
+            PrintColor($"\n=== YOUR STATS ====", ConsoleColor.Green);
             Console.WriteLine($"Name: {hero.Name}");
             Console.WriteLine($"Health: {hero.Health}");
             Console.WriteLine($"Attack: {hero.Strength}");
             Console.WriteLine($"Defence: {hero.Defence}");
-            Console.WriteLine($"Gold: {hero.Gold}");
+            PrintColor($"Gold: {hero.Gold}", ConsoleColor.Yellow);
 
-            Console.WriteLine($"\n=== EQUIPPED ITEMS ====");
+            PrintColor($"\n=== EQUIPPED ITEMS ====", ConsoleColor.Blue);
             if (hero.EquippedWeapon != null)
-                Console.WriteLine($"Weapon: {hero.EquippedWeapon.Name} (+{hero.EquippedWeapon.Value} Attack");
+                PrintColor($"Weapon: {hero.EquippedWeapon.Name} (+{hero.EquippedWeapon.Value} Attack", ConsoleColor.Red);
             else
-                Console.WriteLine("Weapon: None");
+                PrintColor("Weapon: None", ConsoleColor.Red);
 
             if (hero.EquippedArmor != null)
-                Console.WriteLine($"Armor: {hero.EquippedArmor.Name} (+{hero.EquippedArmor.Value} Defence");
+                PrintColor($"Armor: {hero.EquippedArmor.Name} (+{hero.EquippedArmor.Value} Defence", ConsoleColor.DarkYellow);
             else
-                Console.WriteLine("Armor: None");
+                PrintColor("Armor: None", ConsoleColor.DarkYellow);
 
             if (hero.EquippedPortion != null)
-                Console.WriteLine($"Portion: {hero.EquippedPortion.Name} (+ {hero.EquippedPortion.Value} Health");
+                PrintColor($"Portion: {hero.EquippedPortion.Name} (+ {hero.EquippedPortion.Value} Health", ConsoleColor.Green);
 
             bool readyToBattle = false;
             while (!readyToBattle)
             {
-                Console.WriteLine($"\n==== GET READY OPTIONS  ====");
+                PrintColor($"\n==== GET READY OPTIONS  ====", ConsoleColor.Cyan);
                 Console.WriteLine("1. Start Battle");
                 Console.WriteLine("2. Check Inventory And Equip Items");
                 Console.WriteLine("3. Visit Shop");
                 Console.WriteLine("4. Return To main Menu");
-                Console.Write("Choose your action");
+                Console.Write("Choose your action: ");
 
                 var option = Console.ReadLine();
 
@@ -114,8 +114,8 @@ namespace RolePlayingGame
 
             }
 
-            Console.WriteLine("Battle Starts");
-            Console.WriteLine($"{hero.Name} vs {currentEnemy.Name}");
+            PrintColor("Battle Starts", ConsoleColor.Yellow);
+            PrintColor($"{hero.Name} vs {currentEnemy.Name}", ConsoleColor.Red);
 
             while (hero.IsAlive() && currentEnemy.IsAlive())
             {
@@ -127,32 +127,36 @@ namespace RolePlayingGame
                 currentEnemy.Attack(hero);
             }
 
-            Console.WriteLine(hero.IsAlive()
+            PrintColor(hero.IsAlive()
                 ? $"{hero.Name} wins the fight"
-                : $"{currentEnemy.Name} defeat {hero.Name}!");
+                : $"{currentEnemy.Name} defeat {hero.Name}!",
+                hero.IsAlive()
+                ? ConsoleColor.Green
+                : ConsoleColor.Red
+                );
 
             Thread.Sleep(500);
 
             hero.Resethealth();
-            Console.WriteLine($"{hero.Name}'s health has been restored to {hero.Health}!");
+            PrintColor($"{hero.Name}'s health has been restored to {hero.Health}!", ConsoleColor.Green);
         }
 
         private void ShowUpdatedStats()
         {
-            Console.WriteLine($"\n====UPDATED STATS ====");
+            PrintColor($"\n====UPDATED STATS ====", ConsoleColor.Cyan);
             Console.WriteLine($"Health: {hero.Health}");
             Console.WriteLine($"Attack: {hero.Strength}");
             Console.WriteLine($"Defence: {hero.Defence}");
-            Console.WriteLine($"Gold: {hero.Gold}");
+            PrintColor($"Gold: {hero.Gold}", ConsoleColor.Yellow);
 
             if (hero.EquippedWeapon != null)
-                Console.WriteLine($"Weapon: {hero.EquippedWeapon.Name} (+{hero.EquippedWeapon.Value} Attack");
+                PrintColor($"Weapon: {hero.EquippedWeapon.Name} (+{hero.EquippedWeapon.Value}) Attack", ConsoleColor.Red);
 
             if (hero.EquippedArmor != null)
-                Console.WriteLine($"Armor: {hero.EquippedArmor.Name} (+{hero.EquippedArmor.Value} Defence");
+                PrintColor($"Armor: {hero.EquippedArmor.Name} (+{hero.EquippedArmor.Value}) Defence", ConsoleColor.DarkYellow);
 
             if (hero.EquippedPortion != null)
-                Console.WriteLine($"Portion: {hero.EquippedPortion.Name} (+ {hero.EquippedPortion.Value} Health");
+                PrintColor($"Portion: {hero.EquippedPortion.Name} (+ {hero.EquippedPortion.Value}) Health", ConsoleColor.Green);
 
         }
 
@@ -175,7 +179,7 @@ namespace RolePlayingGame
 
                 else
                 {
-                    Console.WriteLine("Invalid Input!!!");
+                    PrintColor("Invalid Input!!!", ConsoleColor.Red);
                 }       
             }
             else if (option == "2")
@@ -191,7 +195,7 @@ namespace RolePlayingGame
 
                 else
                 {
-                    Console.WriteLine("Invalid Input");
+                    PrintColor("Invalid Input", ConsoleColor.Red);
                 }
 
             }
@@ -202,7 +206,7 @@ namespace RolePlayingGame
             bool inInventory = true;
             while(inInventory)
             {
-                Console.WriteLine("\n ==== Inventory Menu ===");
+                PrintColor("\n ==== Inventory Menu ===", ConsoleColor.Cyan);
                 Console.WriteLine("1. Display Items Owned");
                 Console.WriteLine("2. Equip Item");
                 Console.WriteLine("3. Unequip Item");
@@ -294,6 +298,13 @@ namespace RolePlayingGame
                 }
                 Console.WriteLine("Invalid Choice");
             }
+        }
+
+        public void PrintColor(string message, ConsoleColor color)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
     }
 }

@@ -35,16 +35,16 @@ namespace RolePlayingGame
             if (isCritical)
             {
                 totalAttack *= 2;
-                Console.WriteLine("Critical Hit With Twice the damage");
+                ConsoleUI.PrintColor($"Critical Hit With Twice the damage{totalAttack}", ConsoleColor.DarkRed);
             }
 
             target.TakeDamage(totalAttack);
-            Console.WriteLine($"{Name} attacks {target.Name} for {totalAttack} damage!");
+            ConsoleUI.PrintColor($"{Name} attacks {target.Name} for {totalAttack} damage!", ConsoleColor.Red);
             Thread.Sleep(500);
 
             if (!target.IsAlive())
             {
-                Console.WriteLine($"{target.Name} has been defeated");
+                ConsoleUI.PrintColor($"{target.Name} has been defeated", ConsoleColor.Blue);
 
             }
         }
@@ -61,7 +61,7 @@ namespace RolePlayingGame
 
             var finalDamage = Math.Max(0, damage - totalDefence);
             Health -= finalDamage;
-            Console.WriteLine($"{Name} took {finalDamage} damage!  Remaining health: {Health}");
+            ConsoleUI.PrintColor($"{Name} took {finalDamage} damage!  Remaining health: {Health}", ConsoleColor.DarkMagenta);
         }
 
         public void UsePortion()
@@ -69,7 +69,7 @@ namespace RolePlayingGame
             if (EquippedPortion != null)
             {
                 Health += EquippedPortion.Value;
-                Console.WriteLine($"Player's Health is now {Health}");
+                ConsoleUI.PrintColor($"Player's Health is now {Health}", ConsoleColor.Green);
             }
         }
 
@@ -78,30 +78,30 @@ namespace RolePlayingGame
             if (item.Type == "Weapon" && EquippedWeapon == null)
             {
                 EquippedWeapon = item;
-                Console.WriteLine($"{EquippedWeapon.Name} Equipped, Strength increased by {EquippedWeapon.Value}!");
-                Console.WriteLine($"{Name} Current Strenght is {Strength}");
+                ConsoleUI.PrintColor($"{EquippedWeapon.Name} Equipped, Strength increased by {EquippedWeapon.Value}!", ConsoleColor.Red);
+                ConsoleUI.PrintColor($"{Name} Current Strenght is {Strength}", ConsoleColor.Red);
             }
 
             else if (item.Type == "Armor" && EquippedArmor == null)
             {
                 EquippedArmor = item;
-                Console.WriteLine($"{EquippedArmor.Name} Equipped, Defence increased by {EquippedArmor.Value}!");
-                Console.WriteLine($"{Name} Current Defence is {Defence}");
+                ConsoleUI.PrintColor($"{EquippedArmor.Name} Equipped, Defence increased by {EquippedArmor.Value}!", ConsoleColor.DarkYellow);
+                ConsoleUI.PrintColor($"{Name} Current Defence is {Defence}", ConsoleColor.DarkYellow);
             }
 
             else if (item.Type == "Portion")
             {
                 EquippedPortion = item;
                 UsePortion();
-                Console.WriteLine($"{EquippedPortion.Name} Equipped, Health increased by {EquippedPortion.Value}");
-                Console.WriteLine($"{Name} Current Health is {Health}");
+                ConsoleUI.PrintColor($"{EquippedPortion.Name} Equipped, Health increased by {EquippedPortion.Value}", ConsoleColor.Green);
+                ConsoleUI.PrintColor($"{Name} Current Health is {Health}", ConsoleColor.Green);
                 Inventory.RemoveItem(item);
                 EquippedPortion = null;
             }
 
             else
             {
-                Console.WriteLine("An Item is been Equipped, Unequip the item before equiping new Item");
+                ConsoleUI.PrintColor("An Item is been Equipped, Unequip the item before equiping new Item", ConsoleColor.DarkCyan);
             }
 
         }
@@ -112,14 +112,14 @@ namespace RolePlayingGame
             {
                 Strength -= item.Value;
                 EquippedWeapon = null;
-                Console.WriteLine($"{item.Name} has been unequipped, Strength value has decreased by {item.Value}");
+                ConsoleUI.PrintColor($"{item.Name} has been unequipped, Strength value has decreased by {item.Value}", ConsoleColor.Red);
             }
 
             if(item.Type == "Armor")
             {
                 Defence -= item.Value;
                 EquippedArmor = null;
-                Console.WriteLine($"{item.Name} has been unequipped, Defence value has decreased by {item.Value}");
+                ConsoleUI.PrintColor($"{item.Name} has been unequipped, Defence value has decreased by {item.Value}", ConsoleColor.DarkYellow);
             }
 
             if(item.Type == "Portion")
@@ -127,7 +127,7 @@ namespace RolePlayingGame
                 Health -= item.Value;
                 Inventory.AddItem(item);
                 EquippedPortion = null;
-                Console.WriteLine($"{item.Name} has been unequipped, Health value has decreased by {item.Value}");
+                ConsoleUI.PrintColor($"{item.Name} has been unequipped, Health value has decreased by {item.Value}", ConsoleColor.Green);
             }
                 
         }
