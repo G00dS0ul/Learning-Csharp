@@ -15,9 +15,9 @@
 
         public override void Attack(ICharacter target)
         {
-            int damage = Math.Max(0, Strength - target.Defence);
-            target.TakeDamage(damage);
-            Console.WriteLine($"{Name} ({Type}) attacks {target.Name} for {damage} damage!");
+     
+            base.Attack(target);
+            Console.WriteLine($"{Name} ({Type}) attacks {target.Name} for {Strength} damage!");
             Thread.Sleep(500);
         }
     }

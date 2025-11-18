@@ -16,17 +16,17 @@
 
         public virtual void Attack(ICharacter target)
         {
-            int damage = Math.Max(0, Strength - target.Defence);
-            target.Health -= damage;
+            target.TakeDamage(Strength);
         }
 
         public virtual void TakeDamage(int damage)
         {
-            Health -= damage;
+            int finalDamage = Math.Max(0, damage - Defence);
+            Health -= finalDamage;
             if (Health < 0)
                 Health = 0;
 
-            Console.WriteLine($"{Name} took {damage} damage! Remaining health: {Health}");
+            Console.WriteLine($"{Name} took {finalDamage} damage! Remaining health: {Health}");
         }
 
         public bool IsAlive()

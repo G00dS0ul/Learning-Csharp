@@ -24,10 +24,12 @@ namespace RolePlayingGame
             Random rand = new Random();
             bool isCritical = rand.Next(1, 101) <= 20;
 
-            int totalAttack = Strength;
+            var totalAttack = Strength;
+            var weaponBonus = 0;
             if (EquippedWeapon != null)
             {
-                totalAttack = Strength + EquippedWeapon.Value;
+                weaponBonus = EquippedWeapon.Value;
+                totalAttack += weaponBonus;
             }
 
             if (isCritical)
@@ -36,9 +38,8 @@ namespace RolePlayingGame
                 Console.WriteLine("Critical Hit With Twice the damage");
             }
 
-            int damage = Math.Max(0,totalAttack - target.Defence);
-            target.TakeDamage(damage);
-            Console.WriteLine($"{Name} attacks {target.Name} for {damage} damage!");
+            target.TakeDamage(totalAttack);
+            Console.WriteLine($"{Name} attacks {target.Name} for {totalAttack} damage!");
             Thread.Sleep(500);
 
             if (!target.IsAlive())
@@ -51,10 +52,11 @@ namespace RolePlayingGame
         public override void TakeDamage(int damage)
         {
             var totalDefence = Defence;
-
+            var armorBonus = 0;
             if (EquippedArmor != null)
             {
-                totalDefence = Defence + EquippedArmor.Value;
+                armorBonus = EquippedArmor.Value;
+                totalDefence += armorBonus;
             }
 
             var finalDamage = Math.Max(0, damage - totalDefence);
@@ -76,7 +78,6 @@ namespace RolePlayingGame
             if (item.Type == "Weapon" && EquippedWeapon == null)
             {
                 EquippedWeapon = item;
-                Strength += EquippedWeapon.Value;
                 Console.WriteLine($"{EquippedWeapon.Name} Equipped, Strength increased by {EquippedWeapon.Value}!");
                 Console.WriteLine($"{Name} Current Strenght is {Strength}");
             }
@@ -84,7 +85,6 @@ namespace RolePlayingGame
             else if (item.Type == "Armor" && EquippedArmor == null)
             {
                 EquippedArmor = item;
-                Defence += EquippedArmor.Value;
                 Console.WriteLine($"{EquippedArmor.Name} Equipped, Defence increased by {EquippedArmor.Value}!");
                 Console.WriteLine($"{Name} Current Defence is {Defence}");
             }
@@ -96,6 +96,7 @@ namespace RolePlayingGame
                 Console.WriteLine($"{EquippedPortion.Name} Equipped, Health increased by {EquippedPortion.Value}");
                 Console.WriteLine($"{Name} Current Health is {Health}");
                 Inventory.RemoveItem(item);
+                EquippedPortion = null;
             }
 
             else

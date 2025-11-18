@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -23,8 +15,16 @@
       "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:enemyspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 304,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,20 +42,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Enemy.cs",
               "RelativeDocumentMoniker": "Enemy.cs",
               "ToolTip": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Enemy.cs",
               "RelativeToolTip": "Enemy.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAA1wA8AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAUwBIAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-13T17:24:44.491Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "EnemySpawner.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\EnemySpawner.cs",
               "RelativeDocumentMoniker": "EnemySpawner.cs",
@@ -63,12 +63,11 @@
               "RelativeToolTip": "EnemySpawner.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-14T11:06:59.891Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-14T11:06:59.891Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -76,44 +75,43 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T09:37:16.119Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T09:37:16.119Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\GameManager.cs",
               "RelativeDocumentMoniker": "GameManager.cs",
               "ToolTip": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\GameManager.cs",
               "RelativeToolTip": "GameManager.cs",
-              "ViewState": "AgIAAI4AAAAAAAAAAAAswJ0AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAQwJ0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T19:20:12.337Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Player.cs",
               "RelativeDocumentMoniker": "Player.cs",
               "ToolTip": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Player.cs",
               "RelativeToolTip": "Player.cs",
-              "ViewState": "AgIAAEQAAAAAAAAAAAAgwDwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAIwGIAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-16T18:18:11.696Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "Character.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Character.cs",
               "RelativeDocumentMoniker": "Character.cs",
               "ToolTip": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Character.cs",
               "RelativeToolTip": "Character.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-13T19:32:26.967Z",
               "EditorCaption": ""
