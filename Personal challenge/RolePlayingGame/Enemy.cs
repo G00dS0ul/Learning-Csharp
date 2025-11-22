@@ -3,14 +3,16 @@
     public class Enemy : Character, ICharacter
     {
         public string? Type { get; set; }
+        public int XpReward { get; set; }
 
-        public Enemy(string? name, string? type, int health, int defence, int strength)
+        public Enemy(string? name, string? type, int health, int defence, int strength, int xpReward)
         {
             this.Name = name;
             this.Type = type;
             this.Health = health;
             this.Defence = defence;
             this.Strength = strength;
+            this.XpReward = xpReward;
         }
 
         public override void Attack(ICharacter target)

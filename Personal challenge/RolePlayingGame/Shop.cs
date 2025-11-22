@@ -16,6 +16,8 @@ namespace RolePlayingGame
             Stocks.Add(new Item("Golden Sword", "Weapon", 20, 50));
             Stocks.Add(new Item("Golden Shield", "Armor", 25, 40));
             Stocks.Add(new Item("Full Health Portion", "Portion", 100, 45));
+            Stocks.Add(new Item("Dragon Scale Shield", "Armor", 40, 50));
+            Stocks.Add(new Item("Flame Sword", "Weapon", 50, 60));
 
         }
 

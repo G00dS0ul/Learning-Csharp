@@ -7,6 +7,7 @@ namespace RolePlayingGame
     public class Player : Character, ICharacter
     {
         public int Experience { get; set; }
+        public int ExperienceToNextLevel { get; set; }
         public int Level { get; set; }
         public Inventory Inventory { get; private set; }
         public Item? EquippedWeapon { get; set; }
@@ -35,7 +36,7 @@ namespace RolePlayingGame
             if (isCritical)
             {
                 totalAttack *= 2;
-                ConsoleUI.PrintColor($"Critical Hit With Twice the damage{totalAttack}", ConsoleColor.DarkRed);
+                ConsoleUI.PrintColor($"Critical Hit With Twice the damage: {totalAttack}", ConsoleColor.DarkRed);
             }
 
             target.TakeDamage(totalAttack);
@@ -79,14 +80,14 @@ namespace RolePlayingGame
             {
                 EquippedWeapon = item;
                 ConsoleUI.PrintColor($"{EquippedWeapon.Name} Equipped, Strength increased by {EquippedWeapon.Value}!", ConsoleColor.Red);
-                ConsoleUI.PrintColor($"{Name} Current Strenght is {Strength}", ConsoleColor.Red);
+                ConsoleUI.PrintColor($"{Name} Current Strenght is {Strength + EquippedWeapon.Value}", ConsoleColor.Red);
             }
 
             else if (item.Type == "Armor" && EquippedArmor == null)
             {
                 EquippedArmor = item;
                 ConsoleUI.PrintColor($"{EquippedArmor.Name} Equipped, Defence increased by {EquippedArmor.Value}!", ConsoleColor.DarkYellow);
-                ConsoleUI.PrintColor($"{Name} Current Defence is {Defence}", ConsoleColor.DarkYellow);
+                ConsoleUI.PrintColor($"{Name} Current Defence is {Defence + EquippedArmor.Value}", ConsoleColor.DarkYellow);
             }
 
             else if (item.Type == "Portion")
@@ -132,18 +133,28 @@ namespace RolePlayingGame
                 
         }
 
-        private void GainExperience(int amount)
+        public void GainExperience(int amount)
         {
             Experience += amount;
+            if (Experience >= ExperienceToNextLevel)
+            {
+                LevelUp();
+            }
 
+           
+        }
+
+        private void LevelUp()
+        {
             if (Experience >= 100)
             {
                 Experience = 0;
+                ExperienceToNextLevel += 50;
                 Level++;
                 Strength += 5;
                 Defence += 2;
-                Health += 10;
-                Console.WriteLine($"{Name} has leveled up to Level {Level}");
+                Health = MaxHealth;
+                ConsoleUI.PrintColor($"LEVEL UP! {Name} is now level {Level}!", ConsoleColor.Yellow);
             }
         }
 
