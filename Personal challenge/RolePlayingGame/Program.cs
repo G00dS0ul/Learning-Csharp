@@ -3,6 +3,26 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace RolePlayingGame
 {
+    public class SaveData
+    {
+        public string Name;
+        public int Level;
+        public int Experience;
+        public int ExperienceToNextLevel;
+        public int Strength;
+        public int Defence;
+        public int Gold;
+        public List<Item> InventoryItems;
+        public Item EquippedWeapon;
+        public Item EquippedArmor;
+        public Item EquippedPotion;
+
+
+        public void SaveGame()
+        {
+            var saveData = new SaveData();
+        }
+    }
     class Program
     {
         

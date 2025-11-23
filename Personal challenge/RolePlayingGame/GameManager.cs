@@ -139,13 +139,6 @@ namespace RolePlayingGame
 
             Thread.Sleep(500);
 
-            bool heroWon = hero.IsAlive();
-            if (heroWon)
-            {
-                hero.GainExperience(currentEnemy.XpReward);
-                PrintColor($"{hero.Name}'s Gained {currentEnemy.XpReward}!!!", ConsoleColor.DarkGray);
-            }
-
             hero.Resethealth();
             PrintColor($"{hero.Name}'s health has been restored to {hero.Health}!", ConsoleColor.Green);
         }

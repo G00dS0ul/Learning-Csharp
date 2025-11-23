@@ -18,6 +18,9 @@ namespace RolePlayingGame
         public Player()
         {
             Inventory = new Inventory();
+            Level = 1;
+            Experience = 0;
+            ExperienceToNextLevel = 100;
         }
 
         public override void Attack(ICharacter target)
@@ -47,6 +50,8 @@ namespace RolePlayingGame
             {
                 ConsoleUI.PrintColor($"{target.Name} has been defeated", ConsoleColor.Blue);
 
+                int expGained = CalculateExperienceGain(target);
+                GainExperience(expGained);
             }
         }
 
@@ -133,9 +138,23 @@ namespace RolePlayingGame
                 
         }
 
+
+        private int CalculateExperienceGain(ICharacter defeatedEnemy)
+        {
+            int baseExp = 10 + defeatedEnemy.Strength;
+
+            if (defeatedEnemy.Strength >= 30)
+                baseExp += 20;
+            else if (defeatedEnemy.Strength >= 15)
+                baseExp += 10;
+
+            return baseExp;
+        }
         public void GainExperience(int amount)
         {
             Experience += amount;
+            ConsoleUI.PrintColor($"+{amount} XP gained! Total XP: {Experience}/{ExperienceToNextLevel}", ConsoleColor.Cyan);
+
             if (Experience >= ExperienceToNextLevel)
             {
                 LevelUp();
@@ -146,16 +165,31 @@ namespace RolePlayingGame
 
         private void LevelUp()
         {
-            if (Experience >= 100)
+            int overFlowExp = Experience - ExperienceToNextLevel;
+            Experience -= ExperienceToNextLevel;
+            ExperienceToNextLevel = 100 + (Level - 1) * 50;
+            Experience = overFlowExp;
+            Level++;
+            Strength += 5;
+            Defence += 2;
+            int healthBonus = 10;
+            Health += healthBonus;
+            ConsoleUI.PrintColor($"🎉 LEVEL UP! {Name} is now level {Level}!", ConsoleColor.Yellow);
+            ConsoleUI.PrintColor($"💪 Strength +5 (now {Strength})", ConsoleColor.Red);
+            ConsoleUI.PrintColor($"🛡️ Defence +2 (now {Defence})", ConsoleColor.DarkYellow);
+            ConsoleUI.PrintColor($"❤️ Health +{healthBonus} (now {Health})", ConsoleColor.Green);
+            ConsoleUI.PrintColor($"📈 XP required for level {Level + 1}: {ExperienceToNextLevel}", ConsoleColor.Cyan);
+
+            if (Experience >= ExperienceToNextLevel)
             {
-                Experience = 0;
-                ExperienceToNextLevel += 50;
-                Level++;
-                Strength += 5;
-                Defence += 2;
-                Health = MaxHealth;
-                ConsoleUI.PrintColor($"LEVEL UP! {Name} is now level {Level}!", ConsoleColor.Yellow);
+                ConsoleUI.PrintColor("Multiple levels Gained!", ConsoleColor.Magenta);
+                LevelUp();
             }
+        }
+
+        public void ShowExperienceProgress()
+        {
+            ConsoleUI.PrintColor($"Level: {Level} | Total XP: {Experience}/{ExperienceToNextLevel}", ConsoleColor.Cyan);
         }
 
         
