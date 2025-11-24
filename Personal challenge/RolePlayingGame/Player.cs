@@ -23,6 +23,15 @@ namespace RolePlayingGame
             ExperienceToNextLevel = 100;
         }
 
+        public Player(string name)
+        {
+            this.Name = name;
+            Inventory = new Inventory();
+            Level = 1;
+            Experience = 0;
+            ExperienceToNextLevel = 100;
+        }
+
         public override void Attack(ICharacter target)
         {
             Random rand = new Random();

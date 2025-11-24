@@ -9,6 +9,7 @@ namespace RolePlayingGame
         private Player hero;
         private EnemySpawner enemy;
         private Shop shop;
+        SaveData saveData = new SaveData();
 
         public GameManager(Player player, Shop shop, EnemySpawner enemy)
         {
@@ -26,7 +27,9 @@ namespace RolePlayingGame
                 PrintColor("1. Start Battle", ConsoleColor.Red);
                 PrintColor("2. Inventory Menu", ConsoleColor.Green);
                 PrintColor("3. Visit Shop", ConsoleColor.Yellow);
-                PrintColor("4. Exit", ConsoleColor.DarkRed);
+                PrintColor("4. Save Game", ConsoleColor.DarkRed);
+                PrintColor("5. Load Game", ConsoleColor.DarkGreen);
+                PrintColor("6. Exit", ConsoleColor.DarkRed);
 
                 Console.Write("Choose: ");
                 var option = Console.ReadLine();
@@ -43,6 +46,12 @@ namespace RolePlayingGame
                         VisitShop();
                         break;
                     case "4":
+                        saveData.SaveGame(hero);
+                        break;
+                    case "5":
+                        saveData.LoadGame(hero);
+                        break;
+                    case "6":
                         running = false;
                         break;
                     default:

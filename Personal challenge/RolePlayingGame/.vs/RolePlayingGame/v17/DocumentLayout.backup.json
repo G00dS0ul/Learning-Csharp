@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\savedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:savedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\shop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:shop.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:inventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|solutionrelative:enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FF84FD76-726A-4134-BB13-3B2A9DEB523E}|RolePlayingGame.csproj|c:\\users\\user\\source\\repos\\roleplayinggame\\character.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +46,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 294,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SaveData.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\SaveData.cs",
+              "RelativeDocumentMoniker": "SaveData.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\SaveData.cs",
+              "RelativeToolTip": "SaveData.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAowEsAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T09:00:11.278Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Inventory.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Inventory.cs",
+              "RelativeDocumentMoniker": "Inventory.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Inventory.cs",
+              "RelativeToolTip": "Inventory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-24T07:34:04.401Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -59,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Character.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Character.cs",
               "RelativeDocumentMoniker": "Character.cs",
@@ -71,7 +105,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "EnemySpawner.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\EnemySpawner.cs",
               "RelativeDocumentMoniker": "EnemySpawner.cs",
@@ -83,7 +117,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Enemy.cs",
               "RelativeDocumentMoniker": "Enemy.cs",
@@ -96,39 +130,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Player.cs",
               "RelativeDocumentMoniker": "Player.cs",
               "ToolTip": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Player.cs",
               "RelativeToolTip": "Player.cs",
-              "ViewState": "AgIAAKYAAAAAAAAAAAAAALkAAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwB8AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-22T18:01:23.709Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAQwCAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-12T09:37:16.119Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\GameManager.cs",
               "RelativeDocumentMoniker": "GameManager.cs",
               "ToolTip": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\GameManager.cs",
               "RelativeToolTip": "GameManager.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAYwIsAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAIwDMAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-17T19:20:12.337Z",
               "EditorCaption": ""
