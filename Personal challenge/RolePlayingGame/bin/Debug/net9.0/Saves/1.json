@@ -1,0 +1,33 @@
+{
+  "Name": "iceh",
+  "Level": 1,
+  "Experience": 0,
+  "ExperienceToNextLevel": 100,
+  "Strength": 3,
+  "Defence": 3,
+  "Health": 100,
+  "Gold": 150,
+  "InventoryItems": [
+    {
+      "Name": "Excalibur",
+      "Type": "Weapon",
+      "Value": 5,
+      "Price": 0
+    },
+    {
+      "Name": "Healing Potion",
+      "Type": "Portion",
+      "Value": 20,
+      "Price": 0
+    },
+    {
+      "Name": "Bronze Shield",
+      "Type": "Armor",
+      "Value": 10,
+      "Price": 0
+    }
+  ],
+  "EquippedWeapon": null,
+  "EquippedArmor": null,
+  "EquippedPotion": null
+}

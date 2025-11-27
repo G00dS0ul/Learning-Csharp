@@ -1,13 +1,15 @@
-﻿namespace RolePlayingGame
+﻿using System.Text.Json.Serialization;
+
+namespace RolePlayingGame
 {
     public class Item
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
-        public int Value { get; set; }
-        public float Price { get; set; }
+        public string Name { get; private set; }
+        public string Type { get; private set; }
+        public int Value { get; private set; }
+        public float Price { get; private set; }
 
-
+        [JsonConstructor]
         public Item(string name, string type, int value)
         {
             this.Name = name;

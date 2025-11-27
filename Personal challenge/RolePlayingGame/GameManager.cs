@@ -46,10 +46,12 @@ namespace RolePlayingGame
                         VisitShop();
                         break;
                     case "4":
-                        saveData.SaveGame(hero);
+                        Console.Write("Enter a file name to save your game: ");
+                        string saveFileName = Console.ReadLine();
+                        saveData.SaveGame(hero, saveFileName);
                         break;
                     case "5":
-                        saveData.LoadGame(hero);
+                        saveData.LoadGameMenu(hero);
                         break;
                     case "6":
                         running = false;
@@ -74,6 +76,8 @@ namespace RolePlayingGame
             Console.WriteLine($"Health: {hero.Health}");
             Console.WriteLine($"Attack: {hero.Strength}");
             Console.WriteLine($"Defence: {hero.Defence}");
+            Console.WriteLine($"Level: {hero.Level}");
+            Console.WriteLine($"Current XP: {hero.Experience}/ {hero.ExperienceToNextLevel}");
             PrintColor($"Gold: {hero.Gold}", ConsoleColor.Yellow);
 
             PrintColor($"\n=== EQUIPPED ITEMS ====", ConsoleColor.Blue);

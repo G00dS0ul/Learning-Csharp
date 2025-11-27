@@ -1,12 +1,12 @@
 {
-  "Name": "NoThing_Here",
-  "Level": 5,
-  "Experience": 10,
-  "ExperienceToNextLevel": 250,
-  "Strength": 23,
-  "Defence": 11,
+  "Name": "G00dS0ul",
+  "Level": 4,
+  "Experience": 80,
+  "ExperienceToNextLevel": 200,
+  "Strength": 18,
+  "Defence": 9,
   "Health": 100,
-  "Gold": 60,
+  "Gold": 15,
   "InventoryItems": [
     {
       "Name": "Excalibur",
@@ -27,16 +27,22 @@
       "Price": 0
     },
     {
+      "Name": "Flame Sword",
+      "Type": "Weapon",
+      "Value": 50,
+      "Price": 60
+    },
+    {
       "Name": "Shadow Cloak",
       "Type": "Armor",
       "Value": 30,
       "Price": 30
     },
     {
-      "Name": "Flame Sword",
-      "Type": "Weapon",
-      "Value": 50,
-      "Price": 60
+      "Name": "Full Health Portion",
+      "Type": "Portion",
+      "Value": 100,
+      "Price": 45
     }
   ],
   "EquippedWeapon": {

@@ -1,12 +1,12 @@
 {
-  "Name": "NoThing_Here",
+  "Name": "iche",
   "Level": 5,
-  "Experience": 10,
+  "Experience": 115,
   "ExperienceToNextLevel": 250,
   "Strength": 23,
   "Defence": 11,
   "Health": 100,
-  "Gold": 60,
+  "Gold": 40,
   "InventoryItems": [
     {
       "Name": "Excalibur",
@@ -27,29 +27,29 @@
       "Price": 0
     },
     {
-      "Name": "Shadow Cloak",
-      "Type": "Armor",
-      "Value": 30,
-      "Price": 30
-    },
-    {
       "Name": "Flame Sword",
       "Type": "Weapon",
       "Value": 50,
-      "Price": 60
+      "Price": 0
+    },
+    {
+      "Name": "Dragon Scale Shield",
+      "Type": "Armor",
+      "Value": 40,
+      "Price": 0
     }
   ],
   "EquippedWeapon": {
     "Name": "Flame Sword",
     "Type": "Weapon",
     "Value": 50,
-    "Price": 60
+    "Price": 0
   },
   "EquippedArmor": {
-    "Name": "Shadow Cloak",
+    "Name": "Dragon Scale Shield",
     "Type": "Armor",
-    "Value": 30,
-    "Price": 30
+    "Value": 40,
+    "Price": 0
   },
   "EquippedPotion": null
 }

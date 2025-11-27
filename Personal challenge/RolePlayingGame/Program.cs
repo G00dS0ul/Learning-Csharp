@@ -10,15 +10,9 @@ namespace RolePlayingGame
         {
             var enemySpawner = new EnemySpawner();
             var shop = new Shop();
-            var hero = new Player
-            {
-                Name = "G00dS0ul",
-                Health = 100,
-                Defence = 3,
-                Strength = 3,
-                Level = 1,
-                Gold = 150
-            };
+            Console.Write("Enter Name of Player: ");
+            var playerName = Console.ReadLine();
+            var hero = new Player(playerName);
 
             var gameManager = new GameManager(hero, shop, enemySpawner);
 

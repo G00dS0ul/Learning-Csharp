@@ -15,17 +15,13 @@ namespace RolePlayingGame
         public Item? EquippedPortion { get; set; }
         public float Gold { get; set; }
 
-        public Player()
-        {
-            Inventory = new Inventory();
-            Level = 1;
-            Experience = 0;
-            ExperienceToNextLevel = 100;
-        }
-
         public Player(string name)
         {
             this.Name = name;
+            Strength = 3;
+            Defence = 3;
+            Health = 100;
+            Gold = 150;
             Inventory = new Inventory();
             Level = 1;
             Experience = 0;
@@ -183,11 +179,11 @@ namespace RolePlayingGame
             Defence += 2;
             int healthBonus = 10;
             Health += healthBonus;
-            ConsoleUI.PrintColor($"🎉 LEVEL UP! {Name} is now level {Level}!", ConsoleColor.Yellow);
-            ConsoleUI.PrintColor($"💪 Strength +5 (now {Strength})", ConsoleColor.Red);
-            ConsoleUI.PrintColor($"🛡️ Defence +2 (now {Defence})", ConsoleColor.DarkYellow);
-            ConsoleUI.PrintColor($"❤️ Health +{healthBonus} (now {Health})", ConsoleColor.Green);
-            ConsoleUI.PrintColor($"📈 XP required for level {Level + 1}: {ExperienceToNextLevel}", ConsoleColor.Cyan);
+            ConsoleUI.PrintColor($"LEVEL UP! {Name} is now level {Level}!", ConsoleColor.Yellow);
+            ConsoleUI.PrintColor($"Strength +5 (now {Strength})", ConsoleColor.Red);
+            ConsoleUI.PrintColor($"Defence +2 (now {Defence})", ConsoleColor.DarkYellow);
+            ConsoleUI.PrintColor($"Health +{healthBonus} (now {Health})", ConsoleColor.Green);
+            ConsoleUI.PrintColor($"XP required for level {Level + 1}: {ExperienceToNextLevel}", ConsoleColor.Cyan);
 
             if (Experience >= ExperienceToNextLevel)
             {
