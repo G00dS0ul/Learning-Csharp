@@ -1,0 +1,14 @@
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\bin\Debug\net9.0\Personal Finance & Budget Intelligence System.exe
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\bin\Debug\net9.0\Personal Finance & Budget Intelligence System.deps.json
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\bin\Debug\net9.0\Personal Finance & Budget Intelligence System.runtimeconfig.json
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\bin\Debug\net9.0\Personal Finance & Budget Intelligence System.dll
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\bin\Debug\net9.0\Personal Finance & Budget Intelligence System.pdb
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\obj\Debug\net9.0\Personal Finance & Budget Intelligence System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\obj\Debug\net9.0\Personal Finance & Budget Intelligence System.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\obj\Debug\net9.0\Personal Finance & Budget Intelligence System.AssemblyInfo.cs
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\obj\Debug\net9.0\Personal Finance & Budget Intelligence System.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\obj\Debug\net9.0\Personal Finance & Budget Intelligence System.dll
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\obj\Debug\net9.0\refint\Personal Finance & Budget Intelligence System.dll
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\obj\Debug\net9.0\Personal Finance & Budget Intelligence System.pdb
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\obj\Debug\net9.0\Personal Finance & Budget Intelligence System.genruntimeconfig.cache
+C:\Users\USER\source\repos\Personal Finance & Bedget Intelligence System\obj\Debug\net9.0\ref\Personal Finance & Budget Intelligence System.dll
