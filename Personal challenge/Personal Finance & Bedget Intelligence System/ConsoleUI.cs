@@ -55,7 +55,8 @@ namespace Personal_Finance___Budget_Intelligence_System
                 Console.WriteLine("2. Edit Transaction");
                 Console.WriteLine("3. Set Budget Rule");
                 Console.WriteLine("4. View all Transaction");
-                Console.WriteLine("5. Save & Exit");
+                Console.WriteLine("5. Reset All Data");
+                Console.WriteLine("6. Save & Exit");
                 Console.Write("\nSelect an Option: ");
 
                 var input = Console.ReadLine();
@@ -75,6 +76,9 @@ namespace Personal_Finance___Budget_Intelligence_System
                         ShowHistoryScreen();
                         break;
                     case "5":
+                        ResetDataScreen();
+                        break;
+                    case "6":
                         _manager.SaveData();
                         _isRunning = false;
                         break;
@@ -284,6 +288,52 @@ namespace Personal_Finance___Budget_Intelligence_System
             Console.ReadKey();
 
 
+        }
+
+        private void ResetDataScreen()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("\n ----WARNING: This will delete ALL your data!");
+            Console.WriteLine("This Action cannot be undone.");
+            Console.ResetColor();
+
+            Console.Write("\nType 'CONFIRM' to reset all data: ");
+            var confirmation = Console.ReadLine();
+
+            if(confirmation?.ToUpper() == "CONFIRM")
+            {
+                try
+                {
+                    var savePath = Path.Combine("Saves", "my_finance_save.json");
+                    if(File.Exists(savePath))
+                    {
+                        File.Delete(savePath);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Data reset Successfully!!!");
+                        Console.ResetColor();
+                        Console.Beep();
+                        Console.WriteLine("Please restart the application to start fresh.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No save file found to delete.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"Error resetting data: {ex.Message}");
+                    Console.ResetColor();
+                }
+            }
+            else
+            {
+                Console.WriteLine("Reset Cancelled");
+            }
+
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
     }
 }

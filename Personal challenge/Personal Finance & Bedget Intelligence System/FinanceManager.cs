@@ -78,7 +78,7 @@ namespace Personal_Finance___Bedget_Intelligence_System
         public List<Transaction> GetTransactionByDate(DateTime startDate, DateTime endDate)
         {
             return _transaction.Values
-                .Where(t => t.Date == startDate && t.Date ==  endDate)
+                .Where(t => t.Date >= startDate && t.Date <=  endDate)
                 .ToList();
         }
 
@@ -125,12 +125,13 @@ namespace Personal_Finance___Bedget_Intelligence_System
 
         public string CheckBudgetRules(string category)
         {
-            var rule = _rule.FirstOrDefault(r => r.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
+            var rule = _rule.FirstOrDefault(r => r.Category != null && r.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
 
             if (rule != null)
             {
                 decimal totalSpent = _transaction.Values
-                    .Where(t => t.Category.Equals(category, StringComparison.OrdinalIgnoreCase))
+                    .Where(t => t.Category != null && t.Category.Equals(category, StringComparison.OrdinalIgnoreCase))
+                    .Where(t => t.Type == TransactionType.Expense)
                     .Sum(t => t.Amount);
 
                 if (totalSpent > rule.LimitAmount)
@@ -158,7 +159,7 @@ namespace Personal_Finance___Bedget_Intelligence_System
         public void LoadData()
         {
             var loader = new SaveLoadData();
-            SaveLoadData loadedData = loader.LaodSystem("my_finance_save");
+            SaveLoadData loadedData = loader.LoadSystem("my_finance_save");
 
             if( loadedData != null )
             {
@@ -175,7 +176,19 @@ namespace Personal_Finance___Bedget_Intelligence_System
             _transaction.Clear();
             foreach (var items in list)
             {
-                _transaction.Add(items.ID, items);
+                if(items.ID <= 0 || string.IsNullOrEmpty(items.Description))
+                {
+                    Console.WriteLine($"WAENING: Skipping Invalid transaction with ID: {items.ID}");
+                    continue;
+                }
+                if (!_transaction.ContainsKey(items.ID))
+                {
+                    _transaction.Add(items.ID, items);
+                }
+                else
+                {
+                    Console.WriteLine($"WARNING: Duplicate {items.ID}");
+                }
             }
 
             if(list.Count > 0)

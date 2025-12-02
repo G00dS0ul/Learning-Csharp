@@ -37,7 +37,7 @@ namespace Personal_Finance___Budget_Intelligence_System
             }
         }
 
-        public SaveLoadData LaodSystem(string fileName)
+        public SaveLoadData LoadSystem(string fileName)
         {
             var path = Path.Combine(SaveFolder, fileName + ".json");
 
@@ -48,10 +48,10 @@ namespace Personal_Finance___Budget_Intelligence_System
             {
                 var json = File.ReadAllText(path);
                 SaveLoadData data = JsonSerializer.Deserialize<SaveLoadData>(json);
-
+                Console.WriteLine("Loaded Data Successfully");
                 return data;
 
-                Console.WriteLine("Loaded Data Successfully");
+                
             }
 
             catch(Exception ex)

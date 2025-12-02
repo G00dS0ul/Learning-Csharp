@@ -8,12 +8,12 @@
             Expense = 2
         }
 
-        public int ID;
-        public TransactionType Type;
-        public decimal Amount;
-        public string Category;
-        public DateTime Date;
-        public string Description;
+        public int ID { get; set; }
+        public TransactionType Type { get; set; }
+        public decimal Amount { get; set; }
+        public string Category { get; set; }
+        public DateTime Date { get; set; }
+        public string Description { get; set; }
 
         public Transaction()
         {
@@ -30,9 +30,10 @@
             this.Description = description;
         }
 
-       public virtual void ToString()
+       public override string ToString()
         {
-
+            var culture = new System.Globalization.CultureInfo("en-NG");
+            return $"ID: {ID}, Type: {Type}, Amount: {Amount.ToString("C", culture)}, Category: {Category}, Date: {Date:yyyy-MM-dd}, Description: {Description}";
         }
     }
 }

@@ -11,16 +11,16 @@
       "RelativeMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|solutionrelative:consoleui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Bedget Intelligence System.csproj|c:\\users\\user\\source\\repos\\personal finance \u0026 bedget intelligence system\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Bedget Intelligence System.csproj|solutionrelative:transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Bedget Intelligence System.csproj|c:\\users\\user\\source\\repos\\personal finance \u0026 bedget intelligence system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Bedget Intelligence System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|c:\\users\\user\\source\\repos\\personal finance \u0026 bedget intelligence system\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|solutionrelative:transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|c:\\users\\user\\source\\repos\\personal finance \u0026 bedget intelligence system\\saveloaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|solutionrelative:saveloaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|c:\\users\\user\\source\\repos\\personal finance \u0026 bedget intelligence system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,25 +30,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 294,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "SaveLoadData.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\Personal Finance \u0026 Bedget Intelligence System\\SaveLoadData.cs",
               "RelativeDocumentMoniker": "SaveLoadData.cs",
               "ToolTip": "C:\\Users\\USER\\source\\repos\\Personal Finance \u0026 Bedget Intelligence System\\SaveLoadData.cs",
               "RelativeToolTip": "SaveLoadData.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAgwBkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAwDIAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-01T20:13:29.851Z",
               "EditorCaption": ""
@@ -61,7 +57,7 @@
               "RelativeDocumentMoniker": "ConsoleUI.cs",
               "ToolTip": "C:\\Users\\USER\\source\\repos\\Personal Finance \u0026 Bedget Intelligence System\\ConsoleUI.cs",
               "RelativeToolTip": "ConsoleUI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAN0AAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-01T13:20:33.877Z",
               "EditorCaption": ""
@@ -74,7 +70,7 @@
               "RelativeDocumentMoniker": "Transaction.cs",
               "ToolTip": "C:\\Users\\USER\\source\\repos\\Personal Finance \u0026 Bedget Intelligence System\\Transaction.cs",
               "RelativeToolTip": "Transaction.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA4wBMAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-28T14:23:02.159Z",
               "EditorCaption": ""
@@ -87,14 +83,14 @@
               "RelativeDocumentMoniker": "FinanceManager.cs",
               "ToolTip": "C:\\Users\\USER\\source\\repos\\Personal Finance \u0026 Bedget Intelligence System\\FinanceManager.cs",
               "RelativeToolTip": "FinanceManager.cs",
-              "ViewState": "AgIAAHgAAAAAAAAAAAAMwIwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAH8AAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-29T06:49:40.086Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\Personal Finance \u0026 Bedget Intelligence System\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -102,8 +98,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-28T14:17:46.866Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-28T14:17:46.866Z"
             }
           ]
         }

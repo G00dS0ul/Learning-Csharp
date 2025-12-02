@@ -1,7 +1,46 @@
 {
   "Transactions": [
-    {}
+    {
+      "ID": 1,
+      "Type": 1,
+      "Amount": 100000,
+      "Category": "School",
+      "Date": "2025-12-02T01:11:39.288584+01:00",
+      "Description": "Monthly Allowance"
+    },
+    {
+      "ID": 2,
+      "Type": 2,
+      "Amount": 15000,
+      "Category": "Data",
+      "Date": "2025-12-02T01:12:23.1878235+01:00",
+      "Description": "Monthly Data"
+    },
+    {
+      "ID": 3,
+      "Type": 2,
+      "Amount": 40000,
+      "Category": "Food",
+      "Date": "2025-12-02T01:13:57.0379888+01:00",
+      "Description": "Food Stuff"
+    }
   ],
-  "Rules": [],
-  "LastID": 2
+  "Rules": [
+    {
+      "Category": "Data",
+      "LimitAmount": 10000,
+      "WarningMessage": "WARNING: You have exceeded your Data budget  of \u20A610,000.00!!"
+    },
+    {
+      "Category": "Food",
+      "LimitAmount": 30000,
+      "WarningMessage": "WARNING: You have exceeded your Food budget  of \u20A630,000.00!!"
+    },
+    {
+      "Category": "Other",
+      "LimitAmount": 20000,
+      "WarningMessage": "WARNING: You have exceeded your Other budget  of \u20A620,000.00!!"
+    }
+  ],
+  "LastID": 4
 }
