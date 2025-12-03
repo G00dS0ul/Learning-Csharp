@@ -1,4 +1,5 @@
 ﻿using Personal_Finance___Bedget_Intelligence_System;
+using Personal_Finance___Budget_Intelligence_System;
 using System.Text.Json;
 using static Personal_Finance___Bedget_Intelligence_System.Transaction;
 
@@ -28,12 +29,12 @@ namespace Personal_Finance___Budget_Intelligence_System
             {
                 var json = JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(path, json);
-                Console.WriteLine($"Saved Succefully to: {fileName}");
+                ConsoleForegroundColor.PrintColor($"Saved Succefully to: {fileName}", ConsoleColor.Green);
             }
 
             catch (Exception ex)
             {
-                Console.WriteLine($"Error Saving!!! {ex.Message}");
+                ConsoleForegroundColor.PrintColor($"Error Saving!!! {ex.Message}", ConsoleColor.DarkRed);
             }
         }
 
@@ -48,7 +49,7 @@ namespace Personal_Finance___Budget_Intelligence_System
             {
                 var json = File.ReadAllText(path);
                 SaveLoadData data = JsonSerializer.Deserialize<SaveLoadData>(json);
-                Console.WriteLine("Loaded Data Successfully");
+                ConsoleForegroundColor.PrintColor("Loaded Data Successfully", ConsoleColor.Green);
                 return data;
 
                 
@@ -56,7 +57,7 @@ namespace Personal_Finance___Budget_Intelligence_System
 
             catch(Exception ex)
             {
-                Console.WriteLine($"Error Loading Data!!! {ex.Message}");
+                ConsoleForegroundColor.PrintColor($"Error Loading Data!!! {ex.Message}", ConsoleColor.Red);
                 return null;
             }
             

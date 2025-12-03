@@ -12,6 +12,7 @@ namespace Personal_Finance___Bedget_Intelligence_System
         public FinanceManager()
         {
             _transaction = new Dictionary<int, Transaction>();
+            _rule = new List<BudgetRules>();
             nextID = 1;
 
         }
@@ -111,7 +112,7 @@ namespace Personal_Finance___Bedget_Intelligence_System
 
             foreach (var item in summary)
             {
-                Console.WriteLine($"Month: {item.Month} | Income: {item.TotalIncome} | Expense: {item.TotalExpense}");
+                ConsoleForegroundColor.PrintColor($"Month: {item.Month} | Income: {item.TotalIncome} | Expense: {item.TotalExpense}", ConsoleColor.DarkMagenta);
             }
                 
         }
@@ -167,7 +168,28 @@ namespace Personal_Finance___Bedget_Intelligence_System
                 _rule = loadedData.Rules;
                 LoadFromList(loadedData.Transactions);
 
-                Console.WriteLine("System State Restored!");
+                ConsoleForegroundColor.PrintColor("System State Restored!", ConsoleColor.Green);
+            }
+        }
+
+        public void ResetAllData()
+        {
+            _transaction.Clear();
+            _rule.Clear();
+            nextID = 1;
+
+            try
+            {
+                var savePath = Path.Combine("Saves", "my_finance_save.json");
+                if(File.Exists(savePath))
+                {
+                    File.Delete(savePath);
+                }
+            }
+
+            catch(Exception ex)
+            {
+                ConsoleForegroundColor.PrintColor($"Error deleting save file: {ex.Message}", ConsoleColor.DarkRed);
             }
         }
 
@@ -178,7 +200,7 @@ namespace Personal_Finance___Bedget_Intelligence_System
             {
                 if(items.ID <= 0 || string.IsNullOrEmpty(items.Description))
                 {
-                    Console.WriteLine($"WAENING: Skipping Invalid transaction with ID: {items.ID}");
+                    ConsoleForegroundColor.PrintColor($"WAENING: Skipping Invalid transaction with ID: {items.ID}", ConsoleColor.Red);
                     continue;
                 }
                 if (!_transaction.ContainsKey(items.ID))
@@ -187,7 +209,7 @@ namespace Personal_Finance___Bedget_Intelligence_System
                 }
                 else
                 {
-                    Console.WriteLine($"WARNING: Duplicate {items.ID}");
+                    ConsoleForegroundColor.PrintColor($"WARNING: Duplicate {items.ID}", ConsoleColor.Red);
                 }
             }
 

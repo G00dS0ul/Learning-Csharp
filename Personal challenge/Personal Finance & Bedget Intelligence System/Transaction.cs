@@ -15,11 +15,6 @@
         public DateTime Date { get; set; }
         public string Description { get; set; }
 
-        public Transaction()
-        {
-            
-        }
-
         public Transaction(int iD, TransactionType type, decimal amount, string category, DateTime date, string description)
         {
             this.ID = iD;

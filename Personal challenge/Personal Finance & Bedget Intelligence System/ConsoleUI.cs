@@ -14,9 +14,9 @@ namespace Personal_Finance___Budget_Intelligence_System
             _manager = new FinanceManager();
             _isRunning = true;
 
-            Console.WriteLine("Initializing System...");
+            ConsoleForegroundColor.PrintColor("Initializing System...", ConsoleColor.Red);
             _manager.LoadData();
-            Console.WriteLine("Data Loaded. Press any Key to enter.");
+            ConsoleForegroundColor.PrintColor("Data Loaded. Press any Key to enter.", ConsoleColor.Green);
             Console.ReadKey();
         }
 
@@ -29,34 +29,32 @@ namespace Personal_Finance___Budget_Intelligence_System
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine("\n ====================================");
-                Console.WriteLine("\n      FINANCE INTELLIGENT SYSTEM     ");
-                Console.WriteLine("\n ====================================");
+                ConsoleForegroundColor.PrintColor("\n ====================================", ConsoleColor.DarkCyan);
+                ConsoleForegroundColor.PrintColor("\n      FINANCE INTELLIGENT SYSTEM     ", ConsoleColor.DarkCyan);
+                ConsoleForegroundColor.PrintColor("\n ====================================", ConsoleColor.DarkCyan);
                 Console.ResetColor();
 
                 var culture = new System.Globalization.CultureInfo("en-NG");
                 decimal balance = _manager.GetBalance();
                 if (balance < 1000)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Current Balance: {balance.ToString("C", culture)}(Low balance!!!)");
-                    Console.ResetColor();
+                    ConsoleForegroundColor.PrintColor($"Current Balance: {balance.ToString("C", culture)}(Low balance!!!)", ConsoleColor.Red);
                 }
 
                 else
                 {
-                    Console.WriteLine($"Current Balance: {balance.ToString("C", culture)}");
-                    Console.WriteLine("------------------------------------------");
+                    ConsoleForegroundColor.PrintColor($"Current Balance: {balance.ToString("C", culture)}", ConsoleColor.Green);
+                    ConsoleForegroundColor.PrintColor("------------------------------------------", ConsoleColor.DarkBlue);
                 }
 
                     
 
-                Console.WriteLine("1. Add Transaction");
-                Console.WriteLine("2. Edit Transaction");
-                Console.WriteLine("3. Set Budget Rule");
-                Console.WriteLine("4. View all Transaction");
-                Console.WriteLine("5. Reset All Data");
-                Console.WriteLine("6. Save & Exit");
+                ConsoleForegroundColor.PrintColor("1. Add Transaction", ConsoleColor.Green);
+                ConsoleForegroundColor.PrintColor("2. Edit Transaction", ConsoleColor.DarkGray);
+                ConsoleForegroundColor.PrintColor("3. Set Budget Rule", ConsoleColor.Magenta);
+                ConsoleForegroundColor.PrintColor("4. View all Transaction", ConsoleColor.Blue);
+                ConsoleForegroundColor.PrintColor("5. Reset All Data", ConsoleColor.Red);
+                ConsoleForegroundColor.PrintColor("6. Save & Exit", ConsoleColor.DarkYellow);
                 Console.Write("\nSelect an Option: ");
 
                 var input = Console.ReadLine();
@@ -83,7 +81,7 @@ namespace Personal_Finance___Budget_Intelligence_System
                         _isRunning = false;
                         break;
                     default:
-                        Console.WriteLine("Invalid Input!!! Press any Key.");
+                        ConsoleForegroundColor.PrintColor("Invalid Input!!! Press any Key.", ConsoleColor.Red);
                         Console.ReadLine();
                         break;
 
@@ -105,16 +103,14 @@ namespace Personal_Finance___Budget_Intelligence_System
                     return value;
                 }
 
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid input!!! Please enter a valid positive number.");
-                Console.ResetColor();
+                ConsoleForegroundColor.PrintColor("Invalid input!!! Please enter a valid positive number.", ConsoleColor.Red);
             }
         }
 
         private void AddTransactionScreen()
         {
             Console.Clear();
-            Console.WriteLine("\n--- NEW TRANSACTION ---");
+            ConsoleForegroundColor.PrintColor("\n--- NEW TRANSACTION ---", ConsoleColor.DarkCyan);
 
             Console.Write("Enter Title: ");
             var title = Console.ReadLine();
@@ -133,13 +129,11 @@ namespace Personal_Finance___Budget_Intelligence_System
             var alert = _manager.CheckBudgetRules(category);
             if(!string.IsNullOrEmpty(alert))
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(alert);
-                Console.ResetColor();
+                ConsoleForegroundColor.PrintColor(alert, ConsoleColor.Red);
                 Console.Beep();
             }
 
-            Console.WriteLine("Transaction Added!!! Press Any Key.");
+            ConsoleForegroundColor.PrintColor("Transaction Added!!! Press Any Key.", ConsoleColor.DarkYellow);
             Console.ReadKey();
 
         }
@@ -147,7 +141,7 @@ namespace Personal_Finance___Budget_Intelligence_System
         private void EditTransactionScreen()
         {
             Console.Clear();
-            Console.WriteLine("\n---- Edit Transaction Details ----");
+            ConsoleForegroundColor.PrintColor("\n---- Edit Transaction Details ----", ConsoleColor.DarkCyan);
 
             Console.Write("Enter Transaction ID: ");
             var input = Console.ReadLine();
@@ -168,20 +162,20 @@ namespace Personal_Finance___Budget_Intelligence_System
 
                 if(success)
                 {
-                    Console.WriteLine("Transaction Edited Successfully!!! Press Any Key.");
+                    ConsoleForegroundColor.PrintColor("Transaction Edited Successfully!!! Press Any Key.", ConsoleColor.Green);
                 }
                 else
                 {
-                    Console.WriteLine("ID Not found!!!");
+                    ConsoleForegroundColor.PrintColor("ID Not found!!!", ConsoleColor.Red);
                 }
             }
 
             else
             {
-                Console.WriteLine("Invalid ID Format!!!");
+                ConsoleForegroundColor.PrintColor("Invalid ID Format!!!", ConsoleColor.Red);
             }
 
-            Console.WriteLine("Press any key to Continue...");
+            ConsoleForegroundColor.PrintColor("Press any key to Continue...", ConsoleColor.DarkYellow);
             Console.ReadKey();
         }
 
@@ -189,9 +183,9 @@ namespace Personal_Finance___Budget_Intelligence_System
         {
             while (true)
             {
-                Console.WriteLine("\n ----Select Type----");
-                Console.WriteLine("1. Income");
-                Console.WriteLine("2. Expense");
+                ConsoleForegroundColor.PrintColor("\n ----Select Type----", ConsoleColor.DarkCyan);
+                ConsoleForegroundColor.PrintColor("1. Income", ConsoleColor.DarkGreen);
+                ConsoleForegroundColor.PrintColor("2. Expense", ConsoleColor.DarkRed);
                 Console.Write("> ");
 
                 var input = Console.ReadLine();
@@ -204,26 +198,24 @@ namespace Personal_Finance___Budget_Intelligence_System
                     }
                 }
 
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid selection!!! Please type 1 or 2");
-                Console.ResetColor();
+                ConsoleForegroundColor.PrintColor("Invalid selection!!! Please type 1 or 2", ConsoleColor.DarkRed);
             }
         }
 
         private void ShowBalanceScreen()
         {
             Console.Clear();
-            Console.WriteLine("\n----Avalaible Balance----");
-            Console.WriteLine($"NGN: {_manager.GetBalance()}");
-            Console.WriteLine("Press any Key to continue.");
+            ConsoleForegroundColor.PrintColor("\n----Avalaible Balance----", ConsoleColor.DarkCyan);
+            ConsoleForegroundColor.PrintColor($"NGN: {_manager.GetBalance()}", ConsoleColor.Green);
+            ConsoleForegroundColor.PrintColor("Press any Key to continue.", ConsoleColor.DarkYellow);
             Console.ReadKey();
         }
 
         private void ShowHistoryScreen()
         {
-            Console.WriteLine("\n ----Transaction History----");
+            ConsoleForegroundColor.PrintColor("\n ----Transaction History----", ConsoleColor.DarkCyan);
             ShowHistoryListOnly();
-            Console.WriteLine("Press any key to continue.");
+            ConsoleForegroundColor.PrintColor("Press any key to continue.", ConsoleColor.DarkYellow);
             Console.ReadKey();
         }
 
@@ -235,13 +227,13 @@ namespace Personal_Finance___Budget_Intelligence_System
 
             if (list.Count == 0)
             {
-                Console.WriteLine("No Transaction Found. ");
+                ConsoleForegroundColor.PrintColor("No Transaction Found. ", ConsoleColor.Red);
             }
             else
             {
                 foreach (var item in list)
                 {
-                    Console.WriteLine($"[ID: {item.ID}] {item.Date.ToShortDateString()} - {item.Category}: {item.Amount.ToString("C", culture)} ({item.Type})");
+                    ConsoleForegroundColor.PrintColor($"[ID: {item.ID}] {item.Date.ToShortDateString()} - {item.Category}: {item.Amount.ToString("C", culture)} ({item.Type})", ConsoleColor.Yellow);
                 }
             }
         }
@@ -250,28 +242,26 @@ namespace Personal_Finance___Budget_Intelligence_System
         {
             Console.Clear();
             var culture = new System.Globalization.CultureInfo("en-NG");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\n ====================================");
-            Console.WriteLine("\n      BUDGET INTELLIGENT SETUP       ");
-            Console.WriteLine("\n ====================================");
-            Console.ResetColor();
+            ConsoleForegroundColor.PrintColor("\n ====================================", ConsoleColor.Yellow);
+            ConsoleForegroundColor.PrintColor("\n      BUDGET INTELLIGENT SETUP       ", ConsoleColor.Yellow);
+            ConsoleForegroundColor.PrintColor("\n ====================================", ConsoleColor.Yellow);
 
-            Console.WriteLine("\n[ Active Rules ]");
+            ConsoleForegroundColor.PrintColor("\n[ Active Rules ]", ConsoleColor.DarkCyan);
             var currentRules = _manager.GetRules();
 
             if(currentRules.Count == 0)
             {
-                Console.WriteLine("No Rules are Active");
+                ConsoleForegroundColor.PrintColor("No Rules are Active", ConsoleColor.Red);
             }
             else
             {
                 foreach(var rule in currentRules)
                 {
-                    Console.WriteLine($"- {rule.Category}: Limit {rule.LimitAmount.ToString("C", culture)}");
+                    ConsoleForegroundColor.PrintColor($"- {rule.Category}: Limit {rule.LimitAmount.ToString("C", culture)}", ConsoleColor.Magenta);
                 }
             }
 
-            Console.WriteLine("---------------------------");
+            ConsoleForegroundColor.PrintColor("---------------------------", ConsoleColor.DarkBlue);
 
             Console.Write("\n Enter Category to Watch (e.g Food): ");
             var category = Console.ReadLine();
@@ -280,11 +270,9 @@ namespace Personal_Finance___Budget_Intelligence_System
 
             _manager.AddBudgetRule(category, limit);
 
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"\n SUCCESS: System will now alert you if '{category}' expenses exceed {limit.ToString("C", culture)}.");
-            Console.ResetColor();
+            ConsoleForegroundColor.PrintColor($"\n SUCCESS: System will now alert you if '{category}' expenses exceed {limit.ToString("C", culture)}.", ConsoleColor.Green);
 
-            Console.WriteLine("Press any key to Continue");
+            ConsoleForegroundColor.PrintColor("Press any key to Continue", ConsoleColor.DarkYellow);
             Console.ReadKey();
 
 
@@ -293,10 +281,8 @@ namespace Personal_Finance___Budget_Intelligence_System
         private void ResetDataScreen()
         {
             Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("\n ----WARNING: This will delete ALL your data!");
-            Console.WriteLine("This Action cannot be undone.");
-            Console.ResetColor();
+            ConsoleForegroundColor.PrintColor("\n ----WARNING: This will delete ALL your data!", ConsoleColor.Red);
+            ConsoleForegroundColor.PrintColor("This Action cannot be undone.", ConsoleColor.Red);
 
             Console.Write("\nType 'CONFIRM' to reset all data: ");
             var confirmation = Console.ReadLine();
@@ -305,34 +291,24 @@ namespace Personal_Finance___Budget_Intelligence_System
             {
                 try
                 {
-                    var savePath = Path.Combine("Saves", "my_finance_save.json");
-                    if(File.Exists(savePath))
-                    {
-                        File.Delete(savePath);
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Data reset Successfully!!!");
-                        Console.ResetColor();
-                        Console.Beep();
-                        Console.WriteLine("Please restart the application to start fresh.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("No save file found to delete.");
-                    }
+                    _manager.ResetAllData();
+                    
+                    ConsoleForegroundColor.PrintColor("Data reset Successfully!!!", ConsoleColor.Green);
+                    Console.Beep();
+                    ConsoleForegroundColor.PrintColor("Please restart the application to start fresh.", ConsoleColor.DarkYellow);
                 }
+                   
                 catch (Exception ex)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine($"Error resetting data: {ex.Message}");
-                    Console.ResetColor();
+                    ConsoleForegroundColor.PrintColor($"Error resetting data: {ex.Message}", ConsoleColor.DarkRed);
                 }
             }
             else
             {
-                Console.WriteLine("Reset Cancelled");
+                ConsoleForegroundColor.PrintColor("Reset Cancelled", ConsoleColor.Red);
             }
 
-            Console.WriteLine("Press any key to continue...");
+            ConsoleForegroundColor.PrintColor("Press any key to continue...", ConsoleColor.DarkYellow);
             Console.ReadKey();
         }
     }
