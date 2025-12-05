@@ -57,6 +57,20 @@ namespace Personal_Finance___Bedget_Intelligence_System
             return false;
         }
 
+        public bool EditBudgetRule(string category, decimal newLimit)
+        {
+            var rule = _rule.FirstOrDefault(r => r.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
+
+            if (rule != null)
+            {
+                rule.LimitAmount = newLimit;
+
+                rule.WarningMessage = $"WARNING: You have exceeded your {rule.Category} budget of {newLimit}!";
+                return true;
+            }    
+            return false;
+        }
+
         public decimal GetTotalIncome()
         {
             return _transaction.Values
@@ -115,6 +129,26 @@ namespace Personal_Finance___Bedget_Intelligence_System
                 ConsoleForegroundColor.PrintColor($"Month: {item.Month} | Income: {item.TotalIncome} | Expense: {item.TotalExpense}", ConsoleColor.DarkMagenta);
             }
                 
+        }
+
+        public string ValidateExpense(string category, decimal amountToAdd)
+        {
+            var rule = _rule.FirstOrDefault(r => r.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
+
+            if (rule != null)
+            {
+                decimal currentSpent = _transaction.Values
+                    .Where(t => t.Category != null && t.Category.Equals(category, StringComparison.OrdinalIgnoreCase))
+                    .Where(t => t.Type == TransactionType.Expense)
+                    .Sum(t => t.Amount);
+
+                if (currentSpent + amountToAdd > rule.LimitAmount)
+                {
+                    return rule.WarningMessage;
+                }
+            }
+
+            return null;
         }
 
         public void AddBudgetRule(string category, decimal limit)

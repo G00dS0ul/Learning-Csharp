@@ -4,38 +4,22 @@
       "ID": 1,
       "Type": 1,
       "Amount": 30000,
-      "Category": "School",
-      "Date": "2025-12-02T19:58:17.4192566+01:00",
-      "Description": "Monthly Allowance"
-    },
-    {
-      "ID": 2,
-      "Type": 2,
-      "Amount": 15000,
-      "Category": "Food",
-      "Date": "2025-12-02T19:59:23.7866672+01:00",
-      "Description": "Food Stuff"
-    },
-    {
-      "ID": 3,
-      "Type": 2,
-      "Amount": 14500,
-      "Category": "Data",
-      "Date": "2025-12-02T20:01:27.8015999+01:00",
-      "Description": "Monthly Data"
+      "Category": "Shool",
+      "Date": "2025-12-05T22:15:08.1053075+01:00",
+      "Description": "Monthly Allowancw"
     }
   ],
   "Rules": [
     {
-      "Category": "Food",
-      "LimitAmount": 10000,
-      "WarningMessage": "WARNING: You have exceeded your Food budget  of \u20A610,000.00!!"
+      "Category": "data",
+      "LimitAmount": 5000,
+      "WarningMessage": "WARNING: You have exceeded your data budget  of \u20A65,000.00!!"
     },
     {
-      "Category": "Data",
-      "LimitAmount": 10000,
-      "WarningMessage": "WARNING: You have exceeded your Data budget  of \u20A610,000.00!!"
+      "Category": "Food",
+      "LimitAmount": 6000,
+      "WarningMessage": "WARNING: You have exceeded your Food budget  of \u20A66,000.00!!"
     }
   ],
-  "LastID": 4
+  "LastID": 2
 }

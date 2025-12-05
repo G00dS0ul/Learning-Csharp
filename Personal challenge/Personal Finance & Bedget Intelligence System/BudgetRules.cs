@@ -6,11 +6,15 @@
         public decimal LimitAmount { get; set; }
         public string WarningMessage { get; set; }
 
+        public DateTime Date { get; set; }
+
         public BudgetRules(string category, decimal limitAmount, string warningMessage)
         {
             this.Category = category;
             this.LimitAmount = limitAmount;
             this.WarningMessage = warningMessage;
         }
+
+
     }
 }

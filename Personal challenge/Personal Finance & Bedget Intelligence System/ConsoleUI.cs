@@ -51,7 +51,7 @@ namespace Personal_Finance___Budget_Intelligence_System
 
                 ConsoleForegroundColor.PrintColor("1. Add Transaction", ConsoleColor.Green);
                 ConsoleForegroundColor.PrintColor("2. Edit Transaction", ConsoleColor.DarkGray);
-                ConsoleForegroundColor.PrintColor("3. Set Budget Rule", ConsoleColor.Magenta);
+                ConsoleForegroundColor.PrintColor("3. Manage Budget Rules", ConsoleColor.Magenta);
                 ConsoleForegroundColor.PrintColor("4. View all Transaction", ConsoleColor.Blue);
                 ConsoleForegroundColor.PrintColor("5. Reset All Data", ConsoleColor.Red);
                 ConsoleForegroundColor.PrintColor("6. Save & Exit", ConsoleColor.DarkYellow);
@@ -68,7 +68,7 @@ namespace Personal_Finance___Budget_Intelligence_System
                         EditTransactionScreen();
                         break;
                     case "3":
-                        ShowBudgetRuleScreen();
+                        ManageRuleMenu();
                         break;
                     case "4":
                         ShowHistoryScreen();
@@ -107,6 +107,21 @@ namespace Personal_Finance___Budget_Intelligence_System
             }
         }
 
+        private void TrasactionMenu()
+        {
+            Console.Clear();
+            ConsoleForegroundColor.PrintColor("\n---- TRANSACTION MENU ----", ConsoleColor.DarkCyan);
+            Console.WriteLine("1. Add Transaction");
+            Console.WriteLine("2. Edit Transaction");
+            Console.WriteLine("3. Remove Transaction");
+            Console.Write("Select: ");
+            var input = Console.ReadLine();
+            switch (input)
+            {
+
+            }
+        }
+
         private void AddTransactionScreen()
         {
             Console.Clear();
@@ -122,17 +137,23 @@ namespace Personal_Finance___Budget_Intelligence_System
             Console.Write("Enter Category: ");
             var category = Console.ReadLine();
 
-            
-
-            _manager.AddTransaction(title, amount, DateTime.Now, type, category);
-
-            var alert = _manager.CheckBudgetRules(category);
-            if(!string.IsNullOrEmpty(alert))
+            if(type == TransactionType.Expense)
             {
-                ConsoleForegroundColor.PrintColor(alert, ConsoleColor.Red);
-                Console.Beep();
+                string error = _manager.ValidateExpense(category, amount);
+
+                if (error != null)
+                {
+                    ConsoleForegroundColor.PrintColor("\n!!! TRANSACTION BLOCK", ConsoleColor.Red);
+                    ConsoleForegroundColor.PrintColor(error, ConsoleColor.DarkRed);
+                    ConsoleForegroundColor.PrintColor("You cannot Exceed budget limit.", ConsoleColor.Red);
+
+                    ConsoleForegroundColor.PrintColor("\n Press any key to Continue.", ConsoleColor.DarkYellow);
+                    Console.ReadKey();
+                    return;
+                }
             }
 
+            _manager.AddTransaction(title, amount, DateTime.Now, type, category);
             ConsoleForegroundColor.PrintColor("Transaction Added!!! Press Any Key.", ConsoleColor.DarkYellow);
             Console.ReadKey();
 
@@ -257,7 +278,7 @@ namespace Personal_Finance___Budget_Intelligence_System
             {
                 foreach(var rule in currentRules)
                 {
-                    ConsoleForegroundColor.PrintColor($"- {rule.Category}: Limit {rule.LimitAmount.ToString("C", culture)}", ConsoleColor.Magenta);
+                    ConsoleForegroundColor.PrintColor($"- {rule.Category}: Limit {rule.LimitAmount.ToString("C", culture)} - {rule.Date.ToString("U")}", ConsoleColor.Magenta);
                 }
             }
 
@@ -276,6 +297,74 @@ namespace Personal_Finance___Budget_Intelligence_System
             Console.ReadKey();
 
 
+        }
+
+        private void ManageRuleMenu()
+        {
+            Console.Clear();
+            ConsoleForegroundColor.PrintColor("\n---- MANAGE BUDGET RULES ----", ConsoleColor.DarkCyan);
+            Console.WriteLine("1. Add New Rule");
+            Console.WriteLine("2. Edit Existing Rule");
+            Console.WriteLine("3. Return To Main Menu");
+            Console.Write("Select: ");
+             var input = Console.ReadLine();
+            switch(input)
+            {
+                case "1":
+                    ShowBudgetRuleScreen();
+                    break;
+                case "2":
+                    EditBudgetScreen();
+                    break;
+                case "3":
+                    return;
+                default:
+                    ConsoleForegroundColor.PrintColor("Invalid Selection.", ConsoleColor.Red);
+                    Console.ReadKey();
+                    break;
+            }
+
+        }
+
+        private void EditBudgetScreen()
+        {
+            Console.Clear();
+            ConsoleForegroundColor.PrintColor("\n---- EDIT BUDGET RULE ----", ConsoleColor.DarkCyan);
+
+            ConsoleForegroundColor.PrintColor("[ Active Rule ]", ConsoleColor.Cyan);
+            var rule = _manager.GetRules();
+            if (rule.Count == 0)
+            {
+                ConsoleForegroundColor.PrintColor("No rules Found to Edit", ConsoleColor.Red);
+                Console.ReadKey();
+                return;
+            }
+
+            foreach (var r in rule)
+            {
+                ConsoleForegroundColor.PrintColor($"- {r.Category}: {r.LimitAmount}", ConsoleColor.Magenta);
+            }
+            ConsoleForegroundColor.PrintColor("--------------------------", ConsoleColor.DarkBlue);
+
+            Console.Write("\nEnter Category name to Edit: ");
+            var category = Console.ReadLine();
+
+            decimal newLimit = GetValidDecimal($"Enter NEW Limit for '{category}': ");
+
+            bool success = _manager.EditBudgetRule(category, newLimit);
+
+            if (success)
+            {
+                ConsoleForegroundColor.PrintColor("\n Rule Updated Successfully!!!", ConsoleColor.Green);
+            }
+
+            else
+            {
+                ConsoleForegroundColor.PrintColor($"\n ERROR: Rule for Category '{category}' not found.", ConsoleColor.Red);
+            }
+
+            ConsoleForegroundColor.PrintColor("Press any Key to Continue...", ConsoleColor.DarkYellow);
+            Console.ReadKey();
         }
 
         private void ResetDataScreen()
