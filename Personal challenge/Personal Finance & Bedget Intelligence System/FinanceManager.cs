@@ -57,6 +57,18 @@ namespace Personal_Finance___Bedget_Intelligence_System
             return false;
         }
 
+        public bool HasSufficientFund(decimal amountToSpend)
+        {
+            decimal currentBalance = GetBalance();
+
+            if (currentBalance >= amountToSpend)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public bool EditBudgetRule(string category, decimal newLimit)
         {
             var rule = _rule.FirstOrDefault(r => r.Category.Equals(category, StringComparison.OrdinalIgnoreCase));
@@ -65,7 +77,7 @@ namespace Personal_Finance___Bedget_Intelligence_System
             {
                 rule.LimitAmount = newLimit;
 
-                rule.WarningMessage = $"WARNING: You have exceeded your {rule.Category} budget of {newLimit}!";
+                rule.WarningMessage = $"WARNING: You have exceeded your {rule.Category} budget of {newLimit:C}!";
                 return true;
             }    
             return false;
@@ -126,7 +138,7 @@ namespace Personal_Finance___Bedget_Intelligence_System
 
             foreach (var item in summary)
             {
-                ConsoleForegroundColor.PrintColor($"Month: {item.Month} | Income: {item.TotalIncome} | Expense: {item.TotalExpense}", ConsoleColor.DarkMagenta);
+                ConsoleForegroundColor.PrintColor($"Month: {item.Month} | Income: {item.TotalIncome:C} | Expense: {item.TotalExpense:C}", ConsoleColor.DarkMagenta);
             }
                 
         }
@@ -153,8 +165,7 @@ namespace Personal_Finance___Bedget_Intelligence_System
 
         public void AddBudgetRule(string category, decimal limit)
         {
-            var culture = new System.Globalization.CultureInfo("en-NG");
-            var msg = $"WARNING: You have exceeded your {category} budget  of {limit.ToString("C", culture)}!!";
+            var msg = $"WARNING: You have exceeded your {category} budget  of {limit:C}!!";
             _rule.Add(new BudgetRules(category, limit, msg));
         }
 

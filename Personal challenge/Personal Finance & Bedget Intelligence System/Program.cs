@@ -1,11 +1,20 @@
-﻿namespace Personal_Finance___Budget_Intelligence_System
+﻿namespace Personal_Finance___Budget_Intelligence_System;
+using System;
+using System.Globalization;
+using System.Threading;
+
+class Program
 {
-    class Program
+    static void Main(String[] args)
     {
-        static void Main(String[] args)
-        {
-            ConsoleUI app = new ConsoleUI();
-            app.Run();
-        }
+        var culture = new CultureInfo("en-NG");
+
+        Thread.CurrentThread.CurrentCulture = culture;
+        Thread.CurrentThread.CurrentUICulture = culture;
+
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+        ConsoleUI app = new ConsoleUI();
+        app.Run();
     }
 }
