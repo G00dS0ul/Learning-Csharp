@@ -40,3 +40,10 @@ TestResults/
 
 # Ignore publish output folder (if you use one)
 publish/
+/WPF/SOSCSRPG/.vs
+/WPF/SOSCSRPG/WPFUI/bin/Debug/net8.0-windows
+/WPF/SOSCSRPG/WPFUI/obj
+/WorkingExercise/StackObject/.vs
+/WorkingExercise/StackObject/bin/Debug/net9.0
+/WorkingExercise/StopWatch/.vs
+/WorkingExercise/StopWatch/bin/Debug/net9.0
