@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\RolePlayingGame.csproj": {}
+    "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\RolePlayingGame\\RolePlayingGame.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\RolePlayingGame.csproj": {
+    "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\RolePlayingGame\\RolePlayingGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\RolePlayingGame.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\RolePlayingGame\\RolePlayingGame.csproj",
         "projectName": "RolePlayingGame",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\RolePlayingGame.csproj",
+        "projectPath": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\RolePlayingGame\\RolePlayingGame.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\RolePlayingGame\\obj\\",
+        "outputPath": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\RolePlayingGame\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,8 +43,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net9.0": {
@@ -60,12 +59,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.412/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

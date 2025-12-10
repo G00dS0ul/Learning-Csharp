@@ -1,0 +1,15 @@
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\bin\Debug\net9.0\VowelCounter.exe
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\bin\Debug\net9.0\VowelCounter.deps.json
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\bin\Debug\net9.0\VowelCounter.runtimeconfig.json
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\bin\Debug\net9.0\VowelCounter.dll
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\bin\Debug\net9.0\VowelCounter.pdb
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\obj\Debug\net9.0\VowelCounter.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\obj\Debug\net9.0\VowelCounter.AssemblyInfoInputs.cache
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\obj\Debug\net9.0\VowelCounter.AssemblyInfo.cs
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\obj\Debug\net9.0\VowelCounter.csproj.CoreCompileInputs.cache
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\obj\Debug\net9.0\VowelCounter.sourcelink.json
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\obj\Debug\net9.0\VowelCounter.dll
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\obj\Debug\net9.0\refint\VowelCounter.dll
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\obj\Debug\net9.0\VowelCounter.pdb
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\obj\Debug\net9.0\VowelCounter.genruntimeconfig.cache
+C:\Users\USER\repos\Learning-Csharp\apps\VowelCounter\obj\Debug\net9.0\ref\VowelCounter.dll

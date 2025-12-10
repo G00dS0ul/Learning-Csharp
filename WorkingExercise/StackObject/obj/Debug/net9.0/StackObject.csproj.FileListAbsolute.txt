@@ -1,0 +1,14 @@
+C:\Users\USER\source\repos\StackObject\bin\Debug\net9.0\StackObject.exe
+C:\Users\USER\source\repos\StackObject\bin\Debug\net9.0\StackObject.deps.json
+C:\Users\USER\source\repos\StackObject\bin\Debug\net9.0\StackObject.runtimeconfig.json
+C:\Users\USER\source\repos\StackObject\bin\Debug\net9.0\StackObject.dll
+C:\Users\USER\source\repos\StackObject\bin\Debug\net9.0\StackObject.pdb
+C:\Users\USER\source\repos\StackObject\obj\Debug\net9.0\StackObject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\source\repos\StackObject\obj\Debug\net9.0\StackObject.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\StackObject\obj\Debug\net9.0\StackObject.AssemblyInfo.cs
+C:\Users\USER\source\repos\StackObject\obj\Debug\net9.0\StackObject.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\StackObject\obj\Debug\net9.0\StackObject.dll
+C:\Users\USER\source\repos\StackObject\obj\Debug\net9.0\refint\StackObject.dll
+C:\Users\USER\source\repos\StackObject\obj\Debug\net9.0\StackObject.pdb
+C:\Users\USER\source\repos\StackObject\obj\Debug\net9.0\StackObject.genruntimeconfig.cache
+C:\Users\USER\source\repos\StackObject\obj\Debug\net9.0\ref\StackObject.dll

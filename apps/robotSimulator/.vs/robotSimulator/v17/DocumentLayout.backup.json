@@ -1,0 +1,108 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USER\\source\\repos\\robotSimulator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C6739606-427B-4A56-B672-D4CBDCF0EDF3}|robotSimulator.csproj|c:\\users\\user\\source\\repos\\robotsimulator\\robotsim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6739606-427B-4A56-B672-D4CBDCF0EDF3}|robotSimulator.csproj|solutionrelative:robotsim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6739606-427B-4A56-B672-D4CBDCF0EDF3}|robotSimulator.csproj|c:\\users\\user\\source\\repos\\robotsimulator\\enviroment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6739606-427B-4A56-B672-D4CBDCF0EDF3}|robotSimulator.csproj|solutionrelative:enviroment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6739606-427B-4A56-B672-D4CBDCF0EDF3}|robotSimulator.csproj|c:\\users\\user\\source\\repos\\robotsimulator\\robot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6739606-427B-4A56-B672-D4CBDCF0EDF3}|robotSimulator.csproj|solutionrelative:robot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C6739606-427B-4A56-B672-D4CBDCF0EDF3}|robotSimulator.csproj|c:\\users\\user\\source\\repos\\robotsimulator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C6739606-427B-4A56-B672-D4CBDCF0EDF3}|robotSimulator.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 331,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 361,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\robotSimulator\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\robotSimulator\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T01:36:11.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Robot.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\robotSimulator\\Robot.cs",
+              "RelativeDocumentMoniker": "Robot.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\robotSimulator\\Robot.cs",
+              "RelativeToolTip": "Robot.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAkwAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T01:53:31.211Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Enviroment.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\robotSimulator\\Enviroment.cs",
+              "RelativeDocumentMoniker": "Enviroment.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\robotSimulator\\Enviroment.cs",
+              "RelativeToolTip": "Enviroment.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAwDEAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T02:03:58.585Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RobotSim.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\source\\repos\\robotSimulator\\RobotSim.cs",
+              "RelativeDocumentMoniker": "RobotSim.cs",
+              "ToolTip": "C:\\Users\\USER\\source\\repos\\robotSimulator\\RobotSim.cs",
+              "RelativeToolTip": "RobotSim.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowGEAAAD4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-26T02:09:23.08Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 361,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

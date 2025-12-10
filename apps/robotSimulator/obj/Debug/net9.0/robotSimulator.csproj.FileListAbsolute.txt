@@ -1,0 +1,14 @@
+C:\Users\USER\source\repos\robotSimulator\bin\Debug\net9.0\robotSimulator.exe
+C:\Users\USER\source\repos\robotSimulator\bin\Debug\net9.0\robotSimulator.deps.json
+C:\Users\USER\source\repos\robotSimulator\bin\Debug\net9.0\robotSimulator.runtimeconfig.json
+C:\Users\USER\source\repos\robotSimulator\bin\Debug\net9.0\robotSimulator.dll
+C:\Users\USER\source\repos\robotSimulator\bin\Debug\net9.0\robotSimulator.pdb
+C:\Users\USER\source\repos\robotSimulator\obj\Debug\net9.0\robotSimulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\source\repos\robotSimulator\obj\Debug\net9.0\robotSimulator.AssemblyInfoInputs.cache
+C:\Users\USER\source\repos\robotSimulator\obj\Debug\net9.0\robotSimulator.AssemblyInfo.cs
+C:\Users\USER\source\repos\robotSimulator\obj\Debug\net9.0\robotSimulator.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\robotSimulator\obj\Debug\net9.0\robotSimulator.dll
+C:\Users\USER\source\repos\robotSimulator\obj\Debug\net9.0\refint\robotSimulator.dll
+C:\Users\USER\source\repos\robotSimulator\obj\Debug\net9.0\robotSimulator.pdb
+C:\Users\USER\source\repos\robotSimulator\obj\Debug\net9.0\robotSimulator.genruntimeconfig.cache
+C:\Users\USER\source\repos\robotSimulator\obj\Debug\net9.0\ref\robotSimulator.dll
