@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\source\\repos\\Personal Finance & Bedget Intelligence System\\Personal Finance & Budget Intelligence System.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance & Bedget Intelligence System\\Personal Finance & Budget Intelligence System.csproj",
       "projectName": "Personal Finance & Budget Intelligence System",
-      "projectPath": "C:\\Users\\USER\\source\\repos\\Personal Finance & Bedget Intelligence System\\Personal Finance & Budget Intelligence System.csproj",
+      "projectPath": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance & Bedget Intelligence System\\Personal Finance & Budget Intelligence System.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\source\\repos\\Personal Finance & Bedget Intelligence System\\obj\\",
+      "outputPath": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance & Bedget Intelligence System\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,8 +50,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net9.0": {
@@ -67,12 +66,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.414/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

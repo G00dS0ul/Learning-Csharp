@@ -1,0 +1,151 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|c:\\users\\user\\repos\\learning-csharp\\personal challenge\\personal finance \u0026 bedget intelligence system\\consoleforegroundcolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|solutionrelative:consoleforegroundcolor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|c:\\users\\user\\repos\\learning-csharp\\personal challenge\\personal finance \u0026 bedget intelligence system\\financemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|solutionrelative:financemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|c:\\users\\user\\repos\\learning-csharp\\personal challenge\\personal finance \u0026 bedget intelligence system\\consoleui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|solutionrelative:consoleui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|c:\\users\\user\\repos\\learning-csharp\\personal challenge\\personal finance \u0026 bedget intelligence system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|c:\\users\\user\\repos\\learning-csharp\\personal challenge\\personal finance \u0026 bedget intelligence system\\budgetrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|solutionrelative:budgetrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|c:\\users\\user\\repos\\learning-csharp\\personal challenge\\personal finance \u0026 bedget intelligence system\\transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|solutionrelative:transaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|c:\\users\\user\\repos\\learning-csharp\\personal challenge\\personal finance \u0026 bedget intelligence system\\saveloaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E9C31B2A-AE9D-4806-B232-5EBB6BA1E379}|Personal Finance \u0026 Budget Intelligence System.csproj|solutionrelative:saveloaddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 294,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConsoleForegroundColor.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\ConsoleForegroundColor.cs",
+              "RelativeDocumentMoniker": "ConsoleForegroundColor.cs",
+              "ToolTip": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\ConsoleForegroundColor.cs",
+              "RelativeToolTip": "ConsoleForegroundColor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T16:44:38.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FinanceManager.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\FinanceManager.cs",
+              "RelativeDocumentMoniker": "FinanceManager.cs",
+              "ToolTip": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\FinanceManager.cs",
+              "RelativeToolTip": "FinanceManager.cs",
+              "ViewState": "AgIAAK4AAAAAAAAAAAAiwKcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T16:44:27.507Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ConsoleUI.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\ConsoleUI.cs",
+              "RelativeDocumentMoniker": "ConsoleUI.cs",
+              "ToolTip": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\ConsoleUI.cs",
+              "RelativeToolTip": "ConsoleUI.cs",
+              "ViewState": "AgIAAEUBAAAAAAAAAAAqwIEBAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T16:44:27.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BudgetRules.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\BudgetRules.cs",
+              "RelativeDocumentMoniker": "BudgetRules.cs",
+              "ToolTip": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\BudgetRules.cs",
+              "RelativeToolTip": "BudgetRules.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T16:44:27.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SaveLoadData.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\SaveLoadData.cs",
+              "RelativeDocumentMoniker": "SaveLoadData.cs",
+              "ToolTip": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\SaveLoadData.cs",
+              "RelativeToolTip": "SaveLoadData.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAwwAEAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T16:44:27.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Transaction.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\Transaction.cs",
+              "RelativeDocumentMoniker": "Transaction.cs",
+              "ToolTip": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\Transaction.cs",
+              "RelativeToolTip": "Transaction.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwA8AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T16:44:27.547Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\USER\\repos\\Learning-Csharp\\Personal challenge\\Personal Finance \u0026 Bedget Intelligence System\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-12T16:44:27.549Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
