@@ -49,3 +49,7 @@ publish/
 /WorkingExercise/StopWatch/bin/Debug/net9.0
 /WPF/SOSCSRPG/Engine/.vs/Engine
 /WPF/SOSCSRPG/Engine/obj
+/WPF/Engine
+/WPF/WPFUI/.vs
+/WPF/WPFUI/bin/Debug/net8.0-windows
+/WPF/WPFUI/obj
