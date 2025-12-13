@@ -27,12 +27,21 @@ namespace WPFUI
             DataContext = _gameSession;
         }
 
-        private void OnAddXpClick(object sender, RoutedEventArgs e)
+        private void OnClik_MoveNorth(object sender, RoutedEventArgs e)
         {
-            if (_gameSession.CurrentPlayer != null)
-            {
-                _gameSession.CurrentPlayer.ExperiencePoints = _gameSession.CurrentPlayer.ExperiencePoints + 10;
-            }
+
+        }
+        private void OnClik_MoveWest(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void OnClik_MoveEast(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void OnClik_MoveSouth(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
