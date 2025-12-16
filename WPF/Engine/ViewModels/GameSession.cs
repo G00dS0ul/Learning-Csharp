@@ -13,6 +13,7 @@ namespace Engine.ViewModels
     public class GameSession : BaseNotificationClass
     {
         private Location? _currentLocation;
+        private Monster? _currentMonster;
         public Player? CurrentPlayer { get; set; }
         public Location? CurrentLocation
         {
@@ -29,7 +30,20 @@ namespace Engine.ViewModels
                     OnPropertyChanged(nameof(HasLocationToEast));
 
                     GivePlayerQuestAtLocation();
+                    GetMonsterAtLocation();
                 }
+            }
+        }
+
+        public Monster CurrentMonster
+        {
+            get { return _currentMonster; }
+            set
+            {
+                _currentMonster = value;
+
+                OnPropertyChanged(nameof(CurrentMonster));
+                OnPropertyChanged(nameof(HasMonster));
             }
         }
         public bool HasLocationToNorth
@@ -61,6 +75,8 @@ namespace Engine.ViewModels
             }
         }
         public World CurrentWorld { get; set; }
+
+        public bool HasMonster => _currentMonster != null;
 
         public GameSession()
         {
@@ -118,13 +134,18 @@ namespace Engine.ViewModels
 
         private void GivePlayerQuestAtLocation()
         {
-            foreach(Quest quest in CurrentLocation.QuestAvalaibleHere)
+            foreach (Quest quest in CurrentLocation.QuestAvalaibleHere)
             {
-                if(!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
+                if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
                 {
                     CurrentPlayer.Quests.Add(new QuestStatus(quest));
                 }
             }
+        }
+
+        private void GetMonsterAtLocation()
+        {
+            CurrentMonster = CurrentLocation.GetMonster();
         }
     }
 }

@@ -16,6 +16,15 @@
     <None Remove="Images\Locations\TownGate.png" />
     <None Remove="Images\Locations\TownSquare.png" />
     <None Remove="Images\Locations\Trader.png" />
+    <None Remove="Images\Monster\GiantSpider.png" />
+    <None Remove="Images\Monster\Rat.png" />
+    <None Remove="Images\Monster\Snake.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Monster\GiantSpider.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -50,6 +59,12 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Locations\Trader.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Monster\Rat.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Monster\Snake.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
