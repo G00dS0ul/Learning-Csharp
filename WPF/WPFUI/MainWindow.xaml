@@ -65,6 +65,23 @@
                 <ColumnDefinition Width="3*"/>
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
+            
+            <!--Game Message-->
+            <Border Grid.Row="0" Grid.Column="0"
+                    Grid.RowSpan="2"
+                    BorderBrush="Gainsboro"
+                    BorderThickness="1">
+
+                <RichTextBox x:Name="GameMessages"
+                             Background="Beige"
+                             VerticalScrollBarVisibility="Auto">
+                    <RichTextBox.Resources>
+                        <Style TargetType="{x:Type Paragraph}">
+                            <Setter Property="Margin" Value="0"/>
+                        </Style>
+                    </RichTextBox.Resources>
+                </RichTextBox>
+            </Border>
 
             <!--Location Info-->
             <Border Grid.Row="0" Grid.Column="1"
@@ -165,6 +182,8 @@
                 
             </TabControl>
         </Grid>
+        
+        <!--Action Control-->
         <Grid Grid.Row="2" Grid.Column="1"
                Background="Lavender">
             
@@ -177,6 +196,33 @@
                 <ColumnDefinition Width="255"/>
             </Grid.ColumnDefinitions>
             
+            <!--Combat Control-->
+            <Grid Grid.Row="0" Grid.Column="0"
+                  Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}"
+                  HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox Grid.Row="0" Grid.Column="0"
+                          ItemsSource="{Binding CurrentPlayer.Weapons}"
+                          SelectedItem="{Binding CurrentWeapon}"
+                          DisplayMemberPath="Name"
+                          SelectedValuePath="ID"/>
+
+                <Button Grid.Row="0" Grid.Column="2"
+                        Content="Use"
+                        Click="OnClick_AttackMonster"/>
+            </Grid>
+
+            <!--Movement Controls-->
             <Grid Grid.Row="0" Grid.Column="1">
                 
                 <Grid.RowDefinitions>

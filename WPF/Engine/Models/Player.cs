@@ -16,6 +16,8 @@ namespace Engine.Models
         private int _experiencePoints;
         private int _level;
         private int _gold;
+
+        #region Properties
         public string? Name
         {
             get { return _name; }
@@ -73,7 +75,11 @@ namespace Engine.Models
         }
 
         public ObservableCollection<GameItem>? Inventory { get; set; }
+
+        public List<GameItem> Weapons => Inventory.Where(i => i is Weapon).ToList();
+
         public ObservableCollection<QuestStatus> Quests { get; set; }
+        #endregion
 
         public Player()
         {
@@ -81,5 +87,11 @@ namespace Engine.Models
             Quests = new ObservableCollection<QuestStatus>();
         }
 
+        public void AddItemToInventory(GameItem item)
+        {
+            Inventory.Add(item);
+
+            OnPropertyChanged(nameof(Weapons));
+        }
     }
 }

@@ -21,22 +21,28 @@ namespace Engine.Models
             { 
                 return _hitPoints; 
             }
-            private set 
+            set 
             { 
                 _hitPoints = value;
                 OnPropertyChanged(nameof(HitPoints));
             }
         }
+
+        public int MinimumDamage { get; set; }
+        public int MaximumDamage { get; set; }
+
         public int RewardExperiencePoints { get; private set; }
         public int RewardGold { get; private set; }
         public ObservableCollection<ItemQuantity> Inventory { get; set; }
 
-        public Monster(string name, string imageName, int maximumPoints, int hitPoints, int rewardExperiencePoints, int rewardGold)
+        public Monster(string name, string imageName, int maximumPoints, int hitPoints, int minimumDamage, int maximumDamage, int rewardExperiencePoints, int rewardGold)
         {
             this.Name = name;
-            this.ImageName = string.Format("/Engine;component/Images/Monster/{0}", imageName);
+            this.ImageName = $"/Engine;component/Images/Monster/{imageName}";
             this.MaximumPoints = maximumPoints;
             this.HitPoints = hitPoints;
+            this.MinimumDamage = minimumDamage;
+            this.MaximumDamage = maximumDamage;
             this.RewardExperiencePoints = rewardExperiencePoints;
             this.RewardGold = rewardGold;
             this.Inventory = new ObservableCollection<ItemQuantity>();
