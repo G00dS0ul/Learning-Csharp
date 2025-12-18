@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Engine.Models;
+﻿using Engine.Models;
 
 namespace Engine.Factories
 {
@@ -14,10 +9,10 @@ namespace Engine.Factories
         static TraderFactory()
         {
             Trader innerCircle = new Trader("Inner Circle Trader");
-            innerCircle.AddItemToInventory(ItemFactory.CreateGameItem(1001));
+            innerCircle.AddItemToInventory(ItemFactory.CreateGameItem(1002));
 
             Trader blackFarmer = new Trader("BlackFarmer Circle");
-            blackFarmer.AddItemToInventory(ItemFactory.CreateGameItem(1002));
+            blackFarmer.AddItemToInventory(ItemFactory.CreateGameItem(1003));
 
             Trader theEmptyPocket = new Trader("The Empty Pocket Circle");
             theEmptyPocket.AddItemToInventory(ItemFactory.CreateGameItem(1001));

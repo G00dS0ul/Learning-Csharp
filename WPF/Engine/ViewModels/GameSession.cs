@@ -1,13 +1,6 @@
 ﻿using Engine.Models;
-using System.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Engine.Factories;
 using Engine.EventArgs;
-using System.ComponentModel;
 
 namespace Engine.ViewModels
 {
@@ -38,6 +31,8 @@ namespace Engine.ViewModels
                     CompleteQuestAtLocation();
                     GivePlayerQuestAtLocation();
                     GetMonsterAtLocation();
+
+                    CurrentTrader = CurrentLocation.TraderHere;
                 }
             }
         }
@@ -97,7 +92,8 @@ namespace Engine.ViewModels
             {
                 Name = "Iche",
                 CharacterClass = "Fighter",
-                HitPoints = 10,
+                CurrentHitPoints = 10,
+                MaximumHitPoints = 10,
                 Gold = 100000,
                 ExperiencePoints = 0,
                 Level = 1
@@ -243,11 +239,11 @@ namespace Engine.ViewModels
             }
             else
             {
-                CurrentMonster.HitPoints -= damageToMonster;
+                CurrentMonster.CurrentHitPoints -= damageToMonster;
                 RaiseMessage($"You hit the {CurrentMonster.Name} for {damageToMonster} points.");
             }
 
-            if(CurrentMonster.HitPoints <= 0)
+            if(CurrentMonster.CurrentHitPoints <= 0)
             {
                 RaiseMessage("");
                 RaiseMessage($"You defeated the {CurrentMonster.Name}!!!");
@@ -255,14 +251,13 @@ namespace Engine.ViewModels
                 CurrentPlayer.ExperiencePoints += CurrentMonster.RewardExperiencePoints;
                 RaiseMessage($"You Receive {CurrentMonster.RewardExperiencePoints} experience Points.");
 
-                CurrentPlayer.Gold += CurrentMonster.RewardGold;
-                RaiseMessage($"You Receive {CurrentMonster.RewardGold} gold.");
+                CurrentPlayer.Gold += CurrentMonster.Gold;
+                RaiseMessage($"You Receive {CurrentMonster.Gold} gold.");
 
-                foreach (ItemQuantity itemQuantity in CurrentMonster.Inventory)
+                foreach (GameItem gameItem in CurrentMonster.Inventory)
                 {
-                    GameItem item = ItemFactory.CreateGameItem(itemQuantity.ItemID);
-                    CurrentPlayer.AddItemToInventory(item);
-                    RaiseMessage($"You Receive {itemQuantity.Quantity} {item.Name}.");
+                    CurrentPlayer.AddItemToInventory(gameItem);
+                    RaiseMessage($"You Receive one {gameItem.Name}.");
                 }
 
                 GetMonsterAtLocation();
@@ -277,17 +272,17 @@ namespace Engine.ViewModels
                 }
                 else
                 {
-                    CurrentPlayer.HitPoints -= damageToPlayer;
+                    CurrentPlayer.CurrentHitPoints -= damageToPlayer;
                     RaiseMessage($"The {CurrentMonster.Name} hits you for {damageToPlayer} Points. ");
                 }
 
-                if(CurrentPlayer.HitPoints <= 0)
+                if(CurrentPlayer.CurrentHitPoints <= 0)
                 {
                     RaiseMessage("");
                     RaiseMessage($"The {CurrentMonster.Name} killed you.");
 
                     CurrentLocation = CurrentWorld.LocationAt(0, -1);
-                    CurrentPlayer.HitPoints = CurrentPlayer.Level * 10;
+                    CurrentPlayer.CurrentHitPoints = CurrentPlayer.Level * 10;
                 }
             }
         }
