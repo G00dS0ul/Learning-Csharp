@@ -1,6 +1,6 @@
 ﻿namespace Engine.Models
 {
-    public class GameItem : BaseNotificationClass
+    public class GroupedInventoryItem : BaseNotificationClass
     {
         private GameItem? _item;
         private int _quantity;
@@ -31,7 +31,7 @@
             }
         }
 
-        public GameItem(GameItem item, int quantity)
+        public GroupedInventoryItem(GameItem item, int quantity)
         {
             this.Item = item;
             this.Quantity = quantity;
