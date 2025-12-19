@@ -6,14 +6,7 @@
 
         internal void AddLocation(int xCoordinate, int yCoordinate, string name, string description, string imageName)
         {
-            Location loc = new Location();
-            loc.XCoordinate = xCoordinate;
-            loc.YCoordinate = yCoordinate;
-            loc.Name = name;
-            loc.Description = description;
-            loc.ImageName = $"/Engine;component/Images/Locations/{imageName}";
-
-            _locations.Add(loc);
+            _locations.Add(new Location(xCoordinate, yCoordinate, name, description, $"/Engine;component/Images/Locations/{imageName}"));
         }
 
         public Location LocationAt(int xCoordinate, int yCoordinate)

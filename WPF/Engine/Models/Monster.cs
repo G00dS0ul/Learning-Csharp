@@ -2,22 +2,19 @@
 {
     public class Monster : LivingEntity
     {
-        public string? ImageName { get; private set; }
-        public int MinimumDamage { get; set; }
-        public int MaximumDamage { get; set; }
+        public string? ImageName { get; }
+        public int MinimumDamage { get; }
+        public int MaximumDamage { get; }
 
-        public int RewardExperiencePoints { get; private set; }
+        public int RewardExperiencePoints { get; }
 
-        public Monster(string name, string imageName, int maximumPoints, int hitPoints, int minimumDamage, int maximumDamage, int rewardExperiencePoints, int rewardGold)
+        public Monster(string name, string imageName, int maximumHitPoints, int currentHitPoints, int minimumDamage, int maximumDamage, int rewardExperiencePoints, int gold)
+            : base(name, maximumHitPoints, currentHitPoints, gold)
         {
-            this.Name = name;
-            this.ImageName = $"/Engine;component/Images/Monster/{imageName}";
-            this.MaximumHitPoints = maximumPoints;
-            this.CurrentHitPoints = hitPoints;
+            ImageName = $"/Engine;component/Images/Monster/{imageName}";
             this.MinimumDamage = minimumDamage;
             this.MaximumDamage = maximumDamage;
             this.RewardExperiencePoints = rewardExperiencePoints;
-            this.Gold = rewardGold;
         }
     }
 }
