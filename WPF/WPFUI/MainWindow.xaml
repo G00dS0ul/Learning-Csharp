@@ -222,7 +222,7 @@
                           SelectedValuePath="ID"/>
 
                 <Button Grid.Row="0" Grid.Column="2"
-                        Content="Use"
+                        Content="Attack"
                         Click="OnClick_AttackMonster"/>
             </Grid>
 
