@@ -12,7 +12,10 @@ namespace Engine.Models
 
         public string? CharacterClass 
         {
-            get { return _characterClass; } 
+            get
+            {
+                return _characterClass;
+            } 
             set
             {
                 _characterClass = value;
@@ -48,7 +51,7 @@ namespace Engine.Models
 
         public bool HasAllTheseItems(List<ItemQuantity> items)
         {
-            foreach (ItemQuantity item in items)
+            foreach (var item in items)
             {
                 if (Inventory?.Count(i => i.ItemTypeID == item.ItemID) < item.Quantity)
                 {
@@ -63,9 +66,9 @@ namespace Engine.Models
             ExperiencePoints += experiencePoints;
         }
 
-        public void SetLevelAndMaximumPoints()
+        private void SetLevelAndMaximumPoints()
         {
-            int originalLevel = Level;
+            var originalLevel = Level;
 
             Level = (ExperiencePoints / 100) + 1;
 

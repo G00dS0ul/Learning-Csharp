@@ -14,8 +14,7 @@ namespace Engine.Models
         public string Name { get; }
         public int Price { get; }
         public bool IsUnique { get; }
-        public int MinimumDamage { get; }
-        public int MaximumDamage { get; }
+        
         public AttackWithWeapon Action { get; set; }
 
         public GameItem(ItemCategory category, int itemTypeId, string name, int price, bool isUnique = false, AttackWithWeapon action = null)

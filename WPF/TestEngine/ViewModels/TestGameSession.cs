@@ -8,7 +8,7 @@ public class TestGameSession
     [TestMethod]
     public void TestCreateGameSession()
     {
-        GameSession gameSession = new GameSession();
+        var gameSession = new GameSession();
 
         Assert.IsNotNull(gameSession.CurrentPlayer);
         Assert.AreEqual("Town Square", gameSession.CurrentLocation.Name);
@@ -17,7 +17,7 @@ public class TestGameSession
     [TestMethod]
     public void TestPlayerMovesHomeAndIsCompletelyHealedOnKilled()
     {
-        GameSession gameSession = new GameSession();
+        var gameSession = new GameSession();
 
         gameSession.CurrentPlayer.TakeDamage(999);
 

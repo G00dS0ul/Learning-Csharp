@@ -173,17 +173,17 @@ namespace Engine.ViewModels
 
         private void CompleteQuestAtLocation()
         {
-            foreach(Quest quest in CurrentLocation.QuestAvailableHere)
+            foreach(var quest in CurrentLocation.QuestAvailableHere)
             {
-                QuestStatus questToComplete = CurrentPlayer.Quests.FirstOrDefault(q => q.PlayerQuest.ID == quest.ID && !q.IsComplete);
+                var questToComplete = CurrentPlayer.Quests.FirstOrDefault(q => q.PlayerQuest.ID == quest.ID && !q.IsComplete);
 
                 if(questToComplete != null)
                 {
                     if(CurrentPlayer.HasAllTheseItems(quest.ItemToComplete))
                     {
-                        foreach(ItemQuantity itemQuantity in quest.ItemToComplete)
+                        foreach(var itemQuantity in quest.ItemToComplete)
                         {
-                            for(int i = 0; i < itemQuantity.Quantity; i++)
+                            for(var i = 0; i < itemQuantity.Quantity; i++)
                             {
                                 CurrentPlayer.RemoveItemFromInventory(CurrentPlayer.Inventory.First(item => item.ItemTypeID == itemQuantity.ItemID));
                             }
@@ -200,9 +200,9 @@ namespace Engine.ViewModels
                         CurrentPlayer.ReceiveGold(quest.RewardGold);
 
 
-                        foreach (ItemQuantity itemQuantity in quest.RewardItems)
+                        foreach (var itemQuantity in quest.RewardItems)
                         {
-                            GameItem rewardItem = ItemFactory.CreateGameItem(itemQuantity.ItemID);
+                            var rewardItem = ItemFactory.CreateGameItem(itemQuantity.ItemID);
 
 
                             RaiseMessage($"You Receive a {rewardItem.Name}");
@@ -218,7 +218,7 @@ namespace Engine.ViewModels
 
         private void GivePlayerQuestAtLocation()
         {
-            foreach (Quest quest in CurrentLocation.QuestAvailableHere)
+            foreach (var quest in CurrentLocation.QuestAvailableHere)
             {
                 if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
                 {
@@ -229,17 +229,17 @@ namespace Engine.ViewModels
                     RaiseMessage(quest.Description);
 
                     RaiseMessage("Return with: ");
-                    foreach(ItemQuantity itemQuantity in quest.ItemToComplete)
+                    foreach(var itemQuantity in quest.ItemToComplete)
                     {
-                        RaiseMessage($"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID).Name}");
+                        RaiseMessage($"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID)?.Name}");
                     }
 
                     RaiseMessage("And You will receive: ");
                     RaiseMessage($"{quest.RewardExperiencePoints} experience points");
                     RaiseMessage($"{quest.RewardGold} gold");
-                    foreach(ItemQuantity itemQuantity in quest.RewardItems)
+                    foreach(var itemQuantity in quest.RewardItems)
                     {
-                        RaiseMessage($"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID).Name}");
+                        RaiseMessage($"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID)?.Name}");
                     }
 
                 }
@@ -308,7 +308,7 @@ namespace Engine.ViewModels
             RaiseMessage($"You Receive {CurrentMonster.Gold} gold.");
             CurrentPlayer.ReceiveGold(CurrentMonster.Gold);
 
-            foreach (GameItem gameItem in CurrentMonster.Inventory)
+            foreach (var gameItem in CurrentMonster.Inventory)
             {
                 RaiseMessage($"You Receive one {gameItem.Name}.");
                 CurrentPlayer.AddItemToInventory(gameItem);
