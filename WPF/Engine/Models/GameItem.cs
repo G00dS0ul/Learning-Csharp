@@ -1,4 +1,6 @@
-﻿namespace Engine.Models
+﻿using Engine.Actions;
+
+namespace Engine.Models
 {
     public class GameItem
     {
@@ -14,21 +16,26 @@
         public bool IsUnique { get; }
         public int MinimumDamage { get; }
         public int MaximumDamage { get; }
+        public AttackWithWeapon Action { get; set; }
 
-        public GameItem(ItemCategory category, int itemTypeID, string name, int price, bool isUnique = false, int minimumDamage = 0, int maximumDamage = 0)
+        public GameItem(ItemCategory category, int itemTypeId, string name, int price, bool isUnique = false, AttackWithWeapon action = null)
         {
             Category = category;
-            ItemTypeID = itemTypeID;
+            ItemTypeID = itemTypeId;
             Name = name;
             Price = price;
             IsUnique = isUnique;
-            MinimumDamage = minimumDamage;
-            MaximumDamage = maximumDamage;
+            Action = action;
+        }
+
+        public void PerformAction(LivingEntity actor, LivingEntity target)
+        {
+            Action?.Execute(actor, target);
         }
 
         public GameItem Clone()
         {
-            return new GameItem(Category, ItemTypeID, Name, Price, IsUnique, MinimumDamage, MaximumDamage);
+            return new GameItem(Category, ItemTypeID, Name, Price, IsUnique, Action);
         }
     }
 }

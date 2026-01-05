@@ -1,6 +1,6 @@
 ﻿using Engine.Models;
 
-namespace Engine.Action
+namespace Engine.Actions
 {
     public class AttackWithWeapon
     {
@@ -17,12 +17,12 @@ namespace Engine.Action
                 throw new ArgumentException($"{weapon.Name} is not a weapon");
             }
 
-            if (_minimumDamage < 0)
+            if (minimumDamage < 0)
             {
                 throw new ArgumentException("minimumDamage must be 0 or larger");
             }
 
-            if (_maximumDamage < minimumDamage)
+            if (maximumDamage < minimumDamage)
             {
                 throw new ArgumentException("maximumDamage must be >= minimumDamage");
             }
@@ -34,7 +34,7 @@ namespace Engine.Action
 
         public void Execute(LivingEntity actor, LivingEntity target)
         {
-            int damage = RandomNumberGenerator.NumberBetween(_minimumDamage, _maximumDamage);
+            var damage = RandomNumberGenerator.NumberBetween(_minimumDamage, _maximumDamage);
 
             if (damage == 0)
             {

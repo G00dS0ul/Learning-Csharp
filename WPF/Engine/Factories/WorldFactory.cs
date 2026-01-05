@@ -6,7 +6,7 @@ namespace Engine.Factories
     {
         internal static World CreateWorld()
         {
-            World newWorld = new World();
+            var newWorld = new World();
             newWorld.AddLocation(-2, -1, "Farmer's Field", "There are rows of corn growing here, with giant rats hiding between them", "FarmFields.png");
 
             newWorld.LocationAt(-2, -1).AddMonster(2, 100);
