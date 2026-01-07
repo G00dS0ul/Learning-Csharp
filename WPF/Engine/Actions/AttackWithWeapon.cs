@@ -40,11 +40,11 @@ namespace Engine.Actions
 
             if (damage == 0)
             {
-                ReportResult($"You missed the {target.Name.ToLower()}");
+                ReportResult($"{actorName} misses {targetName}");
             }
             else
             {
-                ReportResult($"You hit the {target.Name.ToLower()} for {damage} points");
+                ReportResult($"{actorName} hits {targetName} for {damage} points");
                 target.TakeDamage(damage);
             }
         }
