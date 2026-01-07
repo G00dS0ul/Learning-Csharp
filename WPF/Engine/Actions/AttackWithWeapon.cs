@@ -2,7 +2,7 @@
 
 namespace Engine.Actions
 {
-    public class AttackWithWeapon
+    public class AttackWithWeapon : IAction
     {
         private readonly GameItem _weapon;
         private readonly int _maximumDamage;
@@ -35,6 +35,8 @@ namespace Engine.Actions
         public void Execute(LivingEntity actor, LivingEntity target)
         {
             var damage = RandomNumberGenerator.NumberBetween(_minimumDamage, _maximumDamage);
+            var actorName = (actor is Player) ? "You" : $"The {actor.Name.ToLower()}";
+            var targetName = (target is Player) ? "you" : $"the {target.Name.ToLower()}";
 
             if (damage == 0)
             {
