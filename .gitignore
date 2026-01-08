@@ -53,3 +53,5 @@ publish/
 /WPF/WPFUI/.vs
 /WPF/WPFUI/bin/Debug/net8.0-windows
 /WPF/WPFUI/obj
+/WPF/TestEngine/bin/Debug/net8.0
+/WPF/TestEngine/obj
