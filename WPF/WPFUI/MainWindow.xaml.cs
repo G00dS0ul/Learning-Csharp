@@ -90,7 +90,7 @@ namespace WPFUI
             _userInputActions?.Add(Key.C, () => _gameSession?.UseCurrentConsumable());
             _userInputActions?.Add(Key.I, () => SetTabFocus("InventoryTabItem"));
             _userInputActions?.Add(Key.Q, () => SetTabFocus("QuestTabItem"));
-            _userInputActions?.Add(Key.R, () => SetTabFocus("RecipeTabItem"));
+            _userInputActions?.Add(Key.R, () => SetTabFocus("RecipesTabItem"));
             _userInputActions?.Add(Key.T, () => OnClick_DisplayTradeScreen(this, new RoutedEventArgs()));
         }
 

@@ -9,7 +9,7 @@ namespace Engine.Actions
         private readonly int _maximumDamage;
         private readonly int _minimumDamage;
 
-        public event EventHandler<string> OnActionPerformed;
+        //public event EventHandler<string> OnActionPerformed;
 
         public AttackWithWeapon(GameItem itemInUse, int minimumDamage, int maximumDamage)
             : base(itemInUse)

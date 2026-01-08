@@ -8,7 +8,7 @@ namespace Engine.Actions
         private readonly GameItem _item;
         private readonly int _hitPointsToHeal;
 
-        public event EventHandler<string> OnActionPerformed;
+        //public event EventHandler<string> OnActionPerformed;
 
         public Heal(GameItem itemInUse, int hitPointsToHeal)
             : base(itemInUse)

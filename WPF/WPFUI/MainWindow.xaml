@@ -247,6 +247,7 @@
                           ItemsSource="{Binding CurrentPlayer.Weapons}"
                           SelectedItem="{Binding CurrentPlayer.CurrentWeapon}"
                           DisplayMemberPath="Name"/>
+                
 
                 <Button Grid.Row="0" Grid.Column="2"
                   Visibility="{Binding HasMonster, Converter={StaticResource BooleanToVisibility}}"
