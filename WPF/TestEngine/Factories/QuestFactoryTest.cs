@@ -1,4 +1,4 @@
-﻿using Engine.Factories;
+using Engine.Factories;
 
 namespace TestEngine.Factories;
 
@@ -12,7 +12,7 @@ public class QuestFactoryTest
 
         Assert.IsNotNull(quest);
         Assert.AreEqual(1, quest.ID);
-        Assert.AreEqual("Clear the herb garden", quest.Name);
+        Assert.AreEqual("Clear the Herb Garden", quest.Name);
         Assert.AreEqual(25, quest.RewardExperiencePoints);
     }
 
@@ -55,7 +55,7 @@ public class QuestFactoryTest
     public void GetQuestByID_Quest1_HasCorrectItemsToComplete()
     {
         var quest = QuestFactory.GetQuestByID(1);
-        
+
         Assert.IsNotNull(quest.ItemToComplete);
         Assert.AreEqual(2, quest?.ItemToComplete.Count);
         Assert.IsTrue(quest.ItemToComplete.Any(i => i.ItemID == 9001 && i.Quantity == 5));
@@ -82,7 +82,7 @@ public class QuestFactoryTest
         Assert.IsTrue(quest.RewardItems.Any(i => i.ItemID == 1002));
         Assert.IsTrue(quest.RewardItems.Any(i => i.ItemID == 1003));
 
-        
+
     }
 
     [TestMethod]

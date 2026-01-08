@@ -16,7 +16,7 @@ namespace Engine.Factories
                 itemsToComplete1.Add(new ItemQuantity(9002, 10));
                 rewardItems1.Add(new ItemQuantity(1003, 1));
 
-                _quest.Add(new Quest(1, "Clear the herb garden", "Defeat the snake in the Herbalist's Garden", itemsToComplete1, 25, 10, rewardItems1));
+                _quest.Add(new Quest(1, "Clear the Herb Garden", "Defeat the snake in the Herbalist's Garden", itemsToComplete1, 25, 10, rewardItems1));
 
                 var itemsToComplete2 = new List<ItemQuantity>();
                 var rewardItems2 = new List<ItemQuantity>();
