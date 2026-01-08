@@ -11,6 +11,7 @@ namespace Engine.Models
         private int _level;
         private int _gold;
         private GameItem _currentWeapon;
+        private GameItem _currentConsumable;
 
         public string? Name
         {
@@ -96,12 +97,38 @@ namespace Engine.Models
             }
         }
 
+        public GameItem CurrentConsumable
+        {
+            get => _currentConsumable;
+            set
+            {
+                if (_currentConsumable != null)
+                {
+                    _currentConsumable.Action.OnActionPerformed -= RaiseOnActionPerformedEvent;
+                }
+
+                _currentConsumable = value;
+
+                if (_currentConsumable != null)
+                {
+                    _currentConsumable.Action.OnActionPerformed += RaiseOnActionPerformedEvent;
+                }
+
+                OnPropertyChanged();
+            }
+        }
+
         public ObservableCollection<GameItem>? Inventory { get; }
 
         public ObservableCollection<GroupedInventoryItem> GroupedInventory { get; }
 
         public List<GameItem> Weapons =>
-            Inventory?.Where(i => i.Category == GameItem.ItemCategory.Weapon).ToList() ?? new List<GameItem>();
+            Inventory?.Where(i => i.Category == GameItem.ItemCategory.Weapon).ToList() ?? [];
+
+        public List<GameItem> Consumables =>
+            Inventory?.Where(i => i.Category == GameItem.ItemCategory.Consumable).ToList() ?? [];
+
+        public bool HasConsumable => Consumables.Any();
 
         public bool IsDead => CurrentHitPoints <= 0;
 
@@ -123,6 +150,12 @@ namespace Engine.Models
         public void UseCurrentWeapon(LivingEntity target)
         {
             CurrentWeapon.PerformAction(this, target);
+        }
+
+        public void UseCurrentConsumable()
+        {
+            CurrentConsumable.PerformAction(this, this);
+            RemoveItemFromInventory(CurrentConsumable);
         }
         public void TakeDamage(int hitPointsOfDamage)
         {
@@ -175,15 +208,17 @@ namespace Engine.Models
             }
             else
             {
-                if(!GroupedInventory.Any(gi => gi.Item?.ItemTypeID == item.ItemTypeID))
+                if(!GroupedInventory.Any(gi => gi.Item.ItemTypeID == item.ItemTypeID))
                 {
                     GroupedInventory.Add(new GroupedInventoryItem(item, 0));
                 }
 
                 GroupedInventory.First(gi => gi.Item?.ItemTypeID == item.ItemTypeID).Quantity++;
             }
-
-                OnPropertyChanged(nameof(Weapons));
+            
+            OnPropertyChanged(nameof(Weapons));
+            OnPropertyChanged(nameof(Consumables));
+            OnPropertyChanged(nameof(HasConsumable));
         }
 
         public void RemoveItemFromInventory(GameItem item)
@@ -205,6 +240,31 @@ namespace Engine.Models
 
             }
             OnPropertyChanged(nameof(Weapons));
+            OnPropertyChanged(nameof(Consumables));
+            OnPropertyChanged(nameof(HasConsumable));
+        }
+
+        public void RemoveItemsFromInventory(List<ItemQuantity> itemQuantities)
+        {
+            foreach (var itemQuantity in itemQuantities)
+            {
+                for (var i = 0; i < itemQuantity.Quantity; i++)
+                {
+                    RemoveItemFromInventory(Inventory.First(item => item.ItemTypeID == itemQuantity.ItemID));
+                }
+            }
+        }
+
+        public bool HasAllTheseItems(List<ItemQuantity> items)
+        {
+            foreach (var item in items)
+            {
+                if (Inventory.Count(i => i.ItemTypeID == item.ItemID) < item.Quantity)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         #region Private Function
