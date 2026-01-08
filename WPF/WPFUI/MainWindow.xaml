@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:viewModels="clr-namespace:Engine.ViewModels;assembly=Engine"
         d:DataContext="{d:DesignInstance viewModels:GameSession}"
-        xmlns:local="clr-namespace:WPFUI"
         mc:Ignorable="d"
         FontSize="11pt"
-        Title="Iche's Awesome Game" Height="768" Width="1024">
+        Title="Iche's Awesome Game" Height="768" Width="1024"
+        KeyDown="MainWindow_OnKeyDown">
+
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
     </Window.Resources>
@@ -150,49 +151,52 @@
         <!-- Inventory, Quest, and Recipes -->
         <Grid Grid.Row="2" Grid.Column="0"
               Background="BurlyWood">
-            <TabControl>
-                <TabItem Header="Inventory">
+            <TabControl x:Name="PlayerDataTabControl">
+                <TabItem Header="Inventory"
+                         x:Name="InventoryTabItem">
                     <DataGrid ItemsSource="{Binding CurrentPlayer.GroupedInventory}"
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Description"
-                                                Binding="{Binding Item.Name}"
+                                                Binding="{Binding Item.Name, Mode=OneWay}"
                                                 Width="*"/>
                             <DataGridTextColumn Header="Qty"
                                                 IsReadOnly="True"
                                                 Width="Auto"
-                                                Binding="{Binding Quantity}"/>
+                                                Binding="{Binding Quantity, Mode=OneWay}"/>
                             <DataGridTextColumn Header="Price"
-                                                Binding="{Binding Item.Price}"
+                                                Binding="{Binding Item.Price, Mode=OneWay}"
                                                 Width="Auto"/>
                         </DataGrid.Columns>
                         
                     </DataGrid>
                 </TabItem>
 
-                <TabItem Header="Quest">
+                <TabItem Header="Quest"
+                         x:Name="QuestTabItem">
                     <DataGrid ItemsSource="{Binding CurrentPlayer.Quests}"
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Name"
-                                                Binding="{Binding PlayerQuest.Name}"
+                                                Binding="{Binding PlayerQuest.Name, Mode=OneWay}"
                                                 Width="*"/>
                             <DataGridTextColumn Header="Done?"
-                                                Binding="{Binding IsComplete}"
+                                                Binding="{Binding IsComplete, Mode=OneWay}"
                                                 Width="Auto"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem>
 
-                <TabItem Header="Recipes">
+                <TabItem Header="Recipes"
+                         x:Name="RecipesTabItem">
                     <DataGrid ItemsSource="{Binding CurrentPlayer.Recipes}"
                               AutoGenerateColumns="False"
                               HeadersVisibility="Column">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Name"
-                                                Binding="{Binding Name}"
+                                                Binding="{Binding Name, Mode=OneWay}"
                                                 Width="*"/>
                             <DataGridTemplateColumn MinWidth="75">
                                 <DataGridTemplateColumn.CellTemplate>
