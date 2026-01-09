@@ -1,36 +1,35 @@
-﻿using Engine.Actions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
+using System.Xml;
+using Engine.Actions;
 using Engine.Models;
 
 namespace Engine.Factories
 {
     public static class ItemFactory
     {
+        private const string GAME_DATA_FILENAME = ".\\GameData\\GameItems.xml";
+
         private static readonly List<GameItem> _standardGameItems = [];
 
         static ItemFactory()
         {
-            BuildWeapon(1001, "Pointy Stick", 1, 1, 2);
-            BuildWeapon(1002, "Rusty Sword", 5, 1, 3);
-            BuildWeapon(1003, "Excalibur", 10, 3, 5);
+            if (File.Exists(GAME_DATA_FILENAME))
+            {
+                var data = new XmlDocument();
+                data.LoadXml((File.ReadAllText(GAME_DATA_FILENAME)));
 
-            BuildWeapon(1501, "Snake Fangs", 0, 0,  2);
-            BuildWeapon(1502, "Rat Claws", 0, 0,  2);
-            BuildWeapon(1503, "Spider Fangs", 0, 0,  4);
+                LoadItemsFromNodes(data.SelectNodes("/GameItems/Weapons/Weapon"));
+                LoadItemsFromNodes(data.SelectNodes("/GameItems/HealingItems/HealingItem"));
+                LoadItemsFromNodes(data.SelectNodes("/GameItems/MiscellaneousItems/MiscellaneousItem"));
+            }
+            else
+            {
+                throw new FileNotFoundException($"Missing data file: '{GAME_DATA_FILENAME}'");
+            }
 
-            BuildHealingItem(2001, "Chew Chew Bar", 5, 2);
-
-            BuildMiscellaneousItem(3001, "Oats", 1);
-            BuildMiscellaneousItem(3002, "Honey", 4);
-            BuildMiscellaneousItem(3003, "Raisins", 5);
-
-
-
-            BuildMiscellaneousItem(9001, "Snake Fang", 1);
-            BuildMiscellaneousItem(9002, "Snake skin", 2);
-            BuildMiscellaneousItem(9003, "Rat Tail", 1);
-            BuildMiscellaneousItem(9004, "Rat Fur", 2);
-            BuildMiscellaneousItem(9005, "Spider Fang", 1);
-            BuildMiscellaneousItem(9006, "Spider Silk", 2);
         }   
 
         public static GameItem? CreateGameItem(int itemTypeID)
@@ -61,6 +60,70 @@ namespace Engine.Factories
         public static string ItemName(int itemTypeID)
         {
             return _standardGameItems.FirstOrDefault(i => i.ItemTypeID == itemTypeID)?.Name ?? "";
+        }
+
+        private static void LoadItemsFromNodes(XmlNodeList nodes)
+        {
+            if (nodes == null)
+            {
+                return;
+            }
+
+            foreach (XmlNode node in nodes)
+            {
+                var itemCategory = DetermineItemCategory(node.Name);
+
+                var gameItem = new GameItem(itemCategory, GetXmlAttributeAsInt(node, "ID"),
+                    GetXmlAttributeAsString(node, "Name"),
+                    GetXmlAttributeAsInt(node, "Price"),
+                    itemCategory == GameItem.ItemCategory.Weapon);
+
+                if (itemCategory == GameItem.ItemCategory.Weapon)
+                {
+                    gameItem.Action = new AttackWithWeapon(gameItem, GetXmlAttributeAsInt(node, "MinimumDamage"),
+                        GetXmlAttributeAsInt(node, "MaximumDamage"));
+                }
+                else if (itemCategory == GameItem.ItemCategory.Consumable)
+                {
+                    gameItem.Action = new Heal(gameItem, GetXmlAttributeAsInt(node, "HitPointsToHeal"));
+                }
+
+                _standardGameItems.Add(gameItem);
+            }
+
+            
+        }
+
+        private static GameItem.ItemCategory DetermineItemCategory(string itemType)
+        {
+            return itemType switch
+            {
+                "Weapon" => GameItem.ItemCategory.Weapon,
+                "HealingItem" => GameItem.ItemCategory.Consumable,
+                _ => GameItem.ItemCategory.Miscellaneous,
+            };
+        }
+
+        private static int GetXmlAttributeAsInt(XmlNode node, string attributeName)
+        {
+            return Convert.ToInt32(GetXmlAttribute(node, attributeName));
+        }
+
+        private static string GetXmlAttributeAsString(XmlNode node, string attributeName)
+        {
+            return GetXmlAttribute(node, attributeName);
+        }
+
+        private static string GetXmlAttribute(XmlNode node, string attributeName)
+        {
+            var attribute = node.Attributes?[attributeName];
+
+            if (attribute == null)
+            {
+                throw new ArgumentException($"The attribute '{attributeName}' does not exist!!!");
+            }
+
+            return attribute.Value;
         }
     }
 }

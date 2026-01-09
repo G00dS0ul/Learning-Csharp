@@ -200,9 +200,11 @@ namespace Engine.Models
 
         public void AddItemToInventory(GameItem item)
         {
-            Inventory?.Add(item);
+            if (item == null) return;
 
-            if(item.IsUnique)
+            Inventory?.Add(item);
+            
+            if(item != null && item.IsUnique)
             {
                 GroupedInventory.Add(new GroupedInventoryItem(item, 1));
             }
