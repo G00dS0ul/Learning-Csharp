@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Locations RootImagePath="/Images/Locations/">
+	<Location X="-2" Y="-1" Name="Farmer's Field" ImageName="FarmFields.png">
+		<Description>
+			<![CDATA[There are rows of corn here, with giant rat hiding between them.]]>
+		</Description>
+		<Monsters>
+			<Monster ID="2" Percent="100"/>
+		</Monsters>
+	</Location>
+	<Location X="-1" Y="-1" Name="Farmer's House" ImageName="FarmHouse.png">
+		<Description>
+			<![CDATA[This is the house of your neighbor, Farmer Ted.]]>
+		</Description>
+		<Trader Name="Black Farmer Circle"/>
+	</Location>
+	<Location X="0" Y="-1" Name="Home" ImageName="Home.png">
+		<Description>
+			<![CDATA[This is your home.]]>
+		</Description>
+	</Location>
+	<Location X="-1" Y="0" Name=" Trading Shop" ImageName="Trader.png">
+		<Description>
+			<![CDATA[The shop of the Inner Circle, the merchandise]]>
+		</Description>
+		<Trader Name="Inner Circle Trader"/>
+	</Location>
+	<Location X="0" Y="0" Name="Town Square" ImageName="TownSquare.png">
+		<Description>
+			<![CDATA[You See a Fountain Here.]]>
+		</Description>
+	</Location>
+	<Location X="1" Y="0" Name="Town Gate" ImageName="TownGate.png">
+		<Description>
+			<![CDATA[Theere is a gate here, protect the town from the giant spiders!]]>
+		</Description>
+	</Location> 
+	<Location X="2" Y="0" Name="Spider Forest" ImageName="SpiderForest.png">
+		<Description>
+			<![CDATA[There are giant spiders lurking in the trees. Be careful of the spider webs!]]>
+		</Description>
+		<Monsters>
+			<Monster ID="3" Percent="100"/>
+		</Monsters>
+	</Location>
+	<Location X="0" Y="1" Name="Herbalist's Hut" ImageName="HerbalistsHut.png">
+		<Description>
+			<![CDATA[This is the hut of the town's herbalist, who sells potions and herbs.]]>
+		</Description>
+		<Quests>
+			<Quest ID="1"/>
+		</Quests>
+		<Trader Name="The Empty Pocket Circle"/>
+	</Location>
+	<Location X="0" Y="2" Name="Herbalist's Garden" ImageName="HerbalistsGarden.png">
+		<Description>
+			<![CDATA[This is the herbalist's garden, filled with various plants, with snakes hiding behind them.]]>
+		</Description>
+		<Monsters>
+			<Monster ID="1" Percent="100"/>
+		</Monsters>
+	</Location>
+</Locations>
