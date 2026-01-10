@@ -99,11 +99,14 @@
                     <TextBlock Grid.Row="0"
                                HorizontalAlignment="Center"
                                Text="{Binding CurrentLocation.Name}"/>
+
                     <Image Grid.Row="1"
                                HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
                            Height="125"
                            Width="125"
-                           Source="{Binding CurrentLocation.ImageName}"/>
+                           Source="{Binding CurrentLocation.ImageName, Converter={StaticResource FileToBitMapConverter}}"/>
+
                     <TextBlock Grid.Row="2"
                                HorizontalAlignment="Center"
                                Text="{Binding CurrentLocation.Description}"
