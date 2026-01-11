@@ -12,7 +12,10 @@
 		<Description>
 			<![CDATA[This is the house of your neighbor, Farmer Ted.]]>
 		</Description>
-		<Trader Name="Black Farmer Circle"/>
+		<Quests>
+			<Quest ID="2"/>
+		</Quests>
+		<Trader Name="BlackFarmer Circle"/>
 	</Location>
 	<Location X="0" Y="-1" Name="Home" ImageName="Home.png">
 		<Description>
@@ -32,8 +35,11 @@
 	</Location>
 	<Location X="1" Y="0" Name="Town Gate" ImageName="TownGate.png">
 		<Description>
-			<![CDATA[Theere is a gate here, protect the town from the giant spiders!]]>
+			<![CDATA[There is a gate here, protect the town from the giant spiders!]]>
 		</Description>
+		<Quests>
+			<Quest ID="3"/>
+		</Quests>
 	</Location> 
 	<Location X="2" Y="0" Name="Spider Forest" ImageName="SpiderForest.png">
 		<Description>
