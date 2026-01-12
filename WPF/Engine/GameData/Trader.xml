@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Traders>
+	<Trader ID="1">
+		<Name>
+			<![CDATA[BlackFarmer Circle]]>
+		</Name>
+		<InventoryItems>
+			<Item ID="1001" Quantity="1"/>
+			<Item ID="3001" Quantity="10"/>
+			<Item ID="2001" Quantity="1"/>
+		</InventoryItems>
+	</Trader>
+	<Trader ID="2">
+		<Name>
+			<![CDATA[Inner Circle Dungeon]]>
+		</Name>
+		<InventoryItems>
+			<Item ID="1002" Quantity="1"/>
+			<Item ID="3002" Quantity="10"/>
+			<Item ID="2001" Quantity="1"/>
+		</InventoryItems>
+	</Trader>
+	<Trader ID="3">
+		<Name>
+			<![CDATA[The Empty Pocket Circle]]>
+		</Name>
+		<InventoryItems>
+			<Item ID="1003" Quantity="1"/>
+			<Item ID="3003" Quantity="10"/>
+			<Item ID="2001" Quantity="1"/>
+		</InventoryItems>
+	</Trader>
+</Traders>
