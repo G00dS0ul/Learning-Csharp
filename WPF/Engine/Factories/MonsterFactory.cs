@@ -9,7 +9,7 @@ namespace Engine.Factories
 {
     public static class MonsterFactory
     {
-        private const string GAME_DATA_FILENAME = ".\\GameData\\Monsters.xml";
+        private const string GAME_DATA_FILENAME = ".\\GameData\\Monster.xml";
         private static readonly List<Monster> _baseMonsters = [];
 
         static MonsterFactory()

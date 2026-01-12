@@ -10,6 +10,9 @@
     <None Remove="GameData\GameItems.xml" />
     <None Remove="GameData\Location.xml" />
     <None Remove="GameData\Monster.xml" />
+    <None Remove="GameData\Quest.xml" />
+    <None Remove="GameData\Recipe.xml" />
+    <None Remove="GameData\Trader.xml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,6 +23,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="GameData\Monster.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameData\Quest.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameData\Recipe.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GameData\Trader.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

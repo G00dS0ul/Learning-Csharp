@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Monsters RootImagePath="/Images/Monsters/">
+<Monsters RootImagePath="/Images/Monster/">
 	<Monster ID="1" Name="Snake" MaximumHitPoints="4" WeaponID="1501" RewardXP="5" Gold="1" ImageName="Snake.png">
 		<LootItems>
 			<LootItem ID="9001" Percentage="25"/>

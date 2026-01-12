@@ -15,7 +15,7 @@
 		<Quests>
 			<Quest ID="2"/>
 		</Quests>
-		<Trader Name="BlackFarmer Circle"/>
+		<Trader ID="2"/>
 	</Location>
 	<Location X="0" Y="-1" Name="Home" ImageName="Home.png">
 		<Description>
@@ -26,7 +26,7 @@
 		<Description>
 			<![CDATA[The shop of the Inner Circle, the merchandise]]>
 		</Description>
-		<Trader Name="Inner Circle Trader"/>
+		<Trader ID="1"/>
 	</Location>
 	<Location X="0" Y="0" Name="Town Square" ImageName="TownSquare.png">
 		<Description>
@@ -56,7 +56,7 @@
 		<Quests>
 			<Quest ID="1"/>
 		</Quests>
-		<Trader Name="The Empty Pocket Circle"/>
+		<Trader ID="3"/>
 	</Location>
 	<Location X="0" Y="2" Name="Herbalist's Garden" ImageName="HerbalistsGarden.png">
 		<Description>
