@@ -10,8 +10,15 @@ namespace Engine.Models
     {
         public int ID { get; }
         public string Name { get; }
-        public List<ItemQuantity> Ingredients { get; } = [];
+        public List<ItemQuantity>? Ingredients { get; } = [];
         public List<ItemQuantity> OutputItems { get; } = [];
+
+        public string ToolTipContents => "Ingredients" + Environment.NewLine + "============" + Environment.NewLine +
+                                         string.Join(Environment.NewLine,
+                                             Ingredients.Select(i => i.QuantityItemDescription)) + Environment.NewLine +
+                                         Environment.NewLine + "Creates" + Environment.NewLine + "===========" +
+                                         Environment.NewLine + string.Join(Environment.NewLine,
+                                             OutputItems.Select(i => i.QuantityItemDescription));
 
         public Recipe(int id, string name)
         {

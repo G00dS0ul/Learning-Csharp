@@ -23,8 +23,8 @@ public class QuestFactoryTest
 
         Assert.IsNotNull(quest);
         Assert.AreEqual(3, quest.ID);
-        Assert.AreEqual("Clear the Spider Forest", quest.Name);
-        Assert.AreEqual(50, quest.RewardGold);
+        Assert.AreEqual("Kill all the Spider in the Forest", quest.Name);
+        Assert.AreEqual(30, quest.RewardGold);
     }
 
     [TestMethod]
@@ -58,8 +58,8 @@ public class QuestFactoryTest
 
         Assert.IsNotNull(quest.ItemToComplete);
         Assert.AreEqual(2, quest?.ItemToComplete.Count);
-        Assert.IsTrue(quest.ItemToComplete.Any(i => i.ItemID == 9001 && i.Quantity == 5));
-        Assert.IsTrue(quest.ItemToComplete.Any(i => i.ItemID == 9002 && i.Quantity == 10));
+        Assert.IsTrue(quest.ItemToComplete.Any(i => i.ItemID == 9001 && i.Quantity == 10));
+        Assert.IsTrue(quest.ItemToComplete.Any(i => i.ItemID == 9002 && i.Quantity == 5));
     }
 
     [TestMethod]

@@ -1,14 +1,18 @@
-﻿namespace Engine.Models
+﻿using Engine.Factories;
+
+namespace Engine.Models
 {
     public class ItemQuantity
     {
         public int ItemID { get; }
         public int Quantity { get; }
 
+        public string QuantityItemDescription => $"{Quantity} {ItemFactory.ItemName(ItemID)}";
+
         public ItemQuantity(int itemID, int quantity)
         {
-            this.ItemID = itemID;
-            this.Quantity = quantity;
+            ItemID = itemID;
+            Quantity = quantity;
         }
     }
 }
