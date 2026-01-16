@@ -11,7 +11,9 @@
 			<Item ID="9001" Quantity="10"/>
 			<Item ID="9002" Quantity="5"/>
 		</ItemsToComplete>
-		<RewardItem ID="2001" Quantity="1"/>
+		<RewardItems>
+			<Item ID="2001" Quantity="1"/>
+		</RewardItems>
 	</Quest>
 	<Quest ID="2" RewardExperiencePoints="30" RewardGold="15">
 		<Name>
@@ -24,8 +26,10 @@
 			<Item ID="9003" Quantity="5"/>
 			<Item ID="9004" Quantity="3"/>
 		</ItemsToComplete>
-		<RewardItem ID="2003" Quantity="1"/>
-		<RewardItem ID="2002" Quantity="1"/>
+		<RewardItems>
+			<Item ID="2001" Quantity="1"/>
+			<Item ID="1002" Quantity="1"/>
+		</RewardItems>
 	</Quest>
 	<Quest ID="3" RewardExperiencePoints="50" RewardGold="30">
 		<Name>
@@ -38,6 +42,9 @@
 			<Item ID="9005" Quantity="5"/>
 			<Item ID="9006" Quantity="2"/>
 		</ItemsToComplete>
-		<RewardItem ID="2003" Quantity="1"/>
+		<RewardItems>
+			<Item ID="2001" Quantity="1"/>
+			<Item ID="1003" Quantity="1"/>
+		</RewardItems>
 	</Quest>
 </Quests>

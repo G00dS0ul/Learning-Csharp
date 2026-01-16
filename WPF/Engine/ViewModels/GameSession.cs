@@ -206,12 +206,12 @@ namespace Engine.ViewModels
 
                         foreach (var itemQuantity in quest.RewardItems)
                         {
-                            var rewardItem = ItemFactory.CreateGameItem(itemQuantity.ItemID);
-
-
-                            RaiseMessage($"You Receive a {rewardItem.Name}");
-                            CurrentPlayer.AddItemToInventory(rewardItem);
-
+                            for (var i = 0; i < itemQuantity.Quantity; i++)
+                            {
+                                var rewardItem = ItemFactory.CreateGameItem(itemQuantity.ItemID);
+                                CurrentPlayer.AddItemToInventory(rewardItem);
+                            }
+                            RaiseMessage($"You Receive {itemQuantity.Quantity} {ItemFactory.ItemName(itemQuantity.ItemID)}");
                         }
 
                         questToComplete.IsComplete = true;

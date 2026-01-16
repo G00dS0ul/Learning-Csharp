@@ -37,7 +37,7 @@ namespace Engine.Factories
                     itemsToComplete.Add(new ItemQuantity(childNode.AttributeAsInt("ID"), childNode.AttributeAsInt("Quantity")));
                 }
 
-                foreach (XmlNode childNode in node.SelectNodes("./RewardItem/Item"))
+                foreach (XmlNode childNode in node.SelectNodes("./RewardItems/Item"))
                 {
                     rewardItems.Add(new ItemQuantity(childNode.AttributeAsInt("ID"), childNode.AttributeAsInt("Quantity")));
 

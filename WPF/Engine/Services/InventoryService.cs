@@ -57,19 +57,25 @@ namespace Engine.Services
 
         public static Inventory RemoveItems(this Inventory inventory, IEnumerable<ItemQuantity> itemQuantities)
         {
-            var workingInventory = inventory;
+            var workingInventory = inventory.Items.ToList();
 
             foreach (var itemQuantity in itemQuantities)
             {
+                var itemCount = workingInventory.Count(i => i.ItemTypeID == itemQuantity.ItemID);
+
+                if (itemQuantity.Quantity > itemCount)
+                {
+                    throw new ArgumentException($"Cannot remove {itemQuantity.Quantity} of item {itemQuantity.ItemID}. Only {itemCount} available.");
+                }
+
                 for (var i = 0; i < itemQuantity.Quantity; i++)
                 {
-                    workingInventory =
-                        workingInventory.RemoveItem(
-                            workingInventory.Items.First(item => item.ItemTypeID == itemQuantity.ItemID));
+                    workingInventory.Remove(
+                        workingInventory.First(item => item.ItemTypeID == itemQuantity.ItemID));
                 }
             }
 
-            return workingInventory;
+            return new Inventory(workingInventory);
         }
 
         public static List<GameItem> ItemsThatAre(this IEnumerable<GameItem> inventory, GameItem.ItemCategory category)

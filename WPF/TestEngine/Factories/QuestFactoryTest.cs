@@ -69,7 +69,7 @@ public class QuestFactoryTest
 
         Assert.IsNotNull(quest.RewardItems);
         Assert.AreEqual(1, quest?.RewardItems.Count);
-        Assert.IsTrue(quest.RewardItems.Any(i => i.ItemID == 1003 && i.Quantity == 1));
+        Assert.IsTrue(quest.RewardItems.Any(i => i.ItemID == 2001 && i.Quantity == 1));
     }
 
     [TestMethod]
@@ -79,8 +79,8 @@ public class QuestFactoryTest
 
         Assert.IsNotNull(quest.RewardItems);
         Assert.AreEqual(2, quest?.RewardItems.Count);
-        Assert.IsTrue(quest.RewardItems.Any(i => i.ItemID == 1002));
         Assert.IsTrue(quest.RewardItems.Any(i => i.ItemID == 1003));
+        Assert.IsTrue(quest.RewardItems.Any(i => i.ItemID == 2001));
 
 
     }
