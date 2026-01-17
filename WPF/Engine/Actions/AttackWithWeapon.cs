@@ -1,10 +1,10 @@
 ﻿using Engine.Models;
+using Engine.Services;
 
 namespace Engine.Actions
 {
     public class AttackWithWeapon : BaseAction, IAction
     {
-        private readonly GameItem _weapon;
         private readonly int _maximumDamage;
         private readonly int _minimumDamage;
 
@@ -28,26 +28,28 @@ namespace Engine.Actions
                 throw new ArgumentException("maximumDamage must be >= minimumDamage");
             }
 
-            _weapon = itemInUse;
             _minimumDamage = minimumDamage;
             _maximumDamage = maximumDamage;
         }
 
         public void Execute(LivingEntity actor, LivingEntity target)
         {
-            var damage = RandomNumberGenerator.NumberBetween(_minimumDamage, _maximumDamage);
-            var actorName = (actor is Player) ? "You" : $"The {actor.Name.ToLower()}";
-            var targetName = (target is Player) ? "you" : $"the {target.Name.ToLower()}";
+            var actorName = (actor is Player) ? "You" : $"The {actor.Name?.ToLower()}";
+            var targetName = (target is Player) ? "you" : $"the {target.Name?.ToLower()}";
 
-            if (damage == 0)
+            if (CombatService.AttackSucceeded(actor, target))
             {
-                ReportResult($"{actorName} misses {targetName}");
+                var damage = RandomNumberGenerator.NumberBetween(_minimumDamage, _maximumDamage);
+
+                ReportResult($"{actorName} hits {targetName} for {damage} point{(damage > 1 ? "s" : "")}.");
+
+                target.TakeDamage(damage);
             }
             else
             {
-                ReportResult($"{actorName} hits {targetName} for {damage} points");
-                target.TakeDamage(damage);
+                ReportResult($"{actorName} missed {targetName}.");
             }
+            
         }
     }
 }
