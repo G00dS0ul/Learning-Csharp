@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using Engine.Services;
+﻿using Engine.Services;
 
 namespace Engine.Models
 {
@@ -131,7 +130,8 @@ namespace Engine.Models
             }
         }
 
-        public bool IsDead => CurrentHitPoints <= 0;
+        public bool IsAlive => CurrentHitPoints > 0;
+        public bool IsDead => !IsAlive;
 
         #endregion
 

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Engine.Services;
+﻿using Engine.Services;
 
 namespace Engine.Models
 {
@@ -63,12 +61,12 @@ namespace Engine.Models
             }
             else
             {
-                if (_backingGroupedInventoryItems.All(gi => gi.Item.ItemTypeID != item.ItemTypeID))
+                if (_backingGroupedInventoryItems.All(gi => gi.Item?.ItemTypeID != item.ItemTypeID))
                 {
                     _backingGroupedInventoryItems.Add(new GroupedInventoryItem(item, 0));
                 }
 
-                _backingGroupedInventoryItems.First(gi => gi.Item.ItemTypeID == item.ItemTypeID).Quantity++;
+                _backingGroupedInventoryItems.First(gi => gi.Item?.ItemTypeID == item.ItemTypeID).Quantity++;
             }
         }
 

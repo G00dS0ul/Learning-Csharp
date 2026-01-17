@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Engine.Factories;
+﻿using Engine.Factories;
 
 namespace Engine.Models
 {

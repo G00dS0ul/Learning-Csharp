@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Engine.EventArgs
+﻿namespace Engine.EventArgs
 {
-    internal class CombatVictoryEventArgs
+    public class CombatVictoryEventArgs : System.EventArgs
     {
     }
 }
