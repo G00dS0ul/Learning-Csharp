@@ -37,6 +37,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Images\Locations\FarmFields.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
