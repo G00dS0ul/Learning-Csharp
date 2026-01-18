@@ -1,4 +1,5 @@
 ﻿using Engine.Factories;
+using Newtonsoft.Json;
 
 namespace Engine.Models
 {
@@ -6,13 +7,17 @@ namespace Engine.Models
     {
         public int XCoordinate { get; }
         public int YCoordinate { get; }
+        [JsonIgnore]
         public string? Name { get; }
+        [JsonIgnore]
         public string? Description { get; }
+        [JsonIgnore]
         public string? ImageName { get; }
-        public List<Quest> QuestAvailableHere { get; } = new List<Quest>();
-
-        public List<MonsterEncounter> MonstersHere { get; } = new List<MonsterEncounter>();
-
+        [JsonIgnore]
+        public List<Quest> QuestAvailableHere { get; } = [];
+        [JsonIgnore]
+        public List<MonsterEncounter> MonstersHere { get; } = [];
+        [JsonIgnore]
         public Trader? TraderHere { get; set; }
 
         public Location(int xCoordinate, int yCoordinate, string? name, string? description, string? imageName)

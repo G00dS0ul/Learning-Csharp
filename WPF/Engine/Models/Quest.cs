@@ -1,15 +1,23 @@
-﻿namespace Engine.Models
+﻿using Newtonsoft.Json;
+
+namespace Engine.Models
 {
     public class Quest
     {
         public int ID { get; }
+        [JsonIgnore]
         public string Name { get; }
+        [JsonIgnore]
         public string Description { get; }
+        [JsonIgnore]
         public List<ItemQuantity> ItemToComplete { get; }
+        [JsonIgnore]
         public int RewardExperiencePoints { get; }
+        [JsonIgnore]
         public int RewardGold { get; }
+        [JsonIgnore]
         public List<ItemQuantity> RewardItems { get; }
-
+        [JsonIgnore]
         public string ToolTipContents => Description + Environment.NewLine + Environment.NewLine +
                                          "Items to complete the quest" + Environment.NewLine +
                                          "===========================" + Environment.NewLine +

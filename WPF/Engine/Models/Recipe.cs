@@ -1,12 +1,17 @@
-﻿namespace Engine.Models
+﻿using Newtonsoft.Json;
+
+namespace Engine.Models
 {
     public class Recipe
     {
         public int ID { get; }
+        [JsonIgnore]
         public string Name { get; }
+        [JsonIgnore]
         public List<ItemQuantity>? Ingredients { get; } = [];
+        [JsonIgnore]
         public List<ItemQuantity> OutputItems { get; } = [];
-
+        [JsonIgnore]
         public string ToolTipContents => "Ingredients" + Environment.NewLine + "============" + Environment.NewLine +
                                          string.Join(Environment.NewLine,
                                              Ingredients.Select(i => i.QuantityItemDescription)) + Environment.NewLine +
