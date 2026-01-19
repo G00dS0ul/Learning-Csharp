@@ -1,0 +1,87 @@
+﻿{
+  "Version": "0.1.000",
+  "CurrentPlayer": {
+    "CharacterClass": "Fighter",
+    "ExperiencePoints": 0,
+    "Quests": [
+      {
+        "PlayerQuest": {
+          "ID": 1
+        },
+        "IsComplete": false
+      },
+      {
+        "PlayerQuest": {
+          "ID": 2
+        },
+        "IsComplete": false
+      },
+      {
+        "PlayerQuest": {
+          "ID": 3
+        },
+        "IsComplete": false
+      }
+    ],
+    "Recipes": [
+      {
+        "ID": 1
+      }
+    ],
+    "Name": "G00dS0ul",
+    "Dexterity": 16,
+    "CurrentHitPoints": 9,
+    "MaximumHitPoints": 10,
+    "Level": 1,
+    "Gold": 999924,
+    "Inventory": {
+      "Items": [
+        {
+          "ItemTypeID": 1001
+        },
+        {
+          "ItemTypeID": 2001
+        },
+        {
+          "ItemTypeID": 2001
+        },
+        {
+          "ItemTypeID": 1003
+        },
+        {
+          "ItemTypeID": 2001
+        },
+        {
+          "ItemTypeID": 3001
+        },
+        {
+          "ItemTypeID": 2001
+        },
+        {
+          "ItemTypeID": 2001
+        },
+        {
+          "ItemTypeID": 2001
+        },
+        {
+          "ItemTypeID": 2001
+        },
+        {
+          "ItemTypeID": 2001
+        },
+        {
+          "ItemTypeID": 2001
+        },
+        {
+          "ItemTypeID": 2001
+        }
+      ]
+    },
+    "CurrentWeapon": null,
+    "CurrentConsumable": null
+  },
+  "CurrentLocation": {
+    "XCoordinate": -1,
+    "YCoordinate": -1
+  }
+}

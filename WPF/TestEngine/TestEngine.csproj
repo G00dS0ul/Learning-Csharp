@@ -13,6 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="TestFiles\SavedGames\Game_0_1_000.g00ds0ulrpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Update="MSTest.TestFramework" Version="4.0.2" />
   </ItemGroup>
 
