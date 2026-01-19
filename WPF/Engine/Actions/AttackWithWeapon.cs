@@ -1,5 +1,6 @@
 ﻿using Engine.Models;
 using Engine.Services;
+using System;
 
 namespace Engine.Actions
 {
@@ -20,7 +21,30 @@ namespace Engine.Actions
                 throw new ArgumentException("damageDice must be a valid dice notation");
             }
 
+            // Parse and validate dice notation
+            ValidateDiceNotation(damageDice);
+
             _damageDice = damageDice;
+        }
+
+        private void ValidateDiceNotation(string damageDice)
+        {
+            // Parse notation like "5d3" to extract minimum and maximum damage
+            var parts = damageDice.Split('d', 'D');
+            if (parts.Length != 2)
+            {
+                throw new ArgumentException("damageDice must be in valid dice notation (e.g., '1d5')");
+            }
+
+            if (!int.TryParse(parts[0], out var minimumDamage) || !int.TryParse(parts[1], out var maximumDamage))
+            {
+                throw new ArgumentException("damageDice must contain valid integers");
+            }
+
+            if (maximumDamage < minimumDamage)
+            {
+                throw new ArgumentException("Maximum damage cannot be less than minimum damage");
+            }
         }
 
         public void Execute(LivingEntity actor, LivingEntity target)
