@@ -1,5 +1,6 @@
 ﻿using Engine.Factories;
 using Newtonsoft.Json;
+using Engine.Services;
 
 namespace Engine.Models
 {
@@ -49,11 +50,11 @@ namespace Engine.Models
                 return null;
             }
 
-            int totalChances = MonstersHere.Sum(m => m.ChanceOfEncountering);
+            var totalChances = MonstersHere.Sum(m => m.ChanceOfEncountering);
 
-            int randomNumber = RandomNumberGenerator.NumberBetween(1, totalChances);
+            var randomNumber = DiceService.Instance.Roll(totalChances, 1).Value;
 
-            int runningTotal = 0;
+            var runningTotal = 0;
 
             foreach(var monsterEncounter in MonstersHere)
             {

@@ -1,10 +1,12 @@
-﻿using Engine.Factories;
+﻿using D20Tek.DiceNotation;
+using Engine.Factories;
+using Engine.Services;
 
 namespace Engine.Models
 {
     public class Monster : LivingEntity
     {
-        private readonly List<ItemPercentage> _lootTable = new List<ItemPercentage>();
+        private readonly List<ItemPercentage> _lootTable = [];
 
         public int ID { get; }
         public string? ImageName { get; }
@@ -35,7 +37,7 @@ namespace Engine.Models
             {
                 newMonster.AddItemToLootTable(itemPercentage.ID, itemPercentage.Percentage);
 
-                if (RandomNumberGenerator.NumberBetween(1, 100) <= itemPercentage.Percentage)
+                if (DiceService.Instance.Roll(100).Value <= itemPercentage.Percentage)
                 {
                     newMonster?.AddItemToInventory(ItemFactory.CreateGameItem(itemPercentage.ID));
                 }

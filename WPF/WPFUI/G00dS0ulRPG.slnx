@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Docs/">
+    <File Path="LicensesConsumed.md" />
+  </Folder>
   <Project Path="../Engine/Engine.csproj" />
   <Project Path="../TestEngine/TestEngine.csproj" Id="b18a95d7-4a2c-40d4-8719-2bd2167cba1e" />
   <Project Path="WPFUI.csproj" />

@@ -37,6 +37,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="D20Tek.Common.Net47" Version="3.3.5" />
+    <PackageReference Include="D20Tek.DiceNotation.Net47" Version="3.3.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="4.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
 

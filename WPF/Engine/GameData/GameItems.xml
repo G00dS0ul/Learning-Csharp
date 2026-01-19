@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <GameItems>
 	<Weapons>
-		<Weapon ID="1001" Name="Pointy Stick" Price="1" MinimumDamage="1" MaximumDamage="2"/> 
-		<Weapon ID="1002" Name="Rusty Sword" Price="5" MinimumDamage="1" MaximumDamage="3"/> 
-		<Weapon ID="1003" Name="Excalibur" Price="10" MinimumDamage="3" MaximumDamage="5"/> 
-		<Weapon ID="1501" Name="Snake Fang" Price="0" MinimumDamage="1" MaximumDamage="2"/> 
-		<Weapon ID="1502" Name="Rat Claw" Price="0" MinimumDamage="1" MaximumDamage="2"/> 
-		<Weapon ID="1503" Name="Spider Fang" Price="0" MinimumDamage="1" MaximumDamage="4"/> 
+		<Weapon ID="1001" Name="Pointy Stick" Price="1" DamageDice="1d2"/> 
+		<Weapon ID="1002" Name="Rusty Sword" Price="5" DamageDice="1d3"/> 
+		<Weapon ID="1003" Name="Excalibur" Price="10" DamageDice="3d5"/> 
+		<Weapon ID="1501" Name="Snake Fang" Price="0" DamageDice="1d2"/> 
+		<Weapon ID="1502" Name="Rat Claw" Price="0" DamageDice="1d3"/> 
+		<Weapon ID="1503" Name="Spider Fang" Price="0" DamageDice="2d4"/> 
 	</Weapons>
 
 	<HealingItems>

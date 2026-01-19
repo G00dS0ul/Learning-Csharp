@@ -4,9 +4,6 @@ using System.Windows;
 
 namespace WPFUI
 {
-    /// <summary>
-    /// Interaction logic for TraderScreen.xaml
-    /// </summary>
     public partial class TraderScreen : Window
     {
         public GameSession Session => DataContext as GameSession;
@@ -17,7 +14,7 @@ namespace WPFUI
 
         private void OnClick_Sell(object sender, RoutedEventArgs e)
         {
-            GroupedInventoryItem? groupInventoryItem = ((FrameworkElement)sender).DataContext as GroupedInventoryItem;
+            var groupInventoryItem = ((FrameworkElement)sender).DataContext as GroupedInventoryItem;
 
             if (groupInventoryItem != null)
             {
@@ -29,7 +26,7 @@ namespace WPFUI
 
         private void OnClick_Buy(object sender, RoutedEventArgs e)
         {
-            GroupedInventoryItem? groupedInventoryItem = ((FrameworkElement)sender).DataContext as GroupedInventoryItem;
+            var groupedInventoryItem = ((FrameworkElement)sender).DataContext as GroupedInventoryItem;
 
             if(groupedInventoryItem != null)
             {

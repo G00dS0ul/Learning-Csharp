@@ -15,10 +15,10 @@ namespace Engine.Services
             var playerDexterity = player.Dexterity * player.Dexterity;
             var opponentDexterity = opponent.Dexterity * opponent.Dexterity;
             var dexterityOffset = (playerDexterity - opponentDexterity) / 10m;
-            var randomOffset = RandomNumberGenerator.NumberBetween(-10, 10);
+            var randomOffset = DiceService.Instance.Roll(20).Value - 10;
             var totalOffset = dexterityOffset + randomOffset;
 
-            return RandomNumberGenerator.NumberBetween(0, 100) <= 50 + totalOffset
+            return DiceService.Instance.Roll(100).Value <= 50 + totalOffset
                 ? Combatant.Player
                 : Combatant.Opponent;
 
@@ -30,10 +30,10 @@ namespace Engine.Services
             var opponentDexterity = target.Dexterity * target.Dexterity;
             var dexterityOffset = (
                 playerDexterity - opponentDexterity) / 10m;
-            var randomOffset = RandomNumberGenerator.NumberBetween(-10, 10);
+            var randomOffset = DiceService.Instance.Roll(20).Value - 10;
             var totalOffset = dexterityOffset + randomOffset;
 
-            return RandomNumberGenerator.NumberBetween(0, 100) <= 50 + totalOffset;
+            return DiceService.Instance.Roll(100).Value <= 50 + totalOffset;
         }
     }
 }
