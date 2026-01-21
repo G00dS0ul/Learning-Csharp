@@ -209,14 +209,7 @@ namespace Engine.ViewModels
 
         private void PopulateGameDetails()
         {
-            var gameDetails = JObject.Parse(File.ReadAllText(".\\GameData\\GameDetails.json"));
-
-            GameDetails = new GameDetails(gameDetails["Name"].ToString(), gameDetails[nameof(GameDetails.Version)].ToString());
-
-            foreach (var token in gameDetails["PlayerAttributes"])
-            {
-                GameDetails.PlayerAttributes.Add(new PlayerAttribute(token["Key"].ToString(), token["DisplayName"].ToString(), token["DiceNotation"].ToString()));
-            }
+            GameDetails = GameDetailsService.ReadGameDetails();
         }
 
         private void CompleteQuestAtLocation()
