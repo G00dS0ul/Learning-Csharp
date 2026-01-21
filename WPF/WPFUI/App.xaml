@@ -6,7 +6,8 @@
              StartupUri="Startup.xaml">
 
     <Application.Resources>
-         <converters:FileToBitMapConverter x:Key="FileToBitMapConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <converters:FileToBitMapConverter x:Key="FileToBitMapConverter"/>
     </Application.Resources>
 
 </Application>

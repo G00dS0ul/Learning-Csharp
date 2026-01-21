@@ -1,5 +1,4 @@
-﻿using System;
-using D20Tek.DiceNotation;
+﻿using D20Tek.DiceNotation;
 using D20Tek.DiceNotation.DieRoller;
 
 namespace Engine.Services

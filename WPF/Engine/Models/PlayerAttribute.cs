@@ -1,20 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Engine.Services;
+﻿using Engine.Services;
 
 namespace Engine.Models
 {
-    public class PlayerAttribute
+    public class PlayerAttribute : BaseNotificationClass
     {
+        private int _modifiedValue;
         public string? Key { get; }
         public string DisplayName { get; }
         public string DiceNotation { get; }
         public int BaseValue { get; set; }
-        public int ModifiedValue { get; set; }
+
+        public int ModifiedValue
+        {
+            get => _modifiedValue;
+            set
+            {
+                _modifiedValue = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public PlayerAttribute(string key, string displayName, string diceNotation) 
             : this(key, displayName, diceNotation, DiceService.Instance.Roll(diceNotation).Value)
