@@ -10,7 +10,7 @@ public class TestSaveGameService
     {
         var gameSession = SaveGameService.LoadLastSaveOrCreateNew(@".\TestFiles\SavedGames\Game_0_1_000.g00ds0ulrpg");
 
-        Assert.AreEqual("0.1.000", gameSession.Version);
+        Assert.AreEqual("0.1.000", gameSession.GameDetails.Version);
         Assert.AreEqual(-1, gameSession.CurrentLocation.XCoordinate);
         Assert.AreEqual(-1, gameSession.CurrentLocation.YCoordinate);
 

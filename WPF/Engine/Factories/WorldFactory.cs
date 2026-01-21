@@ -4,10 +4,10 @@ using Engine.Shared;
 
 namespace Engine.Factories
 {
-    internal static class WorldFactory
+    public static class WorldFactory
     {
         private const string GAME_DATA_FILENAME = ".\\GameData\\Location.xml";
-        internal static World CreateWorld()
+        public static World CreateWorld()
         {
             var world = new World();
 

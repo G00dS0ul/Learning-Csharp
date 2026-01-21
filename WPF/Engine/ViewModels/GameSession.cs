@@ -211,7 +211,7 @@ namespace Engine.ViewModels
         {
             var gameDetails = JObject.Parse(File.ReadAllText(".\\GameData\\GameDetails.json"));
 
-            GameDetails = new GameDetails(gameDetails["Name"].ToString(), gameDetails[Version].ToString());
+            GameDetails = new GameDetails(gameDetails["Name"].ToString(), gameDetails[nameof(GameDetails.Version)].ToString());
 
             foreach (var token in gameDetails["PlayerAttributes"])
             {
