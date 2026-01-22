@@ -133,33 +133,6 @@ namespace Engine.ViewModels
 
         #endregion
 
-        public GameSession()
-        {
-            PopulateGameDetails();
-
-            CurrentWorld = WorldFactory.CreateWorld();
-            var dexterity = DiceService.Instance.Roll(6, 3).Value;
-
-            CurrentPlayer = new Player("G00dS0ul", "Fighter", 0, 10, 10, dexterity, 1000000);
-          
-
-            if(!CurrentPlayer.Inventory.Weapons.Any())
-            {
-                CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(1001));
-            }
-
-            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(2001));
-            CurrentPlayer.LearnRecipe(RecipeFactory.GetRecipeByID(
-                1));
-            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(3001));
-            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(3002));
-            CurrentPlayer.AddItemToInventory(ItemFactory.CreateGameItem(3003));
-            
-            CurrentWorld = WorldFactory.CreateWorld();
-            CurrentLocation = CurrentWorld.LocationAt(0, 0);
-
-        }
-
         public GameSession(Player player, int xCoordinate, int yCoordinate)
         {
             PopulateGameDetails();

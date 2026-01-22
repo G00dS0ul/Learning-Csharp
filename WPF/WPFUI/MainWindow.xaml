@@ -68,18 +68,45 @@
 
             <Label Grid.Row="0" Grid.Column="0" Content="Name:"/>
             <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}"/>
-            <Label Grid.Row="1" Grid.Column="0" Content="Class:"/>
-            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.CharacterClass}"/>
-            <Label Grid.Row="2" Grid.Column="0" Content="Dexterity"/>
-            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.Dexterity}"/>
-            <Label Grid.Row="3" Grid.Column="0" Content="Hit Points:"/>
-            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.CurrentHitPoints}"/>
-            <Label Grid.Row="4" Grid.Column="0" Content="Gold:"/>
-            <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"/>
-            <Label Grid.Row="5" Grid.Column="0" Content="XP:"/>
-            <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}"/>
-            <Label Grid.Row="6" Grid.Column="0" Content="Level:"/>
-            <Label Grid.Row="6" Grid.Column="1" Content="{Binding CurrentPlayer.Level}"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Hit Points:"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.CurrentHitPoints}"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="Gold:"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="XP:"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Level:"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.Level}"/>
+
+            <!-- Player Attributes -->
+            <ListBox Grid.Row="5" Grid.Column="0"
+                     Grid.ColumnSpan="2"
+                     Background="Aquamarine"
+                     BorderThickness="0"
+                     Grid.IsSharedSizeScope="True"
+                     ItemsSource="{Binding CurrentPlayer.Attributes}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition SharedSizeGroup="Description"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding DisplayName}"
+                                         HorizontalAlignment="Left"
+                                         MinWidth="100"/>
+                            </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition SharedSizeGroup="ModifiedValue"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding ModifiedValue}"
+                                         HorizontalAlignment="Right"
+                                         MinWidth="100"/>
+                            </Grid>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
         <!--GamePlay-->
         <Grid Grid.Row="1" Grid.Column="1" Background="Beige">

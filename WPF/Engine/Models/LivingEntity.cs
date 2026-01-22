@@ -1,4 +1,5 @@
-﻿using Engine.Services;
+﻿using System.Collections.ObjectModel;
+using Engine.Services;
 using Newtonsoft.Json;
 
 namespace Engine.Models
@@ -8,7 +9,6 @@ namespace Engine.Models
         #region Properties
 
         private string? _name;
-        private int _dexterity;
         private int _currentHitPoints;
         private int _maximumHitPoints;
         private int _level;
@@ -16,6 +16,8 @@ namespace Engine.Models
         private GameItem _currentWeapon;
         private GameItem _currentConsumable;
         private Inventory _inventory;
+
+        public ObservableCollection<PlayerAttribute> Attributes { get; } = [];
 
         public string? Name
         {
@@ -26,17 +28,6 @@ namespace Engine.Models
                 OnPropertyChanged();
             }
         }
-
-        public int Dexterity
-        {
-            get => _dexterity;
-            private set
-            {
-                _dexterity = value;
-                OnPropertyChanged();
-            }
-        }
-
 
         public int CurrentHitPoints
         {
@@ -140,15 +131,19 @@ namespace Engine.Models
         public event EventHandler<string>? OnActionPerformed;
         public event EventHandler? OnKilled;
 
-        protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, int dexterity, int gold, int level = 1)
+        protected LivingEntity(string name, int maximumHitPoints, int currentHitPoints, IEnumerable<PlayerAttribute> attributes, int gold, int level = 1)
         {
             Name = name;
-            Dexterity = dexterity;
             MaximumHitPoints = maximumHitPoints;
             CurrentHitPoints = currentHitPoints;
             Gold = gold;
             Level = level;
             Inventory = new Inventory();
+
+            foreach (var attribute in attributes)
+            {
+                Attributes.Add(attribute);
+            }
         }
 
         public void UseCurrentWeapon(LivingEntity target)

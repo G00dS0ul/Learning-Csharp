@@ -1,4 +1,5 @@
 ﻿using Engine.Models;
+using Engine.Shared;
 
 namespace Engine.Services
 {
@@ -12,8 +13,8 @@ namespace Engine.Services
 
         public static Combatant FirstAttacker(Player player, Monster opponent)
         {
-            var playerDexterity = player.Dexterity * player.Dexterity;
-            var opponentDexterity = opponent.Dexterity * opponent.Dexterity;
+            var playerDexterity = player.GetAttribute("DEX").ModifiedValue * player.GetAttribute("DEX").ModifiedValue;
+            var opponentDexterity = opponent.GetAttribute("DEX").ModifiedValue * opponent.GetAttribute("DEX").ModifiedValue;
             var dexterityOffset = (playerDexterity - opponentDexterity) / 10m;
             var randomOffset = DiceService.Instance.Roll(20).Value - 10;
             var totalOffset = dexterityOffset + randomOffset;
@@ -26,8 +27,8 @@ namespace Engine.Services
 
         public static bool AttackSucceeded(LivingEntity attacker, LivingEntity target)
         {
-            var playerDexterity = attacker.Dexterity * attacker.Dexterity;
-            var opponentDexterity = target.Dexterity * target.Dexterity;
+            var playerDexterity = attacker.GetAttribute("DEX").ModifiedValue * attacker.GetAttribute("DEX").ModifiedValue;
+            var opponentDexterity = target.GetAttribute("DEX").ModifiedValue * target.GetAttribute("DEX").ModifiedValue;
             var dexterityOffset = (
                 playerDexterity - opponentDexterity) / 10m;
             var randomOffset = DiceService.Instance.Roll(20).Value - 10;
