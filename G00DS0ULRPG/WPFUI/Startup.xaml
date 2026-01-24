@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFUI"
+        xmlns:models="clr-namespace:G00DS0ULRPG.Models;assembly=G00DS0ULRPG.Models"
+        xmlns:DataContext="{d:DesignInstance models.GameDetails}"
         mc:Ignorable="d"
         Title="Start Up Screen" Height="400" Width="400">
     <Grid Margin="10, 10, 10, 10">

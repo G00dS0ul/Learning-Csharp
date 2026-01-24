@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using Engine.Models;
-using Engine.Services;
-using Engine.Factories;
+using G00DS0ULRPG.Models;
+using G00DS0ULRPG.Services;
+using G00DS0ULRPG.Services.Factories;
 
 namespace G00DS0ULRPG.ViewModel
 {
