@@ -53,6 +53,57 @@ namespace Engine.Models
             return items.All(item => Items.Count(i => i.ItemTypeID == item.ItemID) >= item.Quantity);
         }
 
+        public Inventory AddItem(GameItem item)
+        {
+            return AddItems(new List<GameItem> { item });
+        }
+
+        public  Inventory AddItems(IEnumerable<GameItem> items)
+        {
+            return new Inventory(Items.Concat(items));
+        }
+
+        public Inventory RemoveItem(GameItem item)
+        {
+            return RemoveItems(new List<GameItem> { item });
+        }
+
+        public Inventory RemoveItems(IEnumerable<GameItem> items)
+        {
+            var workingInventory = Items.ToList();
+            IEnumerable<GameItem> itemsToRemove = items.ToList();
+
+            foreach (var item in itemsToRemove)
+            {
+                workingInventory.Remove(item);
+            }
+
+            return new Inventory(workingInventory);
+        }
+
+        public Inventory RemoveItems(IEnumerable<ItemQuantity> itemQuantities)
+        {
+            var workingInventory = Items.ToList();
+
+            foreach (var itemQuantity in itemQuantities)
+            {
+                var itemCount = workingInventory.Count(i => i.ItemTypeID == itemQuantity.ItemID);
+
+                if (itemQuantity.Quantity > itemCount)
+                {
+                    throw new ArgumentException($"Cannot remove {itemQuantity.Quantity} of item {itemQuantity.ItemID}. Only {itemCount} available.");
+                }
+
+                for (var i = 0; i < itemQuantity.Quantity; i++)
+                {
+                    workingInventory.Remove(
+                        workingInventory.First(item => item.ItemTypeID == itemQuantity.ItemID));
+                }
+            }
+
+            return new Inventory(workingInventory);
+        }
+
         #endregion
 
         #region Private Functions
