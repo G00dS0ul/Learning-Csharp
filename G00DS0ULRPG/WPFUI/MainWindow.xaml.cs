@@ -20,7 +20,7 @@ namespace WPFUI
         private GameSession? _gameSession;
         private readonly Dictionary<Key, Action>? _userInputActions = new Dictionary<Key, Action>();
 
-        public MainWindow(Player player)
+        public MainWindow(Player player, int xLocation = 0, int yLocation = 0)
         {
             InitializeComponent();
 
@@ -135,21 +135,9 @@ namespace WPFUI
 
         private void StartNewGame_OnClick(object sender, RoutedEventArgs e)
         {
-            //SetActiveGameSessionTo(new GameSession());
-        }
-
-        private void LoadGame_Onclick(object sender, RoutedEventArgs e)
-        {
-            //var openFileDialog = new OpenFileDialog
-            //{
-            //    InitialDirectory = AppDomain.CurrentDomain.BaseDirectory,
-            //    Filter = $"Saved Games (*.{SAVE_GAME_FILE_EXTENSION})|*.{SAVE_GAME_FILE_EXTENSION}"
-            //};
-
-            //if (openFileDialog.ShowDialog() == true)
-            //{
-            //    SetActiveGameSessionTo(SaveGameService.LoadLastSaveOrCreateNew(openFileDialog.FileName));
-            //}
+            var startup = new Startup();
+            startup.Show();
+            Close();
         }
 
         private void SaveGame_OnClick(object sender, RoutedEventArgs e)
@@ -164,7 +152,12 @@ namespace WPFUI
 
         private void MainWindow_OnClosing(object? sender, CancelEventArgs e)
         {
-            var message = new YesNoWindow("Save Game", "Do you want to save your Game?")
+            AskToSaveGame();
+        }
+
+        private void AskToSaveGame()
+        {
+            var message = new YesNoWindow("Save Game", "Do you want to save your game?")
             {
                 Owner = GetWindow(this)
             };
@@ -176,6 +169,7 @@ namespace WPFUI
             }
         }
 
+
         private void SaveGame()
         {
             var saveFileDialog = new SaveFileDialog
@@ -186,7 +180,7 @@ namespace WPFUI
 
             if (saveFileDialog.ShowDialog() == true)
             {
-                //SaveGameService.Save(_gameSession, saveFileDialog.FileName);
+                SaveGameService.Save(_gameSession, saveFileDialog.FileName);
             }
         }
     }

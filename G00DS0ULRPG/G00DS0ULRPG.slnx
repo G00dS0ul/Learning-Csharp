@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Engine/Engine.csproj" Id="881aedaf-6c12-48c5-bde3-2c61ae7d2967" />
+  <Project Path="G00DS0ULRPG.Models/G00DS0ULRPG.Models.csproj" Id="e0c24ad6-cf44-40fe-a28e-cd22c1f8403c" />
+  <Project Path="G00DS0ULRPG.Services/G00DS0ULRPG.Services.csproj" Id="9238ce8a-e6a6-437a-8714-4e237ac5f30e" />
+  <Project Path="G00DS0ULRPG/G00DS0ULRPG.ViewModel.csproj" Id="39c905fd-ef51-4576-9ae7-8e833f699831" />
+  <Project Path="WPFUI/WPFUI.csproj" />
+</Solution>

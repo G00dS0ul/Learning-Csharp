@@ -29,11 +29,9 @@
         <!--Menu-->
         <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="11pt" Background="AliceBlue">
             <MenuItem Header="File">
-                <MenuItem Header="Start New Game"
+                <MenuItem Header="New Game"
                           Click="StartNewGame_OnClick"/>
                 <Separator/>
-                <MenuItem Header="Load Game"
-                          Click="LoadGame_Onclick"/>
                 <MenuItem Header="Save Game"
                           Click="SaveGame_OnClick"/>
                 <Separator/>

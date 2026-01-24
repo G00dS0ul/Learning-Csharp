@@ -56,3 +56,5 @@ publish/
 /WPF/TestEngine/bin/Debug/net8.0
 /WPF/TestEngine/obj
 /WPF/WPFUI/.claudiaideconfig
+/WPF/TestEngine/.vs
+/G00DS0ULRPG_BACKUP
