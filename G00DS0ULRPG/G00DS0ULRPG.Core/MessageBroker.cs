@@ -1,6 +1,4 @@
-﻿using G00DS0ULRPG.Models.EventArgs;
-
-namespace Engine.Services
+﻿namespace G00DS0ULRPG.Core
 {
     public class MessageBroker
     {

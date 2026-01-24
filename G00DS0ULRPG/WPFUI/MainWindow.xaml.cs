@@ -8,7 +8,7 @@ using Engine.Models;
 using Engine.Services;
 using Microsoft.Win32;
 using WPFUI.Windows;
-using G00DS0ULRPG.Models.EventArgs;
+using G00DS0ULRPG.Core;
 
 namespace WPFUI
 {

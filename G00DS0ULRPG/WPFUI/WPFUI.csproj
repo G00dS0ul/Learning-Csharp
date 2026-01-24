@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Engine\Engine.csproj" />
+    <ProjectReference Include="..\G00DS0ULRPG.Core\G00DS0ULRPG.Core.csproj" />
     <ProjectReference Include="..\G00DS0ULRPG.Models\G00DS0ULRPG.Models.csproj" />
     <ProjectReference Include="..\G00DS0ULRPG\G00DS0ULRPG.ViewModel.csproj" />
   </ItemGroup>

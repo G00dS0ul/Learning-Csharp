@@ -1,6 +1,6 @@
-﻿namespace G00DS0ULRPG.Models.EventArgs
+﻿namespace G00DS0ULRPG.Core
 {
-    public class GameMessageEventArgs : System.EventArgs
+    public class GameMessageEventArgs : EventArgs
     {
         public string Message { get; private set; }
 

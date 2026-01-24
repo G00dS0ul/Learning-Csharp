@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
-using G00DS0ULRPG.Services;
+using G00DS0ULRPG.Core;
 
 namespace WPFUI
 {
