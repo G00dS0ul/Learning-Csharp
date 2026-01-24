@@ -1,4 +1,4 @@
-﻿namespace Engine.Services
+﻿namespace G00DS0ULRPG.Services
 {
     public static class LoggingServices
     {

@@ -8,9 +8,9 @@ namespace Engine.Models
         [JsonIgnore]
         public string Name { get; }
         [JsonIgnore]
-        public List<ItemQuantity>? Ingredients { get; } = [];
+        public List<ItemQuantity>? Ingredients { get; }
         [JsonIgnore]
-        public List<ItemQuantity> OutputItems { get; } = [];
+        public List<ItemQuantity> OutputItems { get; }
         [JsonIgnore]
         public string ToolTipContents => "Ingredients" + Environment.NewLine + "============" + Environment.NewLine +
                                          string.Join(Environment.NewLine,
@@ -19,26 +19,13 @@ namespace Engine.Models
                                          Environment.NewLine + string.Join(Environment.NewLine,
                                              OutputItems.Select(i => i.QuantityItemDescription));
 
-        public Recipe(int id, string name)
+        public Recipe(int id, string name, List<ItemQuantity> ingredients, List<ItemQuantity> outputItems)
         {
             ID = id;
             Name = name;
+            Ingredients = ingredients;
+            OutputItems = outputItems;
         }
 
-        public void AddIngredient(int itemID, int quantity)
-        {
-            if (!Ingredients.Any(x => x.ItemID == itemID))
-            {
-                Ingredients.Add(new ItemQuantity(itemID, quantity));
-            }
-        }
-
-        public void AddOutputItem(int itemID, int quantity)
-        {
-            if (!OutputItems.Any(x => x.ItemID == itemID))
-            {
-                OutputItems.Add(new ItemQuantity(itemID, quantity));
-            }
-        }
     }
 }

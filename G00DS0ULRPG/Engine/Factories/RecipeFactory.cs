@@ -24,22 +24,48 @@ namespace Engine.Factories
             }
         }
 
-        private static void LoadRecipesFromNodes(XmlNodeList nodes)
+        private static void LoadRecipesFromNodes(XmlNodeList? nodes)
         {
+            if (nodes == null)
+            {
+                return;
+            }
+
             foreach (XmlNode node in nodes)
             {
-                var recipe = new Recipe(node.AttributeAsInt("ID"), node.SelectSingleNode("./Name")?.InnerText ?? "");
+                var ingredients = new List<ItemQuantity>();
 
-                foreach (XmlNode childNode in node.SelectNodes("./Ingredients/Item"))
+                XmlNodeList? ingredientNodes = node.SelectNodes("./Ingredients/Item");
+                if (ingredientNodes != null)
                 {
-                    recipe.AddIngredient(childNode.AttributeAsInt("ID"), childNode.AttributeAsInt("Quantity"));
+                    foreach (XmlNode childNode in ingredientNodes)
+                    {
+                        var item = ItemFactory.CreateGameItem(childNode.AttributeAsInt("ID"));
+
+                        if (item != null)
+                        {
+                            ingredients.Add(new ItemQuantity(item, childNode.AttributeAsInt("Quantity")));
+                        }
+                    }
                 }
 
-                foreach (XmlNode childNode in node.SelectNodes("./OutputItem/Item"))
+                var outputItems = new List<ItemQuantity>();
+
+                XmlNodeList? outputItemNodes = node.SelectNodes("./OutputItem/Item");
+                if (outputItemNodes != null)
                 {
-                    recipe.AddOutputItem(childNode.AttributeAsInt("ID"), childNode.AttributeAsInt("Quantity"));
+                    foreach (XmlNode childNode in outputItemNodes)
+                    {
+                        var item = ItemFactory.CreateGameItem(childNode.AttributeAsInt("ID"));
+
+                        if (item != null)
+                        {
+                            outputItems.Add(new ItemQuantity(item, childNode.AttributeAsInt("Quantity")));
+                        }
+                    }
                 }
 
+                var recipe = new Recipe(node.AttributeAsInt("ID"), node.SelectSingleNode("./Name")?.InnerText ?? "", ingredients, outputItems);
                 _recipes.Add(recipe);
             }
         }

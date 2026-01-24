@@ -186,12 +186,9 @@ namespace Engine.ViewModels
 
                         foreach (var itemQuantity in quest.RewardItems)
                         {
-                            for (var i = 0; i < itemQuantity.Quantity; i++)
-                            {
-                                var rewardItem = ItemFactory.CreateGameItem(itemQuantity.ItemID);
-                                CurrentPlayer.AddItemToInventory(rewardItem);
-                            }
-                            _messageBroker.RaiseMessage($"You Receive {itemQuantity.Quantity} {ItemFactory.ItemName(itemQuantity.ItemID)}");
+                            var rewardItem = ItemFactory.CreateGameItem(itemQuantity.ItemID);
+                            _messageBroker.RaiseMessage($"You Receive {rewardItem.Name}");
+                            CurrentPlayer.AddItemToInventory(rewardItem);
                         }
 
                         questToComplete.IsComplete = true;
@@ -279,7 +276,7 @@ namespace Engine.ViewModels
                 _messageBroker.RaiseMessage("You do not have the required Ingredient!!!");
                 foreach (var itemQuantity in recipe.Ingredients)
                 {
-                    _messageBroker.RaiseMessage($"{itemQuantity.Quantity} {ItemFactory.ItemName(itemQuantity.ItemID)}");
+                    _messageBroker.RaiseMessage($"{itemQuantity.QuantityItemDescription}");
                 }
             }
         }
