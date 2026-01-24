@@ -1,5 +1,5 @@
 ﻿using Engine.Models;
-using Engine.Services;
+using Engine.Shared;
 using G00DS0ULRPG.Core;
 
 namespace Engine.Actions
@@ -47,12 +47,24 @@ namespace Engine.Actions
             }
         }
 
+        private static bool AttackSucceeded(LivingEntity attacker, LivingEntity target)
+        {
+            var playerDexterity = attacker.GetAttribute("DEX").ModifiedValue * attacker.GetAttribute("DEX").ModifiedValue;
+            var opponentDexterity = target.GetAttribute("DEX").ModifiedValue * target.GetAttribute("DEX").ModifiedValue;
+            var dexterityOffset = (
+                playerDexterity - opponentDexterity) / 10m;
+            var randomOffset = DiceService.Instance.Roll(20).Value - 10;
+            var totalOffset = dexterityOffset + randomOffset;
+
+            return DiceService.Instance.Roll(100).Value <= 50 + totalOffset;
+        }
+
         public void Execute(LivingEntity actor, LivingEntity target)
         {
             var actorName = (actor is Player) ? "You" : $"The {actor.Name?.ToLower()}";
             var targetName = (target is Player) ? "you" : $"the {target.Name?.ToLower()}";
 
-            if (CombatService.AttackSucceeded(actor, target))
+            if (AttackSucceeded(actor, target))
             {
                 var damage = DiceService.Instance.Roll(_damageDice).Value;
                 ReportResult($"{actorName} hits {targetName} for {damage} point{(damage > 1 ? "s" : "")}.");
@@ -65,5 +77,7 @@ namespace Engine.Actions
             }
             
         }
+
+        
     }
 }

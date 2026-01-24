@@ -1,4 +1,5 @@
 ﻿using Engine.Services;
+using Engine.Shared;
 using G00DS0ULRPG.Core;
 using G00DS0ULRPG.Models.EventArgs;
 
@@ -7,9 +8,14 @@ namespace Engine.Models
     public class Battle : IDisposable
     {
         private readonly MessageBroker _messageBroker = MessageBroker.GetInstance();
-
         private readonly Player _player;
         private readonly Monster _opponent;
+
+        private enum Combatant
+        {
+            Player,
+            Opponent
+        }
 
 
         public event EventHandler<CombatVictoryEventArgs> OnCombatVictory;
@@ -26,7 +32,7 @@ namespace Engine.Models
             _messageBroker.RaiseMessage("");
             _messageBroker.RaiseMessage($"You see a {_opponent.Name} appears!");
 
-            if (CombatService.FirstAttacker(_player, _opponent) == CombatService.Combatant.Opponent)
+            if (FirstAttacker(_player, _opponent) == Combatant.Opponent)
             {
                 AttackPlayer();
             }
@@ -86,6 +92,20 @@ namespace Engine.Models
         private void OnCombatantActionPerformed(object sender, string result)
         {
             _messageBroker.RaiseMessage(result);
+        }
+
+        private static Combatant FirstAttacker(Player player, Monster opponent)
+        {
+            var playerDexterity = player.GetAttribute("DEX").ModifiedValue * player.GetAttribute("DEX").ModifiedValue;
+            var opponentDexterity = opponent.GetAttribute("DEX").ModifiedValue * opponent.GetAttribute("DEX").ModifiedValue;
+            var dexterityOffset = (playerDexterity - opponentDexterity) / 10m;
+            var randomOffset = DiceService.Instance.Roll(20).Value - 10;
+            var totalOffset = dexterityOffset + randomOffset;
+
+            return DiceService.Instance.Roll(100).Value <= 50 + totalOffset
+                ? Combatant.Player
+                : Combatant.Opponent;
+
         }
 
     }
