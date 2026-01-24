@@ -1,7 +1,4 @@
-﻿using Engine.Factories;
-using Newtonsoft.Json;
-using Engine.Services;
-using G00DS0ULRPG.Core;
+﻿using Newtonsoft.Json;
 
 namespace Engine.Models
 {
@@ -42,32 +39,6 @@ namespace Engine.Models
             {
                 MonstersHere.Add(new MonsterEncounter(monsterID, chanceOfEncountering));
             }
-        }
-
-        public Monster GetMonster()
-        {
-            if(!MonstersHere.Any())
-            {
-                return null;
-            }
-
-            var totalChances = MonstersHere.Sum(m => m.ChanceOfEncountering);
-
-            var randomNumber = DiceService.Instance.Roll(totalChances, 1).Value;
-
-            var runningTotal = 0;
-
-            foreach(var monsterEncounter in MonstersHere)
-            {
-                runningTotal += monsterEncounter.ChanceOfEncountering;
-
-                if(randomNumber <= runningTotal)
-                {
-                    return MonsterFactory.GetMonster(monsterEncounter.MonsterID);
-                }
-            }
-
-            return MonsterFactory.GetMonster(MonstersHere.Last().MonsterID);
         }
     }
 }

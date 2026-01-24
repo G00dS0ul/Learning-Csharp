@@ -2,6 +2,7 @@
 using Engine.Shared;
 using Engine.Models;
 using Engine.Services;
+using G00DS0ULRPG.Core;
 
 namespace Engine.Factories
 {
@@ -9,7 +10,7 @@ namespace Engine.Factories
     {
         private const string GAME_DATA_FILENAME = ".\\GameData\\Monster.xml";
         private static readonly GameDetails s_gameDetails;
-        private static readonly List<Monster> _baseMonsters = [];
+        private static readonly List<Monster> s_baseMonsters = [];
 
         static MonsterFactory()
         {
@@ -27,6 +28,30 @@ namespace Engine.Factories
             {
                 throw new FileNotFoundException($"Missing data file: {GAME_DATA_FILENAME}");
             }
+        }
+
+        public static Monster GetMonsterFromLocation(Location location)
+        {
+            if (!location.MonstersHere.Any())
+            {
+                return null;
+            }
+
+            var totalChances = location.MonstersHere.Sum(m => m.ChanceOfEncountering);
+            var randomNumber = DiceService.Instance.Roll(totalChances, 1).Value;
+            var runningTotal = 0;
+
+            foreach (var monsterEncounter in location.MonstersHere)
+            {
+                runningTotal += monsterEncounter.ChanceOfEncountering;
+
+                if(randomNumber <= runningTotal)
+                {
+                    return GetMonster(monsterEncounter.MonsterID);
+                }
+            }
+
+            return GetMonster(location.MonstersHere.Last().MonsterID);
         }
 
         private static void LoadMonsterFromNodes(XmlNodeList nodes, string rootImagePath)
@@ -57,20 +82,30 @@ namespace Engine.Factories
                 XmlNodeList lootItemNodes = node.SelectNodes("./LootItems/LootItem");
                 if (lootItemNodes != null)
                 {
-                    foreach (XmlNode lootNode in lootItemNodes)
+                    foreach (XmlNode lootItemNode in lootItemNodes)
                     {
                         monster.AddItemToLootTable(
-                            lootNode.AttributeAsInt("ID"),
-                            lootNode.AttributeAsInt("Percentage"));
+                            lootItemNode.AttributeAsInt("ID"),
+                            lootItemNode.AttributeAsInt("Percentage"));
                     }
                 }
-                _baseMonsters.Add(monster);
+                s_baseMonsters.Add(monster);
             }
         }
 
         public static Monster GetMonster(int id)
         {
-            return _baseMonsters.FirstOrDefault(m => m.ID == id)?.GetNewInstance();
+            var newMonster = s_baseMonsters.FirstOrDefault(m => m.ID == id).Clone();
+
+            foreach (var itemPercentage in newMonster.LootTable)
+            {
+                if (DiceService.Instance.Roll(100).Value <= itemPercentage.Percentage)
+                {
+                    newMonster.AddItemToInventory(ItemFactory.CreateGameItem(itemPercentage.ID));
+                }
+            }
+
+            return newMonster;
         }
       
         

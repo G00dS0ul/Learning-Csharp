@@ -1,12 +1,8 @@
-﻿using Engine.Factories;
-using Engine.Services;
-using G00DS0ULRPG.Core;
-
-namespace Engine.Models
+﻿namespace Engine.Models
 {
     public class Monster : LivingEntity
     {
-        private readonly List<ItemPercentage> _lootTable = [];
+        public readonly List<ItemPercentage> LootTable = [];
 
         public int ID { get; }
         public string? ImageName { get; }
@@ -23,25 +19,17 @@ namespace Engine.Models
 
         public void AddItemToLootTable(int id, int percentage)
         {
-            _lootTable.RemoveAll(ip => ip.ID == id);
+            LootTable.RemoveAll(ip => ip.ID == id);
 
-            _lootTable.Add(new ItemPercentage(id, percentage));
+            LootTable.Add(new ItemPercentage(id, percentage));
         }
 
-        public Monster GetNewInstance()
+        public Monster Clone()
         {
-            var newMonster = new Monster(ID, Name, ImageName, MaximumHitPoints,  Attributes, CurrentWeapon, RewardExperiencePoints,
-                Gold);
+            var newMonster = new Monster(ID, Name, ImageName, MaximumHitPoints, Attributes, CurrentWeapon,
+                RewardExperiencePoints, Gold);
 
-            foreach (var itemPercentage in _lootTable)
-            {
-                newMonster.AddItemToLootTable(itemPercentage.ID, itemPercentage.Percentage);
-
-                if (DiceService.Instance.Roll(100).Value <= itemPercentage.Percentage)
-                {
-                    newMonster?.AddItemToInventory(ItemFactory.CreateGameItem(itemPercentage.ID));
-                }
-            }
+            newMonster.LootTable.AddRange(LootTable);
 
             return newMonster;
         }
