@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\G00DS0ULRPG.Core\G00DS0ULRPG.Core.csproj" />
-    <ProjectReference Include="..\G00DS0ULRPG.Models\G00DS0ULRPG.Models.csproj" />
+    <PackageReference Include="D20Tek.Common.Standard" Version="3.3.5" />
+    <PackageReference Include="D20Tek.DiceNotation.Standard" Version="3.3.2" />
   </ItemGroup>
 
 </Project>

@@ -14,4 +14,8 @@
     <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\G00DS0ULRPG.Core\G00DS0ULRPG.Core.csproj" />
+  </ItemGroup>
+
 </Project>

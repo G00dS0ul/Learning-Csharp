@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\G00DS0ULRPG.Core\G00DS0ULRPG.Core.csproj" />
     <ProjectReference Include="..\G00DS0ULRPG.Models\G00DS0ULRPG.Models.csproj" />
   </ItemGroup>
 
