@@ -1,11 +1,12 @@
-﻿using Engine.Models;
+﻿using System.ComponentModel;
+using Engine.Models;
 using Engine.Factories;
 using Engine.Services;
 using Newtonsoft.Json;
 
 namespace Engine.ViewModels
 {
-    public class GameSession : BaseNotificationClass
+    public class GameSession : INotifyPropertyChanged
     {
         private readonly MessageBroker _messageBroker = MessageBroker.GetInstance();
 
@@ -19,6 +20,8 @@ namespace Engine.ViewModels
         private Monster? _currentMonster;
         private Trader? _currentTrader;
 
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         [JsonIgnore]
         public GameDetails GameDetails
         {
@@ -26,7 +29,6 @@ namespace Engine.ViewModels
             set
             {
                 _gameDetails = value;
-                OnPropertyChanged();
             }
         }
 
@@ -58,12 +60,6 @@ namespace Engine.ViewModels
             set
             {
                 _currentLocation = value;
-
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(HasLocationToNorth));
-                OnPropertyChanged(nameof(HasLocationToSouth));
-                OnPropertyChanged(nameof(HasLocationToWest));
-                OnPropertyChanged(nameof(HasLocationToEast));
 
                 CompleteQuestAtLocation();
                 GivePlayerQuestAtLocation();
@@ -97,8 +93,6 @@ namespace Engine.ViewModels
                     _currentMonster = value;
                 }
 
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(HasMonster));
             }
         }
 
@@ -110,8 +104,6 @@ namespace Engine.ViewModels
             {
                 _currentTrader = value;
 
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(HasTrader));
             }
         }
 

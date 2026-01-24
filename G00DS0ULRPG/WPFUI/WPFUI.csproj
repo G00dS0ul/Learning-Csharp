@@ -14,4 +14,8 @@
     <ProjectReference Include="..\G00DS0ULRPG\G00DS0ULRPG.ViewModel.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	    <Exec Command="xcopy &quot;$(SolutionDir)GameFiles\*.*&quot; &quot;$(TargetDir)&quot; /Y /I /E" />
+  </Target>
+
 </Project>

@@ -14,7 +14,6 @@ namespace Engine.Models
             set 
             { 
                 _experiencePoints = value;
-                OnPropertyChanged();
 
                 SetLevelAndMaximumPoints();
             } 

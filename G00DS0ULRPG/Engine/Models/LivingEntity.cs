@@ -1,10 +1,11 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using Engine.Services;
 using Newtonsoft.Json;
 
 namespace Engine.Models
 {
-    public abstract class LivingEntity : BaseNotificationClass
+    public abstract class LivingEntity : INotifyPropertyChanged
     {
         #region Properties
 
@@ -17,6 +18,8 @@ namespace Engine.Models
         private GameItem _currentConsumable;
         private Inventory _inventory;
 
+        public event PropertyChangedEventHandler? PropertyChanged;
+
         public ObservableCollection<PlayerAttribute> Attributes { get; } = [];
 
         public string? Name
@@ -25,7 +28,6 @@ namespace Engine.Models
             private set
             {
                 _name = value;
-                OnPropertyChanged();
             }
         }
 
@@ -35,7 +37,6 @@ namespace Engine.Models
             private set
             {
                 _currentHitPoints = value;
-                OnPropertyChanged();
             }    
         }
 
@@ -45,7 +46,6 @@ namespace Engine.Models
             protected set
             {
                 _maximumHitPoints = value;
-                OnPropertyChanged();
             }
         }
 
@@ -55,7 +55,6 @@ namespace Engine.Models
             protected set
             {
                 _level = value;
-                OnPropertyChanged();
             }
         }
 
@@ -65,7 +64,6 @@ namespace Engine.Models
             private set
             {
                 _gold = value;
-                OnPropertyChanged();
             }
         }
 
@@ -75,7 +73,6 @@ namespace Engine.Models
             private set
             {
                 _inventory = value;
-                OnPropertyChanged();
             }
         }
 
@@ -96,7 +93,6 @@ namespace Engine.Models
                     _currentWeapon.Action.OnActionPerformed += RaiseOnActionPerformedEvent;
                 }
 
-                OnPropertyChanged();
             }
         }
 
@@ -117,7 +113,6 @@ namespace Engine.Models
                     _currentConsumable.Action.OnActionPerformed += RaiseOnActionPerformedEvent;
                 }
 
-                OnPropertyChanged();
             }
         }
 
