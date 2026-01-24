@@ -1,4 +1,4 @@
-﻿namespace Engine.EventArgs
+﻿namespace G00DS0ULRPG.Models.EventArgs
 {
     public class GameMessageEventArgs : System.EventArgs
     {

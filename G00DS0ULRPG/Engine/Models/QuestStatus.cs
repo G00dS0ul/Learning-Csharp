@@ -4,21 +4,9 @@ namespace Engine.Models
 {
     public class QuestStatus : INotifyPropertyChanged
     {
-        private bool _isComplete;
-
         public event PropertyChangedEventHandler? PropertyChanged;
         public Quest PlayerQuest { get; }
-        public bool IsComplete 
-        { 
-            get
-            {
-                return _isComplete;
-            }
-            set
-            {
-                _isComplete = value;
-            }
-        }
+        public bool IsComplete { get; set; }
 
         public QuestStatus(Quest quest)
         {

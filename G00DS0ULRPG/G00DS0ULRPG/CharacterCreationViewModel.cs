@@ -4,26 +4,17 @@ using Engine.Models;
 using Engine.Services;
 using Engine.Factories;
 
-namespace Engine.ViewModels
+namespace G00DS0ULRPG.ViewModel
 {
     public class CharacterCreationViewModel : INotifyPropertyChanged
     {
-        private Race _selectedRace;
-
         public event PropertyChangedEventHandler? PropertyChanged;
         public GameDetails GameDetails { get; }
 
-        public Race SelectedRace
-        {
-            get => _selectedRace;
-            set
-            {
-                _selectedRace = value;
-            }
-        }
+        public Race SelectedRace { get; init; }
 
-        public string Name { get; set; }
-        public ObservableCollection<PlayerAttribute> PlayerAttributes { get; set; } = [];
+        public string Name { get; init; }
+        public ObservableCollection<PlayerAttribute> PlayerAttributes { get; } = [];
 
         public bool HasRaces => GameDetails.Races.Any();
 

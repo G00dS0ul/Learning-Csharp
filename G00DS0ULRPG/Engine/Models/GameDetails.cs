@@ -2,10 +2,10 @@
 {
     public class GameDetails
     {
-        public string Title { get; set; }
-        public string Version { get; set; }
-        public string SubTitle { get; set; }
-        public List<PlayerAttribute> PlayerAttributes { get; set; } = [];
+        public string Title { get; }
+        public string Version { get; }
+        public string SubTitle { get; }
+        public List<PlayerAttribute> PlayerAttributes { get; } = [];
 
         public List<Race> Races { get; } = [];
         public GameDetails(string title, string subtitle, string version)

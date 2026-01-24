@@ -23,14 +23,7 @@ namespace Engine.ViewModels
         public event PropertyChangedEventHandler? PropertyChanged;
 
         [JsonIgnore]
-        public GameDetails GameDetails
-        {
-            get => _gameDetails;
-            set
-            {
-                _gameDetails = value;
-            }
-        }
+        public GameDetails GameDetails { get; private set; }
 
         public Player CurrentPlayer 
         {
@@ -97,15 +90,7 @@ namespace Engine.ViewModels
         }
 
         [JsonIgnore]
-        public Trader CurrentTrader
-        {
-            get => _currentTrader;
-            set
-            {
-                _currentTrader = value;
-
-            }
-        }
+        public Trader CurrentTrader { get; private set; }
 
         [JsonIgnore]
         public bool HasLocationToNorth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;

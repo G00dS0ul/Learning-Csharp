@@ -18,6 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\G00DS0ULRPG.Models\G00DS0ULRPG.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="GameData\GameDetails.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

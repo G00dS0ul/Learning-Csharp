@@ -5,7 +5,6 @@ namespace Engine.Models
 {
     public class PlayerAttribute : INotifyPropertyChanged
     {
-        private int _modifiedValue;
         public string? Key { get; }
         public string DisplayName { get; }
         public string DiceNotation { get; }
@@ -13,14 +12,7 @@ namespace Engine.Models
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public int ModifiedValue
-        {
-            get => _modifiedValue;
-            set
-            {
-                _modifiedValue = value;
-            }
-        }
+        public int ModifiedValue { get; set; }
 
 
         public PlayerAttribute(string key, string displayName, string diceNotation) 

@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Engine\Engine.csproj" />
     <ProjectReference Include="..\G00DS0ULRPG.Models\G00DS0ULRPG.Models.csproj" />
     <ProjectReference Include="..\G00DS0ULRPG.Services\G00DS0ULRPG.Services.csproj" />
   </ItemGroup>
