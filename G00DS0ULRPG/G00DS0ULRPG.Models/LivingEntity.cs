@@ -62,6 +62,7 @@ namespace G00DS0ULRPG.Models
             }
         }
 
+        [JsonIgnore] public string HitPoints => $"{CurrentHitPoints}/{MaximumHitPoints}";
         [JsonIgnore]
         public bool IsAlive => CurrentHitPoints > 0;
         [JsonIgnore]

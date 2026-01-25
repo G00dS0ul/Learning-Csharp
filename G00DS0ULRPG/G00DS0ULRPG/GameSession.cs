@@ -93,6 +93,7 @@ namespace G00DS0ULRPG.ViewModel
         [JsonIgnore]
         public Trader CurrentTrader { get; private set; }
 
+        public PopUpDetails PlayerDetails { get; set; }
         public PopUpDetails InventoryDetails { get; set; }
 
         public PopUpDetails QuestDetails { get; set; }
@@ -123,6 +124,18 @@ namespace G00DS0ULRPG.ViewModel
             CurrentWorld = WorldFactory.CreateWorld();
             CurrentPlayer = player;
             CurrentLocation = CurrentWorld.LocationAt(xCoordinate, yCoordinate);
+
+            // SetUp popup window Properties
+            PlayerDetails = new PopUpDetails
+            {
+                IsVisible = false,
+                Top = 10,
+                Left = 10,
+                MinHeight = 75,
+                MaxHeight = 400,
+                MinWidth = 265,
+                MaxWidth = 400
+            };
 
             InventoryDetails = new PopUpDetails
             {
