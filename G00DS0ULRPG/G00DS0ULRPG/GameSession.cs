@@ -93,6 +93,8 @@ namespace G00DS0ULRPG.ViewModel
         [JsonIgnore]
         public Trader CurrentTrader { get; private set; }
 
+        public PopUpDetails InventoryDetails { get; set; }
+
         [JsonIgnore]
         public bool HasLocationToNorth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
         [JsonIgnore]
@@ -118,6 +120,17 @@ namespace G00DS0ULRPG.ViewModel
             CurrentWorld = WorldFactory.CreateWorld();
             CurrentPlayer = player;
             CurrentLocation = CurrentWorld.LocationAt(xCoordinate, yCoordinate);
+
+            InventoryDetails = new PopUpDetails
+            {
+                IsVisible = false,
+                Top = 225,
+                Left = 275,
+                MinHeight = 75,
+                MaxHeight = 175,
+                MinWidth = 250,
+                MaxWidth = 400
+            };
         }
 
         public void MoveNorth()

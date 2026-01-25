@@ -19,6 +19,7 @@ namespace WPFUI
         private readonly MessageBroker _messageBroker = MessageBroker.GetInstance();
         private GameSession? _gameSession;
         private readonly Dictionary<Key, Action>? _userInputActions = new Dictionary<Key, Action>();
+        private Point? _dragStart;
 
         public MainWindow(Player player, int xLocation = 0, int yLocation = 0)
         {
@@ -27,6 +28,17 @@ namespace WPFUI
             InitializeUserInputActions();
 
             SetActiveGameSessionTo(new GameSession(player, 0, 0));
+
+
+            foreach (UIElement element in GameCanvas.Children)
+            {
+                if (element is Canvas)
+                {
+                    element.MouseDown += GameCanvas_OnMouseDown;
+                    element.MouseMove += GameCanvas_OnMouseMove;
+                    element.MouseUp += GameCanVas_OnMouseUp;
+                }
+            }
         }
 
        
@@ -90,7 +102,7 @@ namespace WPFUI
             _userInputActions?.Add(Key.D, () => _gameSession?.MoveEast());
             _userInputActions?.Add(Key.Z, () => _gameSession?.AttackCurrentMonster());
             _userInputActions?.Add(Key.C, () => _gameSession?.UseCurrentConsumable());
-            _userInputActions?.Add(Key.I, () => SetTabFocus("InventoryTabItem"));
+            _userInputActions?.Add(Key.I, () => _gameSession?.InventoryDetails.IsVisible = !_gameSession.InventoryDetails.IsVisible);
             _userInputActions?.Add(Key.Q, () => SetTabFocus("QuestTabItem"));
             _userInputActions?.Add(Key.R, () => SetTabFocus("RecipesTabItem"));
             _userInputActions?.Add(Key.T, () => OnClick_DisplayTradeScreen(this, new RoutedEventArgs()));
@@ -101,6 +113,8 @@ namespace WPFUI
             if (_userInputActions.ContainsKey(e.Key))
             {
                 _userInputActions[e.Key].Invoke();
+
+                e.Handled = true;
             }
         }
 
@@ -182,6 +196,54 @@ namespace WPFUI
             {
                 SaveGameService.Save(new GameState(_gameSession?.CurrentPlayer, _gameSession.CurrentLocation.XCoordinate, _gameSession.CurrentLocation.YCoordinate), saveFileDialog.FileName);
             }
+        }
+
+        private void CloseInventoryWindow_OnClick(object sender, RoutedEventArgs e)
+        {
+            _gameSession?.InventoryDetails.IsVisible = false;
+        }
+
+        private void GameCanvas_OnMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton != MouseButton.Left)
+            {
+                return;
+            }
+
+            var movingElement = (UIElement)sender;
+            _dragStart = e.GetPosition(movingElement);
+            movingElement.CaptureMouse();
+
+            e.Handled = true;
+        }
+
+        private void GameCanvas_OnMouseMove(object sender, MouseEventArgs e)
+        {
+            if (_dragStart == null || e.LeftButton != MouseButtonState.Pressed)
+            {
+                return;
+            }
+            var mousePosition = e.GetPosition(GameCanvas);
+            var movingElement = (UIElement)sender;
+
+            if (mousePosition.X < _dragStart.Value.X || mousePosition.Y < _dragStart.Value.Y || mousePosition.X > GameCanvas.ActualWidth - ((Canvas)movingElement).ActualWidth + _dragStart.Value.X || mousePosition.Y > GameCanvas.ActualHeight - ((Canvas)movingElement).ActualHeight + _dragStart.Value.Y)
+            {
+                return;
+            }
+
+            Canvas.SetLeft(movingElement, mousePosition.X - _dragStart.Value.X);
+            Canvas.SetTop(movingElement, mousePosition.Y - _dragStart.Value.Y);
+
+            e.Handled = true;
+        }
+
+        private void GameCanVas_OnMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            var movingElement = (UIElement)sender;
+            movingElement.ReleaseMouseCapture();
+            _dragStart = null;
+
+            e.Handled = true;
         }
     }
 }
