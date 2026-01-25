@@ -95,6 +95,9 @@ namespace G00DS0ULRPG.ViewModel
 
         public PopUpDetails InventoryDetails { get; set; }
 
+        public PopUpDetails QuestDetails { get; set; }
+        public PopUpDetails RecipesDetails { get; set; }
+
         [JsonIgnore]
         public bool HasLocationToNorth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
         [JsonIgnore]
@@ -124,8 +127,30 @@ namespace G00DS0ULRPG.ViewModel
             InventoryDetails = new PopUpDetails
             {
                 IsVisible = false,
-                Top = 225,
+                Top = 500,
+                Left = 10,
+                MinHeight = 75,
+                MaxHeight = 175,
+                MinWidth = 250,
+                MaxWidth = 400
+            };
+
+            QuestDetails = new PopUpDetails
+            {
+                IsVisible = false,
+                Top = 500,
                 Left = 275,
+                MinHeight = 75,
+                MaxHeight = 175,
+                MinWidth = 250,
+                MaxWidth = 400
+            };
+
+            RecipesDetails = new PopUpDetails
+            {
+                IsVisible = false,
+                Top = 500,
+                Left = 575,
                 MinHeight = 75,
                 MaxHeight = 175,
                 MinWidth = 250,
