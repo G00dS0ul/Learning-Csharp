@@ -1,14 +1,13 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
+using System.Collections.Specialized;
 using G00DS0ULRPG.ViewModel;
 using G00DS0ULRPG.Models;
 using G00DS0ULRPG.Services;
 using Microsoft.Win32;
 using WPFUI.Windows;
-using G00DS0ULRPG.Core;
 
 namespace WPFUI
 {
@@ -16,7 +15,6 @@ namespace WPFUI
     {
         private const string SAVE_GAME_FILE_EXTENSION = "g00ds0ulrpg";
 
-        private readonly MessageBroker _messageBroker = MessageBroker.GetInstance();
         private GameSession? _gameSession;
         private readonly Dictionary<Key, Action>? _userInputActions = new Dictionary<Key, Action>();
         private Point? _dragStart;
@@ -69,12 +67,6 @@ namespace WPFUI
             _gameSession?.UseCurrentConsumable();
         }
 
-        private void OnGameMessageRaised(object sender, GameMessageEventArgs e)
-        {
-            GameMessages.Document.Blocks.Add(new Paragraph(new Run(e.Message)));
-            GameMessages.ScrollToEnd();
-        }
-
         private void OnClick_DisplayTradeScreen(object sender, RoutedEventArgs e)
         {
             if (_gameSession?.CurrentTrader != null)
@@ -106,6 +98,7 @@ namespace WPFUI
             _userInputActions?.Add(Key.I, () => _gameSession?.InventoryDetails.IsVisible = !_gameSession.InventoryDetails.IsVisible);
             _userInputActions?.Add(Key.Q, () => _gameSession?.QuestDetails.IsVisible = !_gameSession.QuestDetails.IsVisible);
             _userInputActions?.Add(Key.R, () => _gameSession?.RecipesDetails.IsVisible = !_gameSession.RecipesDetails.IsVisible);
+            _userInputActions?.Add(Key.M, () => _gameSession?.GameMessageDetails.IsVisible = !_gameSession.GameMessageDetails.IsVisible);
             _userInputActions?.Add(Key.T, () => OnClick_DisplayTradeScreen(this, new RoutedEventArgs()));
         }
 
@@ -121,18 +114,29 @@ namespace WPFUI
 
         private void SetActiveGameSessionTo(GameSession gameSession)
         {
-            _messageBroker.OnMessageRaised -= OnGameMessageRaised;
+            if (_gameSession != null)
+            {
+                _gameSession.GameMessages.CollectionChanged -= GameMessages_CollectionChanged;
+            }
 
             _gameSession = gameSession;
             DataContext = _gameSession;
 
-            GameMessages.Document.Blocks.Clear();
+            _gameSession.GameMessages.CollectionChanged += GameMessages_CollectionChanged;
+        }
 
-            _messageBroker.OnMessageRaised += OnGameMessageRaised;
+        private void GameMessages_CollectionChanged(object? sender, NotifyCollectionChangedEventArgs e)
+        {
+            (GameMessagesFlowDocumentScrollViewer
+                .Template
+                .FindName("PART_ContentHost", GameMessagesFlowDocumentScrollViewer) as ScrollViewer)
+                ?.ScrollToEnd();
         }
 
         private void StartNewGame_OnClick(object sender, RoutedEventArgs e)
         {
+            _gameSession?.Dispose();
+
             var startup = new Startup();
             startup.Show();
             Close();
@@ -200,6 +204,11 @@ namespace WPFUI
         private void CloseRecipesWindow_OnClick(object sender, RoutedEventArgs e)
         {
             _gameSession?.RecipesDetails.IsVisible = false;
+        }
+
+        private void CloseGameMessagesDetailsWindow_OnClick(object sender, RoutedEventArgs e)
+        {
+            _gameSession?.GameMessageDetails.IsVisible = false;
         }
 
         private void GameCanvas_OnMouseDown(object sender, MouseButtonEventArgs e)

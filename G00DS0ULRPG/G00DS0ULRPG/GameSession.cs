@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using G00DS0ULRPG.Models;
 using G00DS0ULRPG.Services.Factories;
 using G00DS0ULRPG.Services;
@@ -7,13 +8,13 @@ using G00DS0ULRPG.Core;
 
 namespace G00DS0ULRPG.ViewModel
 {
-    public class GameSession : INotifyPropertyChanged
+    public class GameSession : INotifyPropertyChanged, IDisposable
     {
         private readonly MessageBroker _messageBroker = MessageBroker.GetInstance();
 
 
         #region Properties
-
+            
         private GameDetails? _gameDetails;
         private Player? _currentPlayer;
         private Location? _currentLocation;
@@ -23,10 +24,9 @@ namespace G00DS0ULRPG.ViewModel
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        [JsonIgnore]
-        public GameDetails GameDetails { get; private set; }
+        [JsonIgnore] public GameDetails GameDetails { get; private set; }
 
-        public Player CurrentPlayer 
+        public Player CurrentPlayer
         {
 
             get => _currentPlayer;
@@ -40,7 +40,7 @@ namespace G00DS0ULRPG.ViewModel
 
                 _currentPlayer = value;
 
-                if(_currentPlayer != null)
+                if (_currentPlayer != null)
                 {
                     _currentPlayer.OnLeveledUp += OnCurrentPlayerLeveledUp;
                     _currentPlayer.OnKilled += OnPlayerKilled;
@@ -48,6 +48,7 @@ namespace G00DS0ULRPG.ViewModel
             }
 
         }
+
         public Location CurrentLocation
         {
             get => _currentLocation;
@@ -90,30 +91,34 @@ namespace G00DS0ULRPG.ViewModel
             }
         }
 
-        [JsonIgnore]
-        public Trader CurrentTrader { get; private set; }
+        [JsonIgnore] public Trader CurrentTrader { get; private set; }
 
+        [JsonIgnore] public ObservableCollection<string> GameMessages { get; } = [];
         public PopUpDetails PlayerDetails { get; set; }
         public PopUpDetails InventoryDetails { get; set; }
-
         public PopUpDetails QuestDetails { get; set; }
         public PopUpDetails RecipesDetails { get; set; }
+        public PopUpDetails GameMessageDetails { get; set; }
 
         [JsonIgnore]
-        public bool HasLocationToNorth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
-        [JsonIgnore]
-        public bool HasLocationToSouth => CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1) != null;
-        [JsonIgnore]
-        public bool HasLocationToWest => CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate) != null;
-        [JsonIgnore]
-        public bool HasLocationToEast => CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate) != null;
+        public bool HasLocationToNorth =>
+            CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1) != null;
 
         [JsonIgnore]
-        public World CurrentWorld { get; }
+        public bool HasLocationToSouth =>
+            CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1) != null;
+
         [JsonIgnore]
-        public bool HasMonster => _currentMonster != null;
+        public bool HasLocationToWest =>
+            CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate) != null;
+
         [JsonIgnore]
-        public bool HasTrader => CurrentTrader != null;
+        public bool HasLocationToEast =>
+            CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate) != null;
+
+        [JsonIgnore] public World CurrentWorld { get; }
+        [JsonIgnore] public bool HasMonster => _currentMonster != null;
+        [JsonIgnore] public bool HasTrader => CurrentTrader != null;
 
         #endregion
 
@@ -169,6 +174,19 @@ namespace G00DS0ULRPG.ViewModel
                 MinWidth = 250,
                 MaxWidth = 400
             };
+
+            GameMessageDetails = new PopUpDetails
+            {
+                IsVisible = false,
+                Top = 250,
+                Left = 10,
+                MinHeight = 75,
+                MaxHeight = 175,
+                MinWidth = 350,
+                MaxWidth = 400
+            };
+
+            _messageBroker.OnMessageRaised += OnGameMessageRaised;
         }
 
         public void MoveNorth()
@@ -176,10 +194,11 @@ namespace G00DS0ULRPG.ViewModel
             if (HasLocationToNorth)
             {
                 CurrentLocation = CurrentWorld.LocationAt(
-                CurrentLocation.XCoordinate,
-                CurrentLocation.YCoordinate + 1);
+                    CurrentLocation.XCoordinate,
+                    CurrentLocation.YCoordinate + 1);
             }
         }
+
         public void MoveWest()
         {
             if (HasLocationToWest)
@@ -189,15 +208,17 @@ namespace G00DS0ULRPG.ViewModel
                     CurrentLocation.YCoordinate);
             }
         }
+
         public void MoveEast()
         {
             if (HasLocationToEast)
             {
                 CurrentLocation = CurrentWorld.LocationAt(
                     CurrentLocation.XCoordinate + 1,
-                CurrentLocation.YCoordinate);
+                    CurrentLocation.YCoordinate);
             }
         }
+
         public void MoveSouth()
         {
             if (HasLocationToSouth)
@@ -213,18 +234,29 @@ namespace G00DS0ULRPG.ViewModel
             GameDetails = GameDetailsService.ReadGameDetails();
         }
 
+        private void OnGameMessageRaised(object sender, GameMessageEventArgs e)
+        {
+            if (GameMessages.Count > 250)
+            {
+                GameMessages.RemoveAt(0);
+            }
+
+            GameMessages.Add(e.Message);
+        }
+
         private void CompleteQuestAtLocation()
         {
-            foreach(var quest in CurrentLocation.QuestAvailableHere)
+            foreach (var quest in CurrentLocation.QuestAvailableHere)
             {
-                var questToComplete = CurrentPlayer.Quests.FirstOrDefault(q => q.PlayerQuest.ID == quest.ID && !q.IsComplete);
+                var questToComplete =
+                    CurrentPlayer.Quests.FirstOrDefault(q => q.PlayerQuest.ID == quest.ID && !q.IsComplete);
 
-                if(questToComplete != null)
+                if (questToComplete != null)
                 {
-                    if(CurrentPlayer.Inventory.HasAllTheseItems(quest.ItemToComplete))
+                    if (CurrentPlayer.Inventory.HasAllTheseItems(quest.ItemToComplete))
                     {
                         CurrentPlayer.RemoveItemsFromInventory(quest.ItemToComplete);
-                            
+
                         _messageBroker.RaiseMessage("");
                         _messageBroker.RaiseMessage($"You Completed the '{quest.Name}' quest.");
 
@@ -262,17 +294,19 @@ namespace G00DS0ULRPG.ViewModel
                     _messageBroker.RaiseMessage(quest.Description);
 
                     _messageBroker.RaiseMessage("Return with: ");
-                    foreach(var itemQuantity in quest.ItemToComplete)
+                    foreach (var itemQuantity in quest.ItemToComplete)
                     {
-                        _messageBroker.RaiseMessage($"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID)?.Name}");
+                        _messageBroker.RaiseMessage(
+                            $"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID)?.Name}");
                     }
 
                     _messageBroker.RaiseMessage("And You will receive: ");
                     _messageBroker.RaiseMessage($"{quest.RewardExperiencePoints} experience points");
                     _messageBroker.RaiseMessage($"{quest.RewardGold} gold");
-                    foreach(var itemQuantity in quest.RewardItems)
+                    foreach (var itemQuantity in quest.RewardItems)
                     {
-                        _messageBroker.RaiseMessage($"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID)?.Name}");
+                        _messageBroker.RaiseMessage(
+                            $"{itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID)?.Name}");
                     }
 
                 }
@@ -281,7 +315,7 @@ namespace G00DS0ULRPG.ViewModel
 
         public void AttackCurrentMonster()
         {
-           _currentBattle?.AttackOpponent();
+            _currentBattle?.AttackOpponent();
         }
 
         public void UseCurrentConsumable()
@@ -295,7 +329,7 @@ namespace G00DS0ULRPG.ViewModel
 
                 CurrentPlayer.UseCurrentConsumable();
 
-                if(_currentBattle == null)
+                if (_currentBattle == null)
                 {
                     CurrentPlayer.OnActionPerformed -= OnConsumableActionPerformed;
                 }
@@ -352,7 +386,10 @@ namespace G00DS0ULRPG.ViewModel
             _messageBroker.RaiseMessage($"You are now in Level {CurrentPlayer.Level}");
         }
 
-        
-
+        public void Dispose()
+        {
+            _currentBattle?.Dispose();
+            _messageBroker.OnMessageRaised -= OnGameMessageRaised;
+        }
     }
 }
