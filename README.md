@@ -6,137 +6,23 @@ This repository is intended to collect small learning projects and examples that
 
 ---
 
-## Table of Contents
+# 📚 C# & .NET Learning Sandbox
 
-- [About](#about)
-- [Repository structure](#repository-structure)
-- [Requirements](#requirements)
-- [Getting started](#getting-started)
-- [How to run a project](#how-to-run-a-project)
-- [Contributing](#contributing)
-- [Clean-up / maintenance tips](#clean-up--maintenance-tips)
-- [License](#license)
-- [Contact](#contact)
+**Status:** Ongoing Learning & Experimentation  
+**Tech Stack:** C#, .NET Core
 
----
+## 📖 Overview
+This is my dedicated sandbox repository for mastering C# syntax, Object-Oriented Programming (OOP) concepts, and data structures. It contains various console applications, algorithmic challenges, and system tests built during my studies.
 
-## About
+## 🧰 Highlighted Sandbox Tests
+* **Personal Finance & Budget Intelligence System:** Terminal-based state logic for tracking financial data.
+* **Robot Simulator & Data Structures:** Implementations of custom Objects, Stacks, and coordinate-based movement algorithms.
+* **OOP Mechanics:** Early text-based RPG logic and state-machine tests.
 
-This repo is a learning hub for C# and .NET. Projects are intentionally small and focused so you can read and run them quickly. Each project should compile with a modern .NET SDK (see Requirements).
+## 🎮 How to Run
+This project relies on a decoupled MVVM architecture, meaning the UI and backend logic are split into separate class libraries.
 
----
-
-## Repository structure
-
-Use this as a guideline for organizing new exercises and projects:
-
-- /src/ - primary project folders (one folder per project)
-- /examples/ - short snippets and examples
-- /docs/ - additional documentation or design notes
-- /tests/ - unit tests, when applicable
-
-Each project folder should include:
-- A short README describing its purpose and how to run it
-- A project file (.csproj)
-- No committed binaries (use .gitignore to exclude /bin and /obj)
-
-Example:
-- src/HelloWorld/
-  - HelloWorld.csproj
-  - Program.cs
-  - README.md
-
----
-
-## Requirements
-
-- .NET SDK (e.g., .NET 7 or later) — install from https://dotnet.microsoft.com/download
-- Optional: Visual Studio, Visual Studio Code + C# extension, JetBrains Rider
-
-Check your installed SDK with:
-```bash
-dotnet --version
-```
-
----
-
-## Getting started
-
-1. Clone the repo:
-```bash
-git clone https://github.com/G00dS0ul/Learning-Csharp.git
-cd Learning-Csharp
-```
-
-2. Inspect projects in `src/` and run one:
-```bash
-cd src/HelloWorld
-dotnet run
-```
-
----
-
-## How to run a project
-
-Most projects are runnable with `dotnet run`. If a project is a library, look for its test or sample runner inside the folder.
-
-Example minimal Program.cs
-```csharp
-using System;
-class Program
-{
-    static void Main()
-    {
-        Console.WriteLine("Hello, C#!");
-    }
-}
-```
-
----
-
-## Contributing
-
-If you're adding a new exercise or project:
-- Create a new folder under `src/` with a descriptive name.
-- Add a short README.md in that folder explaining the goal and how to run the code.
-- Keep each project focused and small.
-- Add tests under `tests/` when helpful.
-- Follow consistent naming and C# style (consider using dotnet format).
-
-Suggested PR workflow:
-1. Create a branch: `git checkout -b feat/add-new-exercise`
-2. Make your changes and commit: `git commit -am "Add: <short description>"`
-3. Push and open a PR to `main`.
-
----
-
-## Clean-up / maintenance tips
-
-- Add or update `.gitignore` to exclude IDE folders, /bin, /obj, *.user files, and other generated files. Example entries:
-```
-/bin/
-/obj/
-/.vs/
-*.user
-*.suo
-```
-- Remove committed binaries and build artifacts: delete /bin and /obj from the repo and commit the deletions.
-- Consider adding a `global.json` to pin the SDK version if your projects require a specific .NET SDK.
-- Run `dotnet restore` and `dotnet build` for each project to ensure clean builds.
-- Use `dotnet format` to apply consistent formatting.
-- If you have multiple projects, consider adding a solution file (`.sln`) to make opening the entire collection easier.
-- Add a LICENSE (e.g., MIT) to clarify reuse rules.
-
----
-
-## License
-
-This repository is available under the MIT License. See LICENSE for details.
-
----
-
-## Contact
-
-Created by G00dS0ul — https://github.com/G00dS0ul
-
-If you'd like feedback, open an issue or PR with a proposed change.
+1. Clone the repository and open `G00DS0ULCHECKERS.slnx` in Visual Studio.
+2. Ensure you have the **.NET Desktop Development** workload installed.
+3. In the Solution Explorer, right-click the **`WPFUI`** project and select **"Set as Startup Project"**.
+4. Press `F5` to build the solution and launch the interactive Checkers board.
